@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-6">
+      <label for="search" class="mr-1">Search:</label>
+      <input [(ngModel)]="search" id="search">
+  </div>
+  <div class="col-6">
+    <div class="bq bq-danger">
+      yarn add @onega-ui/icons
+    </div>
+  </div>
+</div>
+
+<div class="icons">
+  <ng-container *ngFor="let icon of icons|textFilter:search">
+    <div class="icons__item" (click)="showModel(icon)">
+      <i class="{{icon.css}} x2"></i>
+      <span>{{icon.icon}}</span>
+    </div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="currentIcon">
+  <div class="modal">
+    <div class="modal-bg" (click)="hideModal()"></div>
+    <div class="modal-window box">
+
+      <div class="row">
+        <div class="col ta-c">
+          <h3 class="modal-window__title">{{currentIcon.icon}}</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 ta-c">
+          <i class="{{currentIcon.css}} x10"></i>
+        </div>
+        <div class="col-8 ta-c">
+          <div class="bq bq-info" [innerText]="currentIcon.css|htmlTemplate"></div>
+        </div>
+      </div>
+
+      <div class="row ta-c">
+        <div class="col-1">
+          <i class="{{currentIcon.css}} x1"></i>
+        </div>
+        <div class="col-1">
+          <i class="{{currentIcon.css}} x2"></i>
+        </div>
+        <div class="col-1">
+          <i class="{{currentIcon.css}} x3"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

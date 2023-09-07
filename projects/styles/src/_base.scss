@@ -1,0 +1,77 @@
+@use "sass:map";
+@use "variables" as glob;
+
+.click {
+  cursor: pointer;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.ta-l {
+  text-align: left;
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.ww {
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+@each $c, $v in glob.$ong-colors {
+  .box#{$c} {
+    border: glob.$ong-line-size solid glob.var-color-line($c);
+    background-color: glob.var-color-bg($c);
+    color: glob.var-color-text($c);
+  }
+}
+
+@each $c, $v in glob.$ong-colors {
+  .bg#{$c} {
+    background-color: glob.var-color-bg($c);
+    color: glob.var-color-text($c);
+  }
+}
+
+.box {
+  border-radius: glob.$ong-radius-size;
+  padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+}
+
+blockquote, .bq {
+  border-left: glob.$ong-line-size*10 solid glob.var-color-line('-dark');
+  @extend .box;
+}
+
+@each $c, $v in glob.$ong-colors {
+  .bq#{$c} {
+    border-left-color: glob.var-color-line($c);
+  }
+}
+
+@each $c, $v in glob.$ong-colors {
+  .tc#{$c} {
+    color: glob.var-color-bg($c);
+  }
+}
+
+@for $i from 1 through 5 {
+  .m-#{$i} {
+    margin: glob.$ong-base-size*$i;
+  }
+  .p-#{$i} {
+    padding: glob.$ong-base-size*$i;
+  }
+  @each $k, $v in glob.$ong-prefix {
+    .m#{$k}-#{$i} {
+      margin#{$v}: glob.$ong-base-size*$i;
+    }
+    .p#{$k}-#{$i} {
+      padding#{$v}: glob.$ong-base-size*$i;
+    }
+  }
+}

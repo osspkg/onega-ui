@@ -1,0 +1,57 @@
+{
+  "name": "@onega-ui/root",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "^16.14.0 || >=18.10.0",
+    "yarn": ">=1.21.1 <2",
+    "npm": "Please use yarn instead of NPM to install dependencies"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve website",
+    "build": "ng build website",
+    "watch": "ng build website --watch --configuration development",
+    "lint": "ng lint --fix",
+    "webfont": "node node_modules/webfont/dist/cli.js",
+    "icons-css": "webfont 'projects/icons/svg/*.svg' --font-name=onega-ui --dest=dist/icons --template-class-name=ong --normalize --center-horizontally --dest-create --template='projects/icons/icons.css'",
+    "icons-tmpl": "webfont 'projects/icons/svg/*.svg' --font-name=onega-ui --dest=dist/icons --template-class-name=ong --normalize --center-horizontally --dest-create --template='projects/icons/icons.ts'",
+    "icons": "yarn icons-css && yarn icons-tmpl",
+    "styles:scss": "sass projects/styles/src/_index.scss dist/styles/styles.scss --no-source-map",
+    "styles:css": "sass projects/styles/src/_index.scss dist/styles/styles.css --style compressed --no-source-map",
+    "styles:themes": "sass projects/styles/src/themes:dist/styles/themes --style compressed --no-source-map",
+    "styles": "yarn run styles:scss && yarn run styles:css && yarn run styles:themes"
+  },
+  "dependencies": {
+    "@angular/animations": "^16.0.0",
+    "@angular/common": "^16.0.0",
+    "@angular/compiler": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@angular/forms": "^16.0.0",
+    "@angular/platform-browser": "^16.0.0",
+    "@angular/platform-browser-dynamic": "^16.0.0",
+    "@angular/router": "^16.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.1",
+    "@angular-eslint/builder": "16.1.1",
+    "@angular-eslint/eslint-plugin": "16.1.1",
+    "@angular-eslint/eslint-plugin-template": "16.1.1",
+    "@angular-eslint/schematics": "16.1.1",
+    "@angular-eslint/template-parser": "16.1.1",
+    "@angular/cli": "~16.2.0",
+    "@angular/compiler-cli": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
+    "eslint": "^8.47.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.0.0",
+    "ng-packagr": "^16.2.2",
+    "typescript": "~5.1.0",
+    "fs.notify": "^0.0.4",
+    "webfont": "^11.2.26"
+  }
+}

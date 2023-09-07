@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 600 600"
+   version="1.1"
+   id="svg9724"
+   sodipodi:docname="file.svg"
+   inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)"
+   width="600"
+   height="600"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9728" />
+  <sodipodi:namedview
+     id="namedview9726"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="0.84118632"
+     inkscape:cx="449.95977"
+     inkscape:cy="319.19207"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="1080"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9724"
+     showguides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9972"
+       originx="0"
+       originy="0" />
+    <sodipodi:guide
+       position="-260,300"
+       orientation="0,-1"
+       id="guide383"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="300,520"
+       orientation="1,0"
+       id="guide385"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="240,520"
+       orientation="0,-1"
+       id="guide939"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="220,80"
+       orientation="0,-1"
+       id="guide941"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+
+  <path
+     id="rect348"
+     style="color:#000000;fill:#020202;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;paint-order:stroke fill markers"
+     d="M 110 0 C 87.909591 0.0022087178 70.002209 17.909591 70 40 L 70 560 C 70.0022 582.09042 87.909591 599.99779 110 600 L 490 600 C 512.09042 599.998 529.99779 582.09042 530 560 L 530 280 L 530 200 C 530.00003 189.39126 525.78612 179.21691 518.28516 171.71484 L 358.28516 11.714844 C 350.78309 4.2138753 340.60874 -3.0974471e-05 330 0 L 240 0 L 110 0 z M 150 80 L 240 80 L 290 80 L 290 200 C 290.002 222.09043 307.90957 239.99782 330 240 L 450 240 L 450 280 L 450 520 L 150 520 L 150 80 z M 220 300 A 40 40 0 0 0 180 340 A 40 40 0 0 0 220 380 L 380 380 A 40 40 0 0 0 420 340 A 40 40 0 0 0 380 300 L 220 300 z M 220 410 A 40 40 0 0 0 180 450 A 40 40 0 0 0 220 490 L 380 490 A 40 40 0 0 0 420 450 A 40 40 0 0 0 380 410 L 220 410 z " />
+</svg>

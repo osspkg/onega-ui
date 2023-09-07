@@ -1,0 +1,68 @@
+@use "variables" as glob;
+
+*, :after, :before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: glob.$ong-base-size;
+  font-family: glob.$ong-font-family-sans-serif;
+  background-color: glob.$ong-color-light-bg;
+  line-height: glob.$ong-line-height;
+}
+
+pre, code {
+  display: block;
+  font-size: glob.$ong-base-size*.9;
+  font-family: glob.$ong-font-family-monospace;
+  font-weight: 100;
+}
+
+hr {
+  margin: glob.$ong-base-size 0;
+  opacity: 0.25;
+}
+
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: glob.$ong-base-size + glob.$ong-base-size*(7-$i)*.2;
+  }
+}
+
+table {
+  width: 100%;
+  vertical-align: top;
+  caption-side: bottom;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: 1px solid glob.var-color-line('-secondary');
+  }
+
+  th, td {
+    text-align: left;
+    padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+  }
+}
+
+input, textarea {
+  background: none;
+  position: relative;
+  border-style: solid;
+  border-color: glob.var-color-line('-secondary');
+  border-width: glob.$ong-line-size;
+  border-radius: glob.$ong-radius-size;
+  padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+
+  &:focus {
+    border-color: glob.var-color-line('-primary');
+  }
+}

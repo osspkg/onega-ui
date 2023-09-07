@@ -1,0 +1,105 @@
+@use "sass:map";
+
+@mixin color($before, $color, $after) {
+  --ong-color#{$before}#{$after}: #{$color};
+}
+
+@function var-color-bg($before) {
+  @return var(--ong-color#{$before}-bg);
+}
+
+@function var-color-text($before) {
+  @return var(--ong-color#{$before}-text);
+}
+
+@function var-color-line($before) {
+  @return var(--ong-color#{$before}-line);
+}
+
+$ong-color-light-bg: #FFFFFF !default;
+$ong-color-light-txt: #000000 !default;
+
+$ong-color-secondary-bg: #e2e2e2 !default;
+$ong-color-secondary-txt: #000000 !default;
+
+$ong-color-warning-bg: #F2C46D !default;
+$ong-color-warning-txt: #000000 !default;
+
+$ong-color-danger-bg: #BF8275 !default;
+$ong-color-danger-txt: #FFFFFF !default;
+
+$ong-color-success-bg: #46592A !default;
+$ong-color-success-txt: #FFFFFF !default;
+
+$ong-color-info-bg: #6997BF !default;
+$ong-color-info-txt: #FFFFFF !default;
+
+$ong-color-primary-bg: #0367A6 !default;
+$ong-color-primary-txt: #FFFFFF !default;
+
+$ong-color-dark-bg: #000000 !default;
+$ong-color-dark-txt: #FFFFFF !default;
+
+$ong-color-hover-bg: #f8f8f8 !default;
+$ong-color-hover-txt: #000000 !default;
+
+$ong-colors: (
+        "": $ong-color-light-bg,
+        "-light": $ong-color-light-bg,
+        "-secondary": $ong-color-secondary-bg,
+        "-warning": $ong-color-warning-bg,
+        "-danger": $ong-color-danger-bg,
+        "-success": $ong-color-success-bg,
+        "-info": $ong-color-info-bg,
+        "-primary": $ong-color-primary-bg,
+        "-dark": $ong-color-dark-bg,
+);
+
+$ong-text-colors: (
+        "": $ong-color-light-txt,
+        "-light": $ong-color-light-txt,
+        "-secondary": $ong-color-secondary-txt,
+        "-warning": $ong-color-warning-txt,
+        "-danger": $ong-color-danger-txt,
+        "-success": $ong-color-success-txt,
+        "-info": $ong-color-info-txt,
+        "-primary": $ong-color-primary-txt,
+        "-dark": $ong-color-dark-txt,
+);
+
+:root {
+  @include color('-hover', $ong-color-hover-bg, '-bg');
+  @include color('-hover', darken($ong-color-hover-bg, 5%), '-line');
+  @include color('-hover', $ong-color-hover-txt, '-text');
+
+  @each $c, $v in $ong-colors {
+    @include color($c, $v, '-bg');
+    @include color($c, darken($v, 5%), '-line');
+    @include color($c, map.get($ong-text-colors, $c), '-text');
+  }
+}
+
+$ong-prefix: (
+        "t": "-top",
+        "l": "-left",
+        "b": "-bottom",
+        "r": "-right",
+) !default;
+
+$ong-base-size: 1rem !default;
+$ong-radius-size: .75rem !default;
+$ong-line-size: 1px !default;
+
+$ong-margin-x-size: $ong-base-size*.75 !default;
+$ong-margin-y-size: $ong-base-size*.5 !default;
+$ong-padding-x-size: $ong-base-size*.75 !default;
+$ong-padding-y-size: $ong-base-size*.5 !default;
+
+$ong-font-family-sans-serif: -apple-system, Ubuntu, Roboto, Arial, sans-serif !default;
+$ong-font-family-monospace: "Ubuntu Mono", Consolas, "Courier New", monospace !default;
+$ong-font-weight: bolder !default;
+$ong-line-height: 1.2 !default;
+
+$ong-grid-size: 100% !default;
+$ong-grid-count: 12 !default;
+

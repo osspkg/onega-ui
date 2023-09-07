@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>{{ fontName }}</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding:10px;
+        background: #fff;
+        color: #222;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 1rem;
+      }
+      h1 {
+        margin:0 0 20px;
+        font-size: 4rem;
+        font-weight: bold;
+        text-align: center;
+      }
+      .icons {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 1 auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .icons__item {
+        box-sizing: border-box;
+        flex: 1 0 fit-content;
+        padding: 10px 0;
+        margin: 10px 5px;
+        min-width: 160px;
+        max-width: 160px;
+        text-align: center;
+      }
+      .icons__item,
+      .icons__item i {
+        cursor: pointer;
+        vertical-align: middle;
+      }
+      .icons__item:hover {
+        color: lightcoral;
+      }
+      .icons__item:hover input {
+        color: lightcoral;
+      }
+      .icons__item span, .icons__item input {
+        display: inline-block;
+        /*line-height: 3em;*/
+        /*margin-left: 5px;*/
+        /*white-space: nowrap;*/
+        background: transparent;
+        border: 0;
+        width: 100%;
+        text-align: center;
+        font-size: .7rem;
+      }
+      .x1 {
+        font-size: 1rem;
+      }
+      .x2 {
+        font-size: 2rem;
+      }
+      .x3 {
+        font-size: 3rem;
+      }
+      @font-face {
+        font-display: block;
+        font-family: "{{ fontName }}";
+        font-style: normal;
+        font-weight: 400;
+        {% if formats.indexOf('eot')>-1 -%}
+          src: url("{{ fontPath }}{{ fontName }}.eot?{{ cacheString }}{% if hash %}&v={{ hash }}{% endif %}");
+        {%- endif %}
+        {%- set eotIndex = formats.indexOf('eot') -%}
+        {%- set woff2Index = formats.indexOf('woff2') -%}
+        {%- set woffIndex = formats.indexOf('woff') -%}
+        {%- set ttfIndex = formats.indexOf('ttf') -%}
+        {%- set svgIndex = formats.indexOf('svg') %}
+        src: {% if eotIndex != -1 -%}
+          url("{{ fontPath }}{{ fontName }}.eot?{% if hash %}v={{ hash }}{% endif %}#iefix") format("embedded-opentype")
+          {%- set nothing = formats.splice(eotIndex, 1) -%}
+          {%- if formats.length != 0 -%}, {% else -%}; {% endif -%}
+        {%- endif -%}
+        {%- if woff2Index != -1 -%}
+          url("{{ fontPath }}{{ fontName }}.woff2?{{ cacheString }}{% if hash %}&v={{ hash }}{% endif %}") format("woff2")
+          {%- set nothing = formats.splice(woff2Index, 1) -%}
+          {%- if formats.length != 0 -%}, {% else -%}; {% endif -%}
+        {%- endif -%}
+        {%- if woffIndex != -1 -%}
+          url("{{ fontPath }}{{ fontName }}.woff?{{ cacheString }}{% if hash %}&v={{ hash }}{% endif %}") format("woff")
+          {%- set nothing = formats.splice(woffIndex, 1) -%}
+          {%- if formats.length != 0 -%}, {% else -%}; {% endif -%}
+        {%- endif -%}
+        {%- if ttfIndex != -1 -%}
+          url("{{ fontPath }}{{ fontName }}.ttf?{{ cacheString }}{% if hash %}&v={{ hash }}{% endif %}") format("truetype")
+          {%- set nothing = formats.splice(ttfIndex, 1) -%}
+          {%- if formats.length != 0 -%}, {% else -%}; {% endif -%}
+        {%- endif -%}
+        {%- if svgIndex != -1 -%}
+          url("{{ fontPath }}{{ fontName }}.svg?{{ cacheString }}{% if hash %}&v={{ hash }}{% endif %}#{{ fontName }}") format("svg");
+        {%- endif %}
+      }
+      .{{ className }} {
+        display: inline-block;
+        font-family: "{{ fontName }}";
+        /* font-weight: 400; */
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        /* line-height: 1; */
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      {% for glyph in glyphs %}
+      .{{ className }}-{{ glyph.name }}::before {
+        content: "\{{ glyph.unicode[0].charCodeAt(0).toString(16) }}";
+      }
+      {% endfor %}
+    </style>
+  </head>
+  <body>
+    <h1>@Onega-UI Icons ({{ glyphs.length.toString() }})</h1>
+      <div class="icons">
+          {% for glyph in glyphs %}
+            <div class="icons__item">
+              <i class="{{ className }} {{ className }}-{{ glyph.name }} x1"></i>
+              <i class="{{ className }} {{ className }}-{{ glyph.name }} x2"></i>
+              <i class="{{ className }} {{ className }}-{{ glyph.name }} x3"></i>
+              <span>
+                &lt;i class=&quot;{{ className }} {{ className }}-{{ glyph.name }}&quot;&gt;&lt;/i&gt;
+              </span>
+            </div>
+          {% endfor %}
+      </div>
+  </body>
+</html>

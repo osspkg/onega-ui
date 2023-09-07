@@ -1,0 +1,35 @@
+@use "variables" as glob;
+
+@mixin width($size) {
+  flex-basis: $size;
+  max-width: $size;
+}
+
+@mixin calc-width($size, $id, $count) {
+  @include width(calc($size * $id / $count))
+}
+
+.row, .r {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: glob.$ong-margin-y-size glob.$ong-margin-x-size;
+  @include width(glob.$ong-grid-size);
+
+  .col, .c {
+    box-sizing: border-box;
+    flex: 1 0 fit-content;
+    padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+  }
+
+  @for $i from 1 through glob.$ong-grid-count {
+    .col-#{$i}, .c#{$i} {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+      @include calc-width(glob.$ong-grid-size, $i, glob.$ong-grid-count);
+    }
+  }
+}

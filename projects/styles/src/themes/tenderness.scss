@@ -1,0 +1,29 @@
+:root {
+  --ong-color-secondary-bg: #e2e2e2;
+  --ong-color-secondary-line: #{darken(#e2e2e2, 5%)};
+  --ong-color-secondary-text: #000000;
+
+  --ong-color-warning-bg: #EDB45F;
+  --ong-color-warning-line: #{darken(#EDB45F, 5%)};
+  --ong-color-warning-text: #000000;
+
+  --ong-color-danger-bg: #FFBB91;
+  --ong-color-danger-line: #{darken(#FFBB91, 5%)};
+  --ong-color-danger-text: #000000;
+
+  --ong-color-success-bg: #60AFA2;
+  --ong-color-success-line: #{darken(#60AFA2, 5%)};
+  --ong-color-success-text: #000000;
+
+  --ong-color-info-bg: #93C4CD;
+  --ong-color-info-line: #{darken(#93C4CD, 5%)};
+  --ong-color-info-text: #000000;
+
+  --ong-color-primary-bg: #3A5378;
+  --ong-color-primary-line: #{darken(#3A5378, 5%)};
+  --ong-color-primary-text: #FFFFFF;
+
+  --ong-color-dark-bg: #000000;
+  --ong-color-dark-line: #{darken(#000000, 5%)};
+  --ong-color-dark-text: #FFFFFF;
+}

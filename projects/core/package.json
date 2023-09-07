@@ -1,0 +1,38 @@
+{
+  "name": "@onega-ui/core",
+  "version": "0.0.1",
+  "description": "Core library for creating Angular components and applications using Onega UI",
+  "author": "OSSPkg Team <github@osspkg.com> (https://github.com/osspkg)",
+  "maintainers": [
+    "Mikhail Knyazhev <markus621@gmail.com>"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://onega-ui.osspkg.com",
+  "funding": "https://osspkg.com/donate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osspkg/onega-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/osspkg/onega-ui/issues"
+  },
+  "keywords": [
+    "angular",
+    "kit",
+    "ui",
+    "component-library",
+    "component",
+    "service",
+    "directive",
+    "websocket"
+  ],
+  "peerDependencies": {
+    "@angular/common": ">=16.0.0",
+    "@angular/core": ">=16.0.0",
+    "rxjs": "^7.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

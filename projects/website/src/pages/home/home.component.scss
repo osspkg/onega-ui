@@ -1,0 +1,19 @@
+.pallet {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  margin: 0;
+  box-shadow: 0 0 20px grey;
+
+  .c {
+    height: 10px;
+  }
+}
+
+.fix-menu-up{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

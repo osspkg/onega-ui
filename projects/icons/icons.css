@@ -1,0 +1,28 @@
+@font-face {
+    font-family: {{ fontName }};
+    {% if formats.indexOf('eot')>-1 %}src: url("{{ fontPath }}{{ fontName }}.eot?{{ cacheString }}");{% endif %}
+    src:
+        {% if formats.indexOf('eot')>-1 %}url("{{ fontPath }}{{ fontName }}.eot?#iefix") format("embedded-opentype"),{% endif %}
+        {% if formats.indexOf('woff2')>-1 %}url("{{ fontPath }}{{ fontName }}.woff2?{{ cacheString }}") format("woff2"),{% endif %}
+        {% if formats.indexOf('woff')>-1 %}url("{{ fontPath }}{{ fontName }}.woff?{{ cacheString }}") format("woff"),{% endif %}
+        {% if formats.indexOf('ttf')>-1 %}url("{{ fontPath }}{{ fontName }}.ttf?{{ cacheString }}") format("truetype"),{% endif %}
+        {% if formats.indexOf('svg')>-1 %}url("{{ fontPath }}{{ fontName }}.svg?{{ cacheString }}#{{ fontName }}") format("svg");{% endif %}
+    font-style: normal;
+    font-weight: 400;
+}
+
+.{{ className }} {
+    display: inline-block;
+    transform: translate(0, 0);
+    text-rendering: auto;
+    font: normal normal 400 14px/1 {{ fontName }};
+    font-size: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+{% for glyph in glyphs %}
+.{{ className }}-{{ glyph.name }}::before {
+    content: "\{{ glyph.unicode[0].charCodeAt(0).toString(16) }}";
+}
+{% endfor %}
