@@ -1,29 +1,22 @@
-:root {
+:root, [data-ong-theme="rainbow"] {
   --ong-color-secondary-bg: #e2e2e2;
-  --ong-color-secondary-line: #{darken(#e2e2e2, 5%)};
   --ong-color-secondary-text: #000000;
 
   --ong-color-warning-bg: #fff53b;
-  --ong-color-warning-line: #{darken(#fff53b, 5%)};
   --ong-color-warning-text: #000000;
 
   --ong-color-danger-bg: #fd1f1f;
-  --ong-color-danger-line: #{darken(#fd1f1f, 5%)};
   --ong-color-danger-text: #000000;
 
   --ong-color-success-bg: #25fa96;
-  --ong-color-success-line: #{darken(#25fa96, 5%)};
   --ong-color-success-text: #000000;
 
   --ong-color-info-bg: #4ea2fa;
-  --ong-color-info-line: #{darken(#4ea2fa, 5%)};
   --ong-color-info-text: #FFFFFF;
 
   --ong-color-primary-bg: #0054f3;
-  --ong-color-primary-line: #{darken(#0054f3, 5%)};
   --ong-color-primary-text: #FFFFFF;
 
   --ong-color-dark-bg: #000000;
-  --ong-color-dark-line: #{darken(#000000, 5%)};
   --ong-color-dark-text: #FFFFFF;
 }

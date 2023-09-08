@@ -1,0 +1,38 @@
+<div class="row mt-2">
+  <div class="col-3">
+    <div *ngFor="let item of list"
+         class="bq bq-secondary"
+         (click)="show(item)"
+         [class.bq-danger]="item.link === data?.link"
+    >
+      {{item.link}}
+    </div>
+  </div>
+  <div class="col-9">
+
+    <ng-container *ngIf="data">
+
+      <h1 class="bq bq-info">{{data.link}}</h1>
+
+      <div class="m-1">
+        <i>Attributes</i>:
+        <ul [type]="'disc'" class="mt-1">
+          <li *ngFor="let item of data.attributes|map2Slice" class="ml-3"><b>{{item.key}}</b> - <i>{{item.value}}</i></li>
+        </ul>
+      </div>
+
+      <div class="m-1">
+        <i>Example</i>:
+        <div class="mt-1 code wrap">{{data.example}}</div>
+      </div>
+
+      <h5 class="mt-1">Preview</h5>
+      <div class="m-1" [innerHTML]="data.demo|safeHtml"></div>
+
+    </ng-container>
+
+  </div>
+</div>
+
+
+

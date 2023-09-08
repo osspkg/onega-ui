@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { HtmlTemplatePipe } from './icons/html-template.pipe';
 import { IconsComponent } from './icons/icons.component';
 import { TextFilterPipe } from './icons/text-filter.pipe';
+import { StylesComponent } from './styles/styles.component';
+import { SafeHtmlPipe } from './styles/safe-html.pipe';
+import { Map2SlicePipe } from './styles/map-2-slice.pipe';
 
 @NgModule({
   declarations: [
@@ -12,6 +15,9 @@ import { TextFilterPipe } from './icons/text-filter.pipe';
     TextFilterPipe,
     HtmlTemplatePipe,
     HomeComponent,
+    StylesComponent,
+    SafeHtmlPipe,
+    Map2SlicePipe,
   ],
   imports: [
     CommonModule,

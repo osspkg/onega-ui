@@ -2,7 +2,7 @@
 
 [![Downloads per month](https://img.shields.io/npm/dm/@onega-ui/styles?color=dark-green)](https://www.npmjs.com/package/@onega-ui/styles)
 
-## Demo
+## Guide
 
 Shown [here](https://onega-ui.osspkg.com)
 
@@ -31,27 +31,29 @@ Shown [here](https://onega-ui.osspkg.com)
 
 ```css
 :root {
+  --ong-color-light-bg: #f6f6f6;
+  --ong-color-light-text: #000000;
+
   --ong-color-secondary-bg: #e2e2e2;
-  --ong-color-secondary-line: #d5d5d5;
   --ong-color-secondary-text: #000000;
-  --ong-color-warning-bg: #fff53b;
-  --ong-color-warning-line: #fff422;
+
+  --ong-color-warning-bg: #F2C46D;
   --ong-color-warning-text: #000000;
-  --ong-color-danger-bg: #fd1f1f;
-  --ong-color-danger-line: #fd0606;
-  --ong-color-danger-text: #000000;
-  --ong-color-success-bg: #25fa96;
-  --ong-color-success-line: #0cf98a;
-  --ong-color-success-text: #000000;
-  --ong-color-info-bg: #4ea2fa;
-  --ong-color-info-line: #3595f9;
+
+  --ong-color-danger-bg: #BF8275;
+  --ong-color-danger-text: #FFFFFF;
+
+  --ong-color-success-bg: #46592A;
+  --ong-color-success-text: #FFFFFF;
+
+  --ong-color-info-bg: #6997BF;
   --ong-color-info-text: #FFFFFF;
-  --ong-color-primary-bg: #0054f3;
-  --ong-color-primary-line: #004bda;
+
+  --ong-color-primary-bg: #0367A6;
   --ong-color-primary-text: #FFFFFF;
+
   --ong-color-dark-bg: #000000;
-  --ong-color-dark-line: black;
-  --ong-color-dark-text: #FFFFFF
+  --ong-color-dark-text: #FFFFFF;
 }
 ```
 

@@ -1,4 +1,4 @@
-@use "variables" as glob;
+@use "env";
 
 @mixin width($size) {
   flex-basis: $size;
@@ -9,27 +9,30 @@
   @include width(calc($size * $id / $count))
 }
 
+$grid-size: 100%;
+$grid-count: 12;
+
 .row, .r {
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: glob.$ong-margin-y-size glob.$ong-margin-x-size;
-  @include width(glob.$ong-grid-size);
+  margin: var(--ong-margin-y-size) var(--ong-margin-x-size);
+  @include width($grid-size);
 
   .col, .c {
     box-sizing: border-box;
     flex: 1 0 fit-content;
-    padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+    padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
   }
 
-  @for $i from 1 through glob.$ong-grid-count {
+  @for $i from 1 through $grid-count {
     .col-#{$i}, .c#{$i} {
       box-sizing: border-box;
       flex: 0 0 auto;
-      padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
-      @include calc-width(glob.$ong-grid-size, $i, glob.$ong-grid-count);
+      padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+      @include calc-width($grid-size, $i, $grid-count);
     }
   }
 }

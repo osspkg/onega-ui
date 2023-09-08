@@ -1,5 +1,9 @@
-<div class="row">
-  <div class="col">
+<div class="row fix-menu-up fs-small" data-ong-theme="default">
+  <a class="ml-1 col box box-danger" [routerLink]="'/'">Home</a>
+  <a class="ml-1 col box box-danger" [routerLink]="'/styles'">Styles</a>
+  <a class="ml-1 col box box-danger" [routerLink]="'/icons'">Icons</a>
+</div>
+
+<div class="box" data-ong-theme="default">
     <router-outlet></router-outlet>
-  </div>
 </div>

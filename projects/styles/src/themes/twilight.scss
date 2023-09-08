@@ -1,29 +1,22 @@
-:root {
+:root, [data-ong-theme="twilight"] {
   --ong-color-secondary-bg: #e2e2e2;
-  --ong-color-secondary-line: #{darken(#e2e2e2, 5%)};
   --ong-color-secondary-text: #000000;
 
   --ong-color-warning-bg: #F2F2EB;
-  --ong-color-warning-line: #{darken(#F2F2EB, 5%)};
   --ong-color-warning-text: #000000;
 
   --ong-color-danger-bg: #BFBDB8;
-  --ong-color-danger-line: #{darken(#BFBDB8, 5%)};
   --ong-color-danger-text: #000000;
 
   --ong-color-success-bg: #D9D8D7;
-  --ong-color-success-line: #{darken(#D9D8D7, 5%)};
   --ong-color-success-text: #000000;
 
   --ong-color-info-bg: #73726F;
-  --ong-color-info-line: #{darken(#73726F, 5%)};
   --ong-color-info-text: #FFFFFF;
 
   --ong-color-primary-bg: #403F3C;
-  --ong-color-primary-line: #{darken(#403F3C, 5%)};
   --ong-color-primary-text: #FFFFFF;
 
   --ong-color-dark-bg: #000000;
-  --ong-color-dark-line: #{darken(#000000, 5%)};
   --ong-color-dark-text: #FFFFFF;
 }

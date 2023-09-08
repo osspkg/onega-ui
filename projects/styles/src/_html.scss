@@ -1,4 +1,4 @@
-@use "variables" as glob;
+@use "env";
 
 *, :after, :before {
   margin: 0;
@@ -6,22 +6,22 @@
   box-sizing: border-box;
 }
 
-html, body {
-  font-size: glob.$ong-base-size;
-  font-family: glob.$ong-font-family-sans-serif;
-  background-color: glob.$ong-color-light-bg;
-  line-height: glob.$ong-line-height;
+body {
+  font-size: var(--ong-font-size-normal);
+  font-family: var(--ong-font-family-sans-serif);
+  line-height: var(--ong-line-height);
+  text-rendering: optimizeLegibility;
+  overflow-y: scroll;
 }
 
-pre, code {
-  display: block;
-  font-size: glob.$ong-base-size*.9;
-  font-family: glob.$ong-font-family-monospace;
+pre, code, .code {
+  font-size: calc(var(--ong-base-size) * .9) !important;
+  font-family: var(--ong-font-family-monospace) !important;
   font-weight: 100;
 }
 
 hr {
-  margin: glob.$ong-base-size 0;
+  margin: var(--ong-base-size) 0;
   opacity: 0.25;
 }
 
@@ -32,8 +32,8 @@ hr {
 }
 
 @for $i from 1 through 6 {
-  h#{$i} {
-    font-size: glob.$ong-base-size + glob.$ong-base-size*(7-$i)*.2;
+  h#{7-$i} {
+    font-size: calc(var(--ong-base-size) + var(--ong-base-size) * $i * .25);
   }
 }
 
@@ -44,25 +44,52 @@ table {
   border-collapse: collapse;
 
   tr {
-    border-bottom: 1px solid glob.var-color-line('-secondary');
+    border-bottom: 1px solid var(--ong-color-secondary-bg);
   }
 
   th, td {
     text-align: left;
-    padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+    padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
   }
 }
 
-input, textarea {
+input, textarea, select {
+  display: block;
   background: none;
   position: relative;
-  border-style: solid;
-  border-color: glob.var-color-line('-secondary');
-  border-width: glob.$ong-line-size;
-  border-radius: glob.$ong-radius-size;
-  padding: glob.$ong-padding-y-size glob.$ong-padding-x-size;
+  border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
+  border-radius: var(--ong-radius-size);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+  width: 100%;
 
   &:focus {
-    border-color: glob.var-color-line('-primary');
+    border-color: var(--ong-color-dark-bg);
+  }
+}
+
+input[type="file"] {
+  padding: 0;
+
+  &::file-selector-button {
+    padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+    border: 0 solid var(--ong-color-secondary-bg);
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+dialog {
+  border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+  border-radius: var(--ong-radius-size);
+
+  margin: 10vh auto 0 auto;
+  max-width: 80%;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
   }
 }
