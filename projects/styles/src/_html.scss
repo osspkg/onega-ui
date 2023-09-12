@@ -1,21 +1,15 @@
 @use "env";
 
-*, :after, :before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-size: var(--ong-font-size-normal);
   font-family: var(--ong-font-family-sans-serif);
   line-height: var(--ong-line-height);
   text-rendering: optimizeLegibility;
   overflow-y: scroll;
+  unicode-bidi: plaintext;
 }
 
 pre, code, .code {
-  font-size: calc(var(--ong-base-size) * .9) !important;
   font-family: var(--ong-font-family-monospace) !important;
   font-weight: 100;
 }
@@ -25,23 +19,27 @@ hr {
   opacity: 0.25;
 }
 
-:active, :hover, :focus {
-  outline: 0;
-  outline-offset: 0;
-  box-shadow: none;
+p {
+  padding: var(--ong-padding-y-size) 0;
+  hyphens: auto;
+  hyphenate-character: auto;
+  white-space: pre-wrap;
 }
 
 @for $i from 1 through 6 {
   h#{7-$i} {
     font-size: calc(var(--ong-base-size) + var(--ong-base-size) * $i * .25);
+    padding: var(--ong-padding-y-size) 0;
   }
 }
 
 table {
+  table-layout: auto;
   width: 100%;
   vertical-align: top;
   caption-side: bottom;
   border-collapse: collapse;
+  empty-cells: show;
 
   tr {
     border-bottom: 1px solid var(--ong-color-secondary-bg);
@@ -68,11 +66,10 @@ input, textarea, select {
 }
 
 input[type="file"] {
-  padding: 0;
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
 
   &::file-selector-button {
-    padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-    border: 0 solid var(--ong-color-secondary-bg);
+    display: none;
   }
 }
 
@@ -93,3 +90,50 @@ dialog {
     backdrop-filter: blur(3px);
   }
 }
+
+.btn {
+  display: inline-block;
+  border: var(--ong-line-size) solid var(--ong-color-light-bg);
+  background-color: var(--ong-color-light-bg);
+  color: var(--ong-color-light-text);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+  border-radius: var(--ong-radius-size);
+  font-size: var(--ong-font-size-normal);
+  user-select: none;
+  line-height: 1;
+
+  &:is([disabled]) {
+    opacity: var(--ong-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:link, &:any-link, &:active, &:visited {
+    text-decoration: none;
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &-circle {
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  @each $name in env.$ong-color-names {
+    &-#{$name} {
+      background-color: var(--ong-color-#{$name}-bg);
+      border-color: var(--ong-color-#{$name}-bg);
+      color: var(--ong-color-#{$name}-text);
+    }
+  }
+
+  @each $prefix, $value in env.$ong-size {
+    &-#{$prefix} {
+      font-size: calc(var(--ong-font-size) * $value);
+      padding: calc(var(--ong-padding-y-size) * $value) calc(var(--ong-padding-x-size) * $value);
+    }
+  }
+}
+

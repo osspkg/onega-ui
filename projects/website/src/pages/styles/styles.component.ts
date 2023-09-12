@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { Api } from './models/_api';
+import { ArticleBook } from './models/article';
 import { BlockquotesBook } from './models/blockquotes';
 import { BoxBook } from './models/box';
+import { ButtonBook } from './models/button';
 import { ContentInputBook } from './models/content-input';
 import { DialogBook } from './models/dialog';
 import { FixGridBook } from './models/fix-grid';
@@ -24,6 +26,7 @@ export class StylesComponent implements OnInit {
     new BoxBook(),
     new FlexGridBook(),
     new FixGridBook(),
+    new ArticleBook(),
     new TextAlignBook(),
     new TextColorBook(),
     new HeadingBook(),
@@ -31,6 +34,7 @@ export class StylesComponent implements OnInit {
     new TableBook(),
     new ContentInputBook(),
     new DialogBook(),
+    new ButtonBook(),
   ];
 
   data?: Api = this.list[0];

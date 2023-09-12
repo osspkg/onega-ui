@@ -1,6 +1,19 @@
 @use "sass:map";
 @use "env";
 
+*, :after, :before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
 .click {
   cursor: pointer;
 }
@@ -24,12 +37,10 @@
   overflow-x: auto;
 }
 
-.fs-small, .fs-small * {
-  font-size: var(--ong-font-size-small) !important;
-}
-
-.fs-big, .fs-big * {
-  font-size: var(--ong-font-size-big) !important;
+@each $prefix, $value in env.$ong-size {
+  .fs-#{$prefix}, .fs-#{$prefix} * {
+    font-size: calc(var(--ong-font-size) * $value) !important;
+  }
 }
 
 .box {
@@ -73,7 +84,7 @@ blockquote, .bq {
   }
 }
 
-@for $i from 1 through 5 {
+@for $i from 1 through 6 {
   .m-#{$i} {
     margin: calc(var(--ong-base-size) * $i);
   }
@@ -89,3 +100,39 @@ blockquote, .bq {
     }
   }
 }
+
+.article {
+  @for $i from 2 through 5 {
+    .letter-x#{$i}::first-letter {
+      initial-letter: $i;
+      text-transform: capitalize;
+    }
+  }
+  @for $i from 2 through 6 {
+    &-x#{$i} {
+      columns: $i;
+      orphans: $i;
+      column-width: calc(100% / $i);
+    }
+  }
+  @for $i from 1 through 6 {
+    h#{$i} {
+      column-span: all;
+    }
+  }
+}
+
+$ong-ratio: (
+  "1x1": "1/1",
+  "4x3": "4/3",
+  "16x9": "16/9",
+);
+
+@each $prefix, $value in $ong-ratio {
+  .ratio-#{$prefix} {
+    aspect-ratio: #{$value};
+    object-position: 50% 50%;
+    object-fit: contain;
+  }
+}
+
