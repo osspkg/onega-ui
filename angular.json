@@ -93,6 +93,9 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/website/src/favicon.ico",
+              "projects/website/src/robots.txt",
+              "projects/website/src/sitemap.xml",
+              "projects/website/src/404.html",
               "projects/website/src/assets"
             ],
             "styles": [
@@ -254,6 +257,48 @@
             "lintFilePatterns": [
               "projects/styles/**/*.ts",
               "projects/styles/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "kit": {
+      "projectType": "library",
+      "root": "projects/kit",
+      "sourceRoot": "projects/kit/src",
+      "prefix": "ong",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/kit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/kit/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/kit/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/kit/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/kit/**/*.ts",
+              "projects/kit/**/*.html"
             ]
           }
         }

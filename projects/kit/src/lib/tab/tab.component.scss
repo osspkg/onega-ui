@@ -1,0 +1,56 @@
+@use "../env";
+
+:host {
+  display: block;
+}
+
+.tab {
+  display: flex;
+  flex-flow: row wrap;
+  border-width: 0;
+  border-style: solid;
+  border-bottom-width: var(--ong-line-size);
+
+  &__item {
+    margin: var(--ong-margin-y-size) 0 0 0;
+    padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+    border-style: solid;
+    border-width: 0;
+  }
+
+  &__content {
+    padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+  }
+
+  @each $name in env.$ong-color-names {
+    &--color-#{$name} {
+      border-color: var(--ong-color-#{$name}-bg);
+    }
+    &--color-#{$name} &__item--active {
+      background-color: var(--ong-color-#{$name}-bg);
+      border-color: var(--ong-color-#{$name}-bg);
+      color: var(--ong-color-#{$name}-text);
+    }
+  }
+
+  &--style-btn {
+    border-style: none;
+  }
+
+  &--style-btn &__item--active {
+    border-radius: var(--ong-radius-size);
+  }
+
+  &--style-line {
+    border-style: dashed;
+  }
+
+  &--style-line &__item--active {
+    background-color: var(--ong-color-light-bg);
+    color: var(--ong-color-light-text);
+    border-bottom-width: calc(var(--ong-line-size) * 4);
+    font-weight: var(--ong-font-weight);
+    margin-bottom: calc(-2 * var(--ong-line-size));
+    border-radius: var(--ong-radius-size) var(--ong-radius-size) 0 0;
+  }
+}

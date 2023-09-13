@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://onega-ui.osspkg.com/sitemap.xml

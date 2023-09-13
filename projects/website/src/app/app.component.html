@@ -1,9 +1,41 @@
-<div class="row fix-menu-up fs-small" data-ong-theme="default">
+<aside class="row fix-menu-up fs-small" data-ong-theme="default">
   <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/'">Home</a>
-  <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/styles'">Styles</a>
   <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/icons'">Icons</a>
-</div>
+  <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/styles'">Styles</a>
+  <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/kit'">UI Kit</a>
+</aside>
 
-<div class="box" data-ong-theme="default">
-    <router-outlet></router-outlet>
-</div>
+<article class="box" data-ong-theme="default">
+  <router-outlet></router-outlet>
+</article>
+
+<hr>
+
+<footer class="row fs-sm p-1">
+  <div class="col">
+    <p>The OSSPkg Team &copy; 2022 - {{currYear}}</p>
+    <p>Code licensed under an <a class="no-link" href="/#/license">BSD-3-Clause license</a>.</p>
+    <p>Documentation licensed under <a class="no-link" href="https://creativecommons.org/licenses/by/4.0/"
+                                       target="_blank">CC BY 4.0</a>.</p>
+  </div>
+  <div class="col ta-r">
+    <div class="row">
+      <div class="col">
+        <a href="https://github.com/osspkg/onega-ui" target="_blank">
+          <img src="/assets/github-mark.svg" width="20" height="20" class="d-block" loading="lazy" decoding="async"
+               alt="GitHub mark">
+        </a>
+      </div>
+      <div class="col">
+        <!-- Yandex.Metrika informer -->
+        <a href="https://metrika.yandex.ru/stat/?id=94925731&amp;from=informer"
+           target="_blank" rel="nofollow"><img
+          src="https://informer.yandex.ru/informer/94925731/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+          style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
+          title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer"
+          data-cid="94925731" data-lang="ru"/></a>
+        <!-- /Yandex.Metrika informer -->
+      </div>
+    </div>
+  </div>
+</footer>

@@ -18,6 +18,21 @@
   cursor: pointer;
 }
 
+.no-link {
+  &:link, &:any-link, &:active, &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  text-decoration: none !important;
+  cursor: pointer;
+  color: inherit;
+
+  border-style: dashed;
+  border-width: 0;
+  border-bottom-width: var(--ong-line-size);
+}
+
 .ta-c {
   text-align: center;
 }

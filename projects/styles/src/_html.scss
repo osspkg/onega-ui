@@ -34,7 +34,7 @@ p {
 }
 
 table {
-  table-layout: auto;
+  table-layout: fixed;
   width: 100%;
   vertical-align: top;
   caption-side: bottom;
@@ -48,6 +48,8 @@ table {
   th, td {
     text-align: left;
     padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+    white-space: break-spaces;
+    word-break: break-word;
   }
 }
 
@@ -136,4 +138,6 @@ dialog {
     }
   }
 }
+
+
 

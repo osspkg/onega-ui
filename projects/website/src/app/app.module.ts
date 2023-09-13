@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CoreModule } from '@onega-ui/core';
 import { PagesModule } from '../pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +12,6 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

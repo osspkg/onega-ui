@@ -44,6 +44,18 @@ styles_release_fix: styles.patch build_styles styles.publish
 
 styles_release_new: styles.minor build_styles styles.publish
 
+build_core: core.lint core.build
+
+build_kit: kit.lint kit.build
+
+watch_core: core.watch
+
+watch_kit: kit.watch
+
+kit_release_fix: kit.lint kit.patch kit.build kit.publish
+
+core_release_fix: core.fix
+
 ######################################################################
 
 %.lint:
@@ -51,6 +63,9 @@ styles_release_new: styles.minor build_styles styles.publish
 
 %.build:
 	yarn ng build $*
+
+%.watch:
+	yarn ng build $* --watch
 
 %.patch:
 	cd projects/$* && yarn version --patch --no-git-tag-version --no-commit-hooks
