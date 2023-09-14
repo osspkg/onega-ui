@@ -96,6 +96,8 @@
               "projects/website/src/robots.txt",
               "projects/website/src/sitemap.xml",
               "projects/website/src/404.html",
+              "projects/website/src/browserconfig.xml",
+              "projects/website/src/manifest.json",
               "projects/website/src/assets"
             ],
             "styles": [

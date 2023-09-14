@@ -151,3 +151,72 @@ $ong-ratio: (
   }
 }
 
+.btn {
+  display: block;
+  border: var(--ong-line-size) solid var(--ong-color-light-bg);
+  background-color: var(--ong-color-light-bg);
+  color: var(--ong-color-light-text);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+  border-radius: var(--ong-radius-size);
+  font-size: var(--ong-font-size-normal);
+  user-select: none;
+  line-height: 1;
+  white-space: nowrap;
+  position: relative;
+
+  &:is([disabled]) {
+    opacity: var(--ong-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:link, &:any-link, &:active, &:visited {
+    text-decoration: none;
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &-circle {
+    border-radius: 50%;
+    display: inline-flex !important;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+    padding: var(--ong-padding-x-size);
+    //padding: 0 !important;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @each $name in env.$ong-color-names {
+    &-#{$name} {
+      background-color: var(--ong-color-#{$name}-bg);
+      border-color: var(--ong-color-#{$name}-bg);
+      color: var(--ong-color-#{$name}-text);
+    }
+  }
+
+  @each $prefix, $value in env.$ong-size {
+    &-#{$prefix} {
+      font-size: calc(var(--ong-font-size) * $value) !important;
+
+      .ong {
+        font-size: calc(var(--ong-font-size) * $value * 0.9) !important;
+      }
+    }
+    &-#{$prefix} + &-circle {
+      height: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
+      width: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
+
+      min-height: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
+      min-width: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
+
+      max-height: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
+      max-width: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
+    }
+  }
+}
+

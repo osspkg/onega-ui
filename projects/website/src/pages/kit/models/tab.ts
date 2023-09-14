@@ -11,6 +11,15 @@ import { Api } from './_api';
       <ng-template ong-tab-name="Example Tab 2">
         <div>Tab2</div>
       </ng-template>
+      <ng-template ong-tab-name="Example Tab 3">
+        <div>Tab3</div>
+      </ng-template>
+      <ng-template ong-tab-name="Example Tab 4">
+        <div>Tab4</div>
+      </ng-template>
+      <ng-template ong-tab-name="Example Tab 5">
+        <div>Tab5</div>
+      </ng-template>
     </ong-tabs>
 
     <ong-tabs [tabColor]="'danger'" [tabStyle]="'line'">
@@ -19,6 +28,15 @@ import { Api } from './_api';
       </ng-template>
       <ng-template ong-tab-name="Example Tab 2">
         <div>Tab2</div>
+      </ng-template>
+      <ng-template ong-tab-name="Example Tab 3">
+        <div>Tab3</div>
+      </ng-template>
+      <ng-template ong-tab-name="Example Tab 4">
+        <div>Tab4</div>
+      </ng-template>
+      <ng-template ong-tab-name="Example Tab 5">
+        <div>Tab5</div>
       </ng-template>
     </ong-tabs>
   `,

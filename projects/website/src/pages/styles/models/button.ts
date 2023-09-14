@@ -60,52 +60,57 @@ Circle + Size:
 <div class="row">
 
   <div class="col-12">
-    <table>
-      <tr>
-        <th>size</th>
-        <th>&nbsp;</th>
-      </tr>
-      <tr>
-        <td>.btn-xs</td>
-        <td>
-        <a class="btn btn-light btn-circle btn-xs">
+<table>
+  <tr>
+    <th>size</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <td>.btn-xs</td>
+    <td>
+      <a class="btn btn-light btn-circle btn-xs">
         <i class="ong ong-home"></i>
-    </a>
-</td>
-      </tr>
-      <tr>
-        <td>.btn-sm</td>
-        <td>
-        <a class="btn btn-warning btn-circle btn-sm">
-        <i class="ong ong-home"></i>
-    </a>
-</td>
-      </tr>
-      <tr>
-        <td>.btn-md</td>
-        <td>
-        <a class="btn btn-danger btn-circle btn-md">
-        <i class="ong ong-home"></i>
-    </a>
+      </a>
+      <a class="btn btn-light btn-circle btn-xs">5%</a>
     </td>
-      </tr>
-      <tr>
-        <td>.btn-lg</td>
-        <td>
-        <a class="btn btn-success btn-circle btn-lg">
+  </tr>
+  <tr>
+    <td>.btn-sm</td>
+    <td>
+      <a class="btn btn-warning btn-circle btn-sm">
         <i class="ong ong-home"></i>
-    </a>
-</td>
-      </tr>
-      <tr>
-        <td>.btn-xl</td>
-        <td>
-        <a class="btn btn-info btn-circle btn-xl">
+      </a>
+      <a class="btn btn-warning btn-circle btn-sm">5%</a>
+    </td>
+  </tr>
+  <tr>
+  <td>.btn-md</td>
+    <td>
+      <a class="btn btn-danger btn-circle btn-md">
         <i class="ong ong-home"></i>
-    </a>
-</td>
-      </tr>
-    </table>
+      </a>
+      <a class="btn btn-danger btn-circle btn-md">5%</a>
+    </td>
+  </tr>
+  <tr>
+    <td>.btn-lg</td>
+    <td>
+      <a class="btn btn-success btn-circle btn-lg">
+        <i class="ong ong-home"></i>
+      </a>
+      <a class="btn btn-success btn-circle btn-lg">5%</a>
+    </td>
+  </tr>
+  <tr>
+  <td>.btn-xl</td>
+    <td>
+      <a class="btn btn-info btn-circle btn-xl">
+        <i class="ong ong-home"></i>
+      </a>
+      <a class="btn btn-info btn-circle btn-xl">5%</a>
+    </td>
+  </tr>
+</table>
   </div>
 </div>
   `;

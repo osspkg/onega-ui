@@ -1,9 +1,11 @@
 <div class="row mt-2">
-  <div class="col-3">
+  <div class="col">
     <div *ngFor="let item of list"
          class="bq bq-secondary"
          (click)="show(item)"
          [class.bq-danger]="item.link === data?.link"
+         aria-hidden="true"
+         role="button"
     >
       {{item.link}}
     </div>

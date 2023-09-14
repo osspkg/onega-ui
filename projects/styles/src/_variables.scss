@@ -25,8 +25,8 @@
 }
 
 :root {
-  --ong-base-size: 1rem;
-  --ong-radius-size: .75rem;
+  --ong-base-size: 1em;
+  --ong-radius-size: calc(var(--ong-base-size) * .75);
   --ong-line-size: 1px;
   --ong-opacity: .65;
 

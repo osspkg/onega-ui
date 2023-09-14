@@ -29,10 +29,17 @@ $grid-count: 12;
 
   @for $i from 1 through $grid-count {
     .col-#{$i}, .c#{$i} {
-      box-sizing: border-box;
-      flex: 0 0 auto;
-      padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-      @include calc-width($grid-size, $i, $grid-count);
+      @media (min-width: 768px){
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+        @include calc-width($grid-size, $i, $grid-count);
+      }
+      @media (max-width: 767px){
+        box-sizing: border-box;
+        flex: 1 0 fit-content;
+        padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+      }
     }
   }
 }

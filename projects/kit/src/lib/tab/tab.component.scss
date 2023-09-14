@@ -34,7 +34,8 @@
   }
 
   &--style-btn {
-    border-style: none;
+    border-style: dashed;
+    padding-bottom: var(--ong-padding-y-size);
   }
 
   &--style-btn &__item--active {

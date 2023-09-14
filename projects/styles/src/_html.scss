@@ -1,12 +1,15 @@
 @use "env";
 
-body {
+html {
   font-size: var(--ong-font-size-normal);
   font-family: var(--ong-font-family-sans-serif);
   line-height: var(--ong-line-height);
   text-rendering: optimizeLegibility;
-  overflow-y: scroll;
   unicode-bidi: plaintext;
+}
+
+body {
+  overflow-y: scroll;
 }
 
 pre, code, .code {
@@ -48,8 +51,6 @@ table {
   th, td {
     text-align: left;
     padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-    white-space: break-spaces;
-    word-break: break-word;
   }
 }
 
@@ -93,51 +94,7 @@ dialog {
   }
 }
 
-.btn {
-  display: inline-block;
-  border: var(--ong-line-size) solid var(--ong-color-light-bg);
-  background-color: var(--ong-color-light-bg);
-  color: var(--ong-color-light-text);
-  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-  border-radius: var(--ong-radius-size);
-  font-size: var(--ong-font-size-normal);
-  user-select: none;
-  line-height: 1;
 
-  &:is([disabled]) {
-    opacity: var(--ong-opacity);
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  &:link, &:any-link, &:active, &:visited {
-    text-decoration: none;
-  }
-
-  &:not([disabled]) {
-    cursor: pointer;
-  }
-
-  &-circle {
-    border-radius: 100%;
-    overflow: hidden;
-  }
-
-  @each $name in env.$ong-color-names {
-    &-#{$name} {
-      background-color: var(--ong-color-#{$name}-bg);
-      border-color: var(--ong-color-#{$name}-bg);
-      color: var(--ong-color-#{$name}-text);
-    }
-  }
-
-  @each $prefix, $value in env.$ong-size {
-    &-#{$prefix} {
-      font-size: calc(var(--ong-font-size) * $value);
-      padding: calc(var(--ong-padding-y-size) * $value) calc(var(--ong-padding-x-size) * $value);
-    }
-  }
-}
 
 
 
