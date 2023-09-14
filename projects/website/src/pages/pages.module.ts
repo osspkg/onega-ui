@@ -12,6 +12,7 @@ import { LicenseComponent } from './license/license.component';
 import { Map2SlicePipe } from './root/pipes/map-2-slice.pipe';
 import { SafeHtmlPipe } from './root/pipes/safe-html.pipe';
 import { StylesComponent } from './styles/styles.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StylesComponent } from './styles/styles.component';
     StylesComponent,
     KitComponent,
     LicenseComponent,
+    Page404Component,
   ],
   imports: [
     CommonModule,
