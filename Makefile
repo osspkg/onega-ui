@@ -12,6 +12,11 @@ lint:
 build:
 	yarn run build
 
+deploy: build
+	scp -r dist/website/* root@$(value ONEGA_UI_HOST):/home/onegaui/www/
+	scp development/nginx.conf root@$(value ONEGA_UI_HOST):/etc/nginx/sites-enabled/onegaui
+	ssh root@$(value ONEGA_UI_HOST) 'systemctl restart nginx'
+
 new_project:
 	@read -p "Enter Project Name: " LIB && \
 	read -p "Enter Project Prefix: " PREFIX && \

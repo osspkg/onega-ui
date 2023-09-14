@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://onega-ui.osspkg.com/#/</loc></url>
-  <url><loc>https://onega-ui.osspkg.com/#/icons</loc></url>
-  <url><loc>https://onega-ui.osspkg.com/#/styles</loc></url>
-  <url><loc>https://onega-ui.osspkg.com/#/kit</loc></url>
+  <url>
+    <loc>https://onega-ui.osspkg.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://onega-ui.osspkg.com/icons</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://onega-ui.osspkg.com/styles</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://onega-ui.osspkg.com/kit</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
