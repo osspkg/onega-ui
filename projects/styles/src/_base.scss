@@ -1,11 +1,12 @@
 @use "sass:map";
 @use "env";
 
-*, :after, :before {
+*, ::after, ::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  appearance: none;
+  appearance: auto;
+  outline: none;
 }
 
 :active, :hover, :focus {
@@ -16,6 +17,10 @@
 
 .click {
   cursor: pointer;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .no-link {

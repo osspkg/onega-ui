@@ -6,10 +6,12 @@ html {
   line-height: var(--ong-line-height);
   text-rendering: optimizeLegibility;
   unicode-bidi: plaintext;
+  background-color: var(--ong-body-bg);
 }
 
 body {
   overflow-y: scroll;
+  background-color: var(--ong-body-bg);
 }
 
 pre, code, .code {
@@ -61,10 +63,11 @@ input, textarea, select {
   border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
   border-radius: var(--ong-radius-size);
   padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-  width: 100%;
 
-  &:focus {
-    border-color: var(--ong-color-dark-bg);
+  &:is([disabled]) {
+    opacity: var(--ong-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
@@ -76,6 +79,49 @@ input[type="file"] {
   }
 }
 
+input[type="checkbox"] {
+  display: inline-block;
+  align-items: center;
+  width: calc(var(--ong-font-size) * 4);
+  height: calc(var(--ong-font-size) * 2);
+  border-radius: var(--ong-radius-size);
+  appearance: none;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: hidden;
+
+  & + label {
+    display: inline-block;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  &::before, &:checked::before {
+    content: '';
+    background-color: var(--ong-color-secondary-bg);
+    width: calc(var(--ong-font-size) * 2);
+    height: calc(var(--ong-font-size) * 2);
+    position: absolute;
+    display: block;
+    vertical-align: middle;
+    margin: auto;
+    top: 0;
+    line-height: 1;
+  }
+
+  &:not(:checked)::before {
+    left: 0;
+  }
+
+  &:checked::before {
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60% 60%;
+    background-image: var(--ong-svg-check);
+  }
+}
+
 textarea {
   resize: vertical;
 }
@@ -84,6 +130,7 @@ dialog {
   border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
   padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
   border-radius: var(--ong-radius-size);
+  z-index: 999999;
 
   margin: 10vh auto 0 auto;
   max-width: 80%;

@@ -1,4 +1,6 @@
 :root, [data-ong-theme="default"] {
+  --ong-body-bg: rgba(0, 0, 0, 0);
+
   --ong-color-light-bg: #f6f6f6;
   --ong-color-light-text: #000000;
 
@@ -28,7 +30,7 @@
   --ong-base-size: 1em;
   --ong-radius-size: calc(var(--ong-base-size) * .75);
   --ong-line-size: 1px;
-  --ong-opacity: .65;
+  --ong-opacity: .55;
 
   --ong-margin-x-size: calc(var(--ong-base-size) * .75);
   --ong-margin-y-size: calc(var(--ong-base-size) * .5);
@@ -40,6 +42,8 @@
   --ong-font-weight: bolder;
   --ong-line-height: 1.2;
   --ong-font-size: var(--ong-base-size);
+
+  --ong-svg-check: url("data:image/svg+xml,%3Csvg version='1.1' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m26.576 3.7983c-0.64273 2.422e-4 -1.259 0.25563-1.7134 0.71l-15.845 15.845-3.8794-7.6346c-0.94614-0.94612-2.4806-0.94657-3.4273-0.0011-0.94669 0.94557-0.94714 2.4791-0.00102 3.4252l5.5935 9.3488c0.94659 0.94638 2.4817 0.94638 3.4283 0l17.56-17.559c0.9462-0.94614 0.94575-2.4797-1e-3 -3.4253-0.45468-0.45409-1.0712-0.70908-1.714-0.70887z'/%3E%3C/svg%3E");
 }
 
 

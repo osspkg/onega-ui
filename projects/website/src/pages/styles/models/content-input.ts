@@ -10,7 +10,12 @@ export class ContentInputBook implements Api {
 
   example = `
 <input type="text">
+
+<input type="checkbox" checked="checked" id="checkbox1">
+<label for="checkbox1">checked</label>
+
 <textarea></textarea>
+
 <select>
     <option>1</option>
 </select>
@@ -19,21 +24,35 @@ export class ContentInputBook implements Api {
   demo = `
   <div class="box">
     Input:
-    <input type="text">
+    <input type="text" class="full-width">
   </div>
   <div class="box">
     File:
-    <input type="file">
+    <input type="file" class="full-width">
   </div>
   <div class="box">
     Textarea:
-    <textarea></textarea>
+    <textarea class="full-width"></textarea>
   </div>
   <div class="box">
     Select:
-    <select>
+    <select class="full-width">
         <option>demo</option>
     </select>
+  </div>
+  <div class="box">
+    Check:
+    <div>
+        <input type="checkbox" checked="checked" id="demo-check-1">
+        <label for="demo-check-1">checked</label>
+
+        <input type="checkbox" id="demo-check-2">
+        <label for="demo-check-2">not checked</label>
+
+        <input type="checkbox" id="demo-check-2" checked="checked" disabled>
+        <label for="demo-check-2">disabled</label>
+    </div>
+
   </div>
   `;
 }
