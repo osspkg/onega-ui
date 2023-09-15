@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .icons {
   box-sizing: border-box;
   display: flex;
@@ -51,38 +55,11 @@
   font-size: 10rem;
 }
 
-.modal {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-
-  &-bg {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-
-    background-color: gray;
-    opacity: 0.5;
-  }
-
-  &-window {
-    display: block;
-    position: absolute;
-    background-color: white;
-    opacity: 1;
-    min-height: 30vh;
-    width: 90%;
-    margin: 20% 5% 0 5%;
-    border: 1px solid black;
-
-    &__title {
-      text-transform: capitalize;
-    }
-  }
+.modal-window__title{
+  text-transform: capitalize;
 }
+
+.modal-close{
+  float: right;
+}
+

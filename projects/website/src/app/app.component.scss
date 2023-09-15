@@ -1,4 +1,8 @@
-.fix-menu-up{
+:host {
+  display: block;
+}
+
+.fix-menu-up {
   position: fixed;
   top: -13px;
   left: 0;

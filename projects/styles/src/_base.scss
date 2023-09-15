@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  appearance: auto;
   outline: none;
 }
 
@@ -157,7 +156,7 @@ $ong-ratio: (
 }
 
 .btn {
-  display: block;
+  display: inline-block;
   border: var(--ong-line-size) solid var(--ong-color-light-bg);
   background-color: var(--ong-color-light-bg);
   color: var(--ong-color-light-text);

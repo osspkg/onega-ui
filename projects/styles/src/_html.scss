@@ -48,16 +48,18 @@ table {
 
   tr {
     border-bottom: 1px solid var(--ong-color-secondary-bg);
+    width: 100%;
   }
 
   th, td {
     text-align: left;
     padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+    width: auto;
   }
 }
 
 input, textarea, select {
-  display: block;
+  display: inline-block;
   background: none;
   position: relative;
   border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
@@ -133,7 +135,7 @@ dialog {
   z-index: 999999;
 
   margin: 10vh auto 0 auto;
-  max-width: 80%;
+  width: 80%;
 
   &::backdrop {
     background: rgba(0, 0, 0, 0.5);

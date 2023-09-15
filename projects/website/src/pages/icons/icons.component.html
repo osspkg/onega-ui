@@ -1,10 +1,10 @@
 <div class="row mt-2">
   <div class="col">
-      <label for="search" class="mr-1">Search:</label>
-      <input [(ngModel)]="search" id="search">
+    <label for="search" class="mr-1">Search:</label>
+    <input [(ngModel)]="search" id="search" class="full-width">
   </div>
   <div class="col">
-    <div class="bq bq-danger">
+    <div class="bq bq-danger mt-1">
       yarn add @onega-ui/icons
     </div>
   </div>
@@ -19,37 +19,40 @@
   </ng-container>
 </div>
 
-<ng-container *ngIf="currentIcon">
-  <div class="modal">
-    <div class="modal-bg" (click)="hideModal()"></div>
-    <div class="modal-window box">
-
-      <div class="row">
-        <div class="col ta-c">
-          <h3 class="modal-window__title">{{currentIcon.icon}}</h3>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-4 ta-c">
-          <i class="{{currentIcon.css}} x10"></i>
-        </div>
-        <div class="col-8 ta-c">
-          <div class="bq bq-info" [innerText]="currentIcon.css|htmlTemplate"></div>
-        </div>
-      </div>
-
-      <div class="row ta-c">
-        <div class="col-1">
-          <i class="{{currentIcon.css}} x1"></i>
-        </div>
-        <div class="col-1">
-          <i class="{{currentIcon.css}} x2"></i>
-        </div>
-        <div class="col-1">
-          <i class="{{currentIcon.css}} x3"></i>
-        </div>
+<dialog #iconDialog>
+  <ng-container *ngIf="currentIcon">
+    <div class="row">
+      <div class="col">
+        <button class="modal-close btn btn-danger" (click)="hideModal()">Close</button>
       </div>
     </div>
-  </div>
-</ng-container>
+
+    <div class="row">
+      <div class="col ta-c">
+        <h3 class="modal-window__title">{{currentIcon.icon}}</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 ta-c">
+        <i class="{{currentIcon.css}} x10"></i>
+      </div>
+      <div class="col-8 ta-c">
+        <div class="bq bq-info" [innerText]="currentIcon.css|htmlTemplate"></div>
+      </div>
+    </div>
+
+    <div class="row ta-c">
+      <div class="col-1">
+        <i class="{{currentIcon.css}} x1"></i>
+      </div>
+      <div class="col-1">
+        <i class="{{currentIcon.css}} x2"></i>
+      </div>
+      <div class="col-1">
+        <i class="{{currentIcon.css}} x3"></i>
+      </div>
+    </div>
+  </ng-container>
+</dialog>
+
