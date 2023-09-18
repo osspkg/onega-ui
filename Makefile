@@ -1,4 +1,5 @@
 SHELL=/bin/bash
+DATE=$(shell date '+%Y-%m-%d')
 
 install:
 	yarn install --force --ignore-scripts
@@ -11,6 +12,7 @@ lint:
 
 build:
 	yarn run build
+	@sed -i 's/\[CURR_UPDATE\]/$(DATE)/' dist/website/sitemap.xml
 
 deploy: build
 	scp -r dist/website/* root@$(value ONEGA_UI_HOST):/home/onegaui/www/

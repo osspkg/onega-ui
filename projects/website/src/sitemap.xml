@@ -4,20 +4,24 @@
     <loc>https://onega-ui.osspkg.com/</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
+    <lastmod>[CURR_UPDATE]</lastmod>
   </url>
   <url>
     <loc>https://onega-ui.osspkg.com/icons</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
+    <lastmod>[CURR_UPDATE]</lastmod>
   </url>
   <url>
     <loc>https://onega-ui.osspkg.com/styles</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
+    <lastmod>[CURR_UPDATE]</lastmod>
   </url>
   <url>
     <loc>https://onega-ui.osspkg.com/kit</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
+    <lastmod>[CURR_UPDATE]</lastmod>
   </url>
 </urlset>
