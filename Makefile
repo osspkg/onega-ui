@@ -14,8 +14,8 @@ build:
 
 deploy: build
 	scp -r dist/website/* root@$(value ONEGA_UI_HOST):/home/onegaui/www/
-	scp development/nginx.conf root@$(value ONEGA_UI_HOST):/etc/nginx/sites-enabled/onegaui
-	ssh root@$(value ONEGA_UI_HOST) 'systemctl restart nginx'
+	scp development/jasta.yaml root@$(value ONEGA_UI_HOST):/etc/jasta/websites/onega-ui.yaml
+	ssh root@$(value ONEGA_UI_HOST) 'systemctl restart jasta'
 
 new_project:
 	@read -p "Enter Project Name: " LIB && \
