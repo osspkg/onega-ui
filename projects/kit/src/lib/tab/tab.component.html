@@ -1,13 +1,14 @@
 <div class="tab tab--color-{{tabColor}} tab--style-{{tabStyle}}">
-  <div
-    *ngFor="let item of tabs"
-    class="click tab__item"
-    [class.tab__item--active]="curr === item"
-    (click)="setTab(item)"
-    role="button"
-    aria-hidden="true"
-  >
-    {{ item }}
-  </div>
+  <ng-container *ngFor="let item of tabs">
+    <div
+      class="click tab__item"
+      (click)="setTab(item)"
+      [class.tab__item--active]="item.active"
+      role="button"
+      aria-hidden="true"
+    >
+      {{ item.name }}
+    </div>
+  </ng-container>
 </div>
 <div class="mt-1 mb-1 tab__content" #content></div>

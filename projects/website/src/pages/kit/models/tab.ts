@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Api } from './_api';
+import { Api, KeyValue } from './_api';
 
 @Component({
-  selector: 'app-check-book',
+  selector: 'app-tab-book',
   template: `
     <ong-tabs [tabColor]="'danger'" [tabStyle]="'btn'" [tabDefault]="'Example Tab 2'" (tabSwitch)="console.log($event)">
       <ng-template ong-tab-name="Example Tab 1">
@@ -43,19 +43,17 @@ import { Api } from './_api';
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class TabBook implements Api {
-  link = 'Tabs';
-  component = TabBook;
-  attributes = {
-    'ong-tabs' : 'base tag',
-    'ong-tab-name="..."' : 'attribute with tab name',
-    '[tabColor]' : 'setup tab color: [light, secondary, warning, danger, success, info, primary, dark]',
-    '[tabStyle]' : 'setup tab style: [btn, line]',
-    '[tabDefault]' : 'setup default tab',
-    '(tabSwitch)' : 'event tab change',
-  };
+  attributes: KeyValue[] = [
+    { key: 'ong-tabs', value: 'base tag' },
+    { key: 'ong-tab-name="..."', value: 'attribute with tab name' },
+    { key: '[tabColor]', value: 'setup tab color: [light, secondary, warning, danger, success, info, primary, dark]' },
+    { key: '[tabStyle]', value: 'setup tab style: [btn, line]' },
+    { key: '[tabDefault]', value: 'setup default tab' },
+    { key: '(tabSwitch)', value: 'event tab change' },
+  ];
 
-  example = `
-<ong-tabs [tabColor]="'danger'" [tabStyle]="'btn'" [tabDefault]="'Example Tab 2'" (tabSwitch)="console.log($event)">
+  exampleHTML = `
+<ong-tabs [tabColor]="'danger'" [tabStyle]="'btn'" [tabDefault]="'Example Tab 2'" (tabSwitch)="callback($event)">
   <ng-template ong-tab-name="Example Tab 1">
     <div>Tab1</div>
   </ng-template>

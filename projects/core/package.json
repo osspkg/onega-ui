@@ -1,6 +1,6 @@
 {
   "name": "@onega-ui/core",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Core library for creating Angular components and applications using Onega UI",
   "author": "OSSPkg Team <github@osspkg.com> (https://github.com/osspkg)",
   "maintainers": [

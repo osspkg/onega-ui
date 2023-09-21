@@ -14,7 +14,7 @@
 .{{ className }} {
     display: inline-block;
     transform: translate(0, 0);
-    text-rendering: auto;
+    text-rendering: geometricPrecision;
     font: normal normal 400 14px/1 {{ fontName }};
     font-size: inherit;
     -moz-osx-font-smoothing: grayscale;

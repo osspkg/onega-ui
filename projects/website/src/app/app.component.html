@@ -1,17 +1,15 @@
-<aside class="row fix-menu-up fs-small" data-ong-theme="default">
-  <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/'">Home</a>
-  <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/icons'">Icons</a>
-  <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/styles'">Styles</a>
-  <a class="ml-1 col btn btn-danger btn-sm" [routerLink]="'/kit'">UI Kit</a>
+<aside class="area-fluid bg-warning pos-sticky row">
+  <a class="col btn btn-warning ta-c" [routerLink]="['/']" [routerLinkActive]="['active-route']" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a class="col btn btn-warning ta-c" [routerLink]="['/icons']" [routerLinkActive]="['active-route']">Icons</a>
+  <a class="col btn btn-warning ta-c" [routerLink]="['/styles']" [routerLinkActive]="['active-route']">Styles</a>
+  <a class="col btn btn-warning ta-c" [routerLink]="['/kit']" [routerLinkActive]="['active-route']">UI Kit</a>
 </aside>
 
-<article class="box" data-ong-theme="default">
+<article class="area-fluid">
   <router-outlet></router-outlet>
 </article>
 
-<hr>
-
-<footer class="row fs- p-1">
+<footer class="area-fluid bg-light row p-1 mt-1">
   <div class="col">
     <p>The OSSPkg Team &copy; 2022 - {{currYear}}</p>
     <p>Code licensed under an <a class="no-link" href="/license">BSD-3-Clause license</a>.</p>
@@ -32,7 +30,8 @@
            target="_blank" rel="nofollow"><img
           src="https://informer.yandex.ru/informer/94925731/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
           style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика"
-          title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer"
+          title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
+          class="ym-advanced-informer"
           data-cid="94925731" data-lang="ru"/></a>
         <!-- /Yandex.Metrika informer -->
       </div>

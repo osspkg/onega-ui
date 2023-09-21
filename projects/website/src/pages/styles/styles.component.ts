@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter, take } from 'rxjs';
 import { Api } from './models/_api';
 import { ArticleBook } from './models/article';
 import { BlockquotesBook } from './models/blockquotes';
@@ -47,7 +47,7 @@ export class StylesComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams
-      .pipe(filter(params => params['api'] !== undefined))
+      .pipe(filter(params => params['api'] !== undefined), take(1))
       .subscribe(params => {
         this.data = this.list.filter(value => value.link === params['api']).pop();
       });

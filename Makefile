@@ -1,6 +1,9 @@
 SHELL=/bin/bash
 DATE=$(shell date '+%Y-%m-%d')
 
+setup_node:
+	@. ${NVM_DIR}/nvm.sh && nvm install && nvm use
+
 install:
 	yarn install --force --ignore-scripts
 

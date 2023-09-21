@@ -1,75 +1,83 @@
-<!--<div class="row pallet">-->
-<!--  <div class="bg-light c">&nbsp;</div>-->
-<!--  <div class="bg-secondary c">&nbsp;</div>-->
-<!--  <div class="bg-warning c">&nbsp;</div>-->
-<!--  <div class="bg-danger c">&nbsp;</div>-->
-<!--  <div class="bg-success c">&nbsp;</div>-->
-<!--  <div class="bg-info c">&nbsp;</div>-->
-<!--  <div class="bg-primary c">&nbsp;</div>-->
-<!--  <div class="bg-dark c">&nbsp;</div>-->
-<!--</div>-->
-
-<div class="row mt-2 bq bq-light">
-  <div class="col">
-    <h1>@Onega-UI / <span class="tc-warning">UI Kit for Angular</span></h1>
-  </div>
+<div class="area-fluid bg-light p-2 ta-c">
+  <h1>@Onega-UI / <span class="tc-danger">UI Kit for Angular</span></h1>
 </div>
 
-<div class="box">
+<div class="area">
 
-  <h3 class="mt-2">links</h3>
+  <div class="box mt-1">
+    <p>It is a modern and stylish UI kit that offers a wide range of UI components and elements to create professional and attractive websites.</p>
+  </div>
 
-  <div class="mt-2 row">
+  <h3 class="mt-1">Get started with @Onega-UI</h3>
+  <h5 class="mt-1">Links</h5>
+
+  <div class="row">
     <div class="col">
-      <a target="_blank" class="mr-1 box box-info ta-c"
+      <a target="_blank" class="mr-1 full-width btn btn-info ta-c"
          href="https://www.npmjs.com/package/@onega-ui/core">@onega-ui/core</a>
     </div>
     <div class="col">
-      <a target="_blank" class="mr-1 col box box-info ta-c"
+      <a target="_blank" class="mr-1 full-width btn btn-info ta-c"
          href="https://www.npmjs.com/package/@onega-ui/icons">@onega-ui/icons</a>
     </div>
     <div class="col">
-      <a target="_blank" class="mr-1 col box box-info ta-c"
+      <a target="_blank" class="mr-1 full-width btn btn-info ta-c"
          href="https://www.npmjs.com/package/@onega-ui/styles">@onega-ui/styles</a>
     </div>
     <div class="col">
-      <a target="_blank" class="mr-1 col box box-info ta-c"
+      <a target="_blank" class="mr-1 full-width btn btn-info ta-c"
          href="https://www.npmjs.com/package/@onega-ui/kit">@onega-ui/kit</a>
     </div>
     <div class="col">
-      <a target="_blank" class="mr-1 col box box-warning ta-c"
+      <a target="_blank" class="mr-1 full-width btn btn-warning ta-c"
          href="https://github.com/osspkg/onega-ui">GitHub</a>
     </div>
   </div>
 
-  <h3 class="mt-2">installation</h3>
-  <div class="mt-2 bq bq-light wrap code">yarn add @onega-ui/{{'{'}}core,icons,styles{{'}'}}</div>
+  <h5 class="mt-1">Installation</h5>
+  <div class="bq bq-light wrap code">yarn add @onega-ui/{{'{'}}core,icons,styles,kit{{'}'}}</div>
 
-  <h3 class="mt-2">styles.scss</h3>
-  <div class="mt-2 bq bq-light wrap code">@import "@onega-ui/icons";
-@import "@onega-ui/styles";
-</div>
+  <h5 class="mt-1">Import to styles.scss</h5>
+  <div class="bq bq-light wrap code">
+    @import "@onega-ui/icons";<br>
+    @import "@onega-ui/styles";
+  </div>
 
-  <h3 class="mt-2">app.module.ts</h3>
-  <div class="mt-2 bq bq-light wrap code">{{moduleText}}</div>
+  <h5 class="mt-1">Import to app.module.ts</h5>
+  <div class="bq bq-light wrap code">{{moduleText}}</div>
 
-  <h3 class="mt-2">themes</h3>
-  <div class="mt-2 bq bq-light wrap code">
+  <h5 class="mt-1">Themes</h5>
+  <div class="bq bq-light wrap code">
     <table>
       <tr>
         <th>Import</th>
         <th>Attribute</th>
       </tr>
-      <tr><td>@import "@onega-ui/styles";</td><td>data-ong-theme="default"</td></tr>
-      <tr><td>@import "@onega-ui/styles/themes/rainbow";</td><td>data-ong-theme="rainbow"</td></tr>
-      <tr><td>@import "@onega-ui/styles/themes/tenderness";</td><td>data-ong-theme="tenderness"</td></tr>
-      <tr><td>@import "@onega-ui/styles/themes/summer";</td><td>data-ong-theme="summer"</td></tr>
-      <tr><td>@import "@onega-ui/styles/themes/twilight";</td><td>data-ong-theme="twilight"</td></tr>
+      <tr>
+        <td>@import "@onega-ui/styles";</td>
+        <td>data-ong-theme="default"</td>
+      </tr>
+      <tr>
+        <td>@import "@onega-ui/styles/themes/rainbow";</td>
+        <td>data-ong-theme="rainbow"</td>
+      </tr>
+      <tr>
+        <td>@import "@onega-ui/styles/themes/tenderness";</td>
+        <td>data-ong-theme="tenderness"</td>
+      </tr>
+      <tr>
+        <td>@import "@onega-ui/styles/themes/summer";</td>
+        <td>data-ong-theme="summer"</td>
+      </tr>
+      <tr>
+        <td>@import "@onega-ui/styles/themes/twilight";</td>
+        <td>data-ong-theme="twilight"</td>
+      </tr>
     </table>
+  </div>
+
+  <h5 class="mt-1">Customization CSS variables</h5>
+  <div class="bq bq-light wrap code">{{customVar}}</div>
 </div>
 
-  <h3 class="mt-2">customization variables</h3>
-  <div class="mt-2 bq bq-light wrap">{{customVar}}</div>
-
-</div>
 

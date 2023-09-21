@@ -1,33 +1,40 @@
 import {
-  AfterContentInit,
-  AfterViewInit,
+
+  AfterContentInit, AfterViewChecked,
+  AfterViewInit, ChangeDetectorRef,
   Component,
   ContentChildren,
   ElementRef,
   EmbeddedViewRef,
   EventEmitter,
-  Input,
+  Input, OnDestroy,
   Output,
   QueryList,
   Renderer2,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Color } from '../envs';
 import { TabDirective } from './tab.directive';
 
 export type TabStyle = 'btn' | 'line';
+
+interface TabItem {
+  name: string;
+  active: boolean;
+}
 
 @Component({
   selector: 'ong-tabs',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss'],
 })
-export class TabComponent implements AfterContentInit, AfterViewInit {
+export class TabComponent implements AfterContentInit, AfterViewChecked, AfterViewInit, OnDestroy {
   private embeddedViewRef?: EmbeddedViewRef<unknown>;
+  private changes$?: Subscription;
 
-  curr?: string;
-  tabs: string[] = [];
+  tabs: TabItem[] = [];
 
   @Input() tabDefault = '';
   @Input() tabColor: Color = 'secondary';
@@ -39,42 +46,69 @@ export class TabComponent implements AfterContentInit, AfterViewInit {
   constructor(
     private renderer2: Renderer2,
     private viewContainerRef: ViewContainerRef,
+    private changeDetectorRef: ChangeDetectorRef,
   ) {
+  }
+
+  ngOnDestroy() {
+    this.changes$?.unsubscribe();
   }
 
   ngAfterContentInit(): void {
     this.contents.forEach((item) => {
-      this.tabs.push(item.tab);
+      this.tabs.push({ active: false, name: item.tab });
     });
 
-    if (this.tabs.indexOf(this.tabDefault) === -1) {
-      this.tabDefault = this.tabs.flatMap((v) => v).shift() || '';
+    const hasTab = this.tabs.filter(value => value.name === this.tabDefault).length > 0;
+    if (!hasTab) {
+      this.tabDefault = (this.tabs.flatMap((v) => v).shift() || { name: '' }).name;
     }
+
+    this.changes$ = this.contents.changes.subscribe((list: QueryList<TabDirective>) => {
+      this.tabs = [];
+      list.forEach(item => {
+        this.tabs.push({ name: item.tab, active: item.tab === this.tabDefault });
+      });
+      const hasActive = this.tabs.filter(value => value.active).length > 0;
+      if (!hasActive) {
+        this.tabDefault = (this.tabs.flatMap((v) => v).shift() || { name: '' }).name;
+        this.setTab({ name: this.tabDefault, active: false });
+      }
+    });
   }
 
-  ngAfterViewInit(): void {
-    this.setTab(this.tabDefault);
+  ngAfterViewInit() {
+    this.setTab({ name: this.tabDefault, active: false });
   }
 
-  setTab(name: string): void {
-    if (name === this.curr) {
+  ngAfterViewChecked() {
+    this.changeDetectorRef.detectChanges();
+  }
+
+  setTab(tab: TabItem): void {
+    if (tab.active) {
       return;
     }
 
     this.embeddedViewRef?.detach();
     this.embeddedViewRef?.destroy();
 
-    this.contents.forEach((item) => {
-      if (item.tab === name) {
-        this.embeddedViewRef = this.viewContainerRef.createEmbeddedView(item.template);
-        this.embeddedViewRef.detectChanges();
-        this.embeddedViewRef.rootNodes.forEach(value => {
-          this.renderer2.appendChild(this.out.nativeElement, value);
-        });
+    this.tabs = this.tabs.map(value => {
+      value.active = value.name === tab.name;
+      return value;
+    });
 
-        this.curr = name;
-        this.tabSwitch.emit(name);
+    this.contents.forEach((item) => {
+      if (item.tab !== tab.name) {
+        return;
       }
+      this.embeddedViewRef = this.viewContainerRef.createEmbeddedView(item.template);
+      this.embeddedViewRef.detectChanges();
+      this.embeddedViewRef.rootNodes.forEach(value => {
+        this.renderer2.appendChild(this.out.nativeElement, value);
+      });
+      this.tabDefault = item.tab;
+      this.tabSwitch.emit(item.tab);
     });
   }
 }

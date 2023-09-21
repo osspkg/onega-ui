@@ -12,7 +12,7 @@
 
 <div class="icons">
   <ng-container *ngFor="let icon of icons|textFilter:search">
-    <div class="icons__item" (click)="showModel(icon)">
+    <div class="icons__item" (click)="showModel(icon)" aria-hidden="true">
       <i class="{{icon.css}} x2"></i>
       <span>{{icon.icon}}</span>
     </div>
@@ -34,10 +34,10 @@
     </div>
 
     <div class="row">
-      <div class="col-4 ta-c">
+      <div class="col ta-c">
         <i class="{{currentIcon.css}} x10"></i>
       </div>
-      <div class="col-8 ta-c">
+      <div class="col ta-c">
         <div class="bq bq-info" [innerText]="currentIcon.css|htmlTemplate"></div>
       </div>
     </div>

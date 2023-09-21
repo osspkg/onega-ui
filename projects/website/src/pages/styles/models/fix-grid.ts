@@ -21,14 +21,14 @@ export class FixGridBook implements Api {
 
   demo = `
 <div class="row">
-    <div class="col-2 box">.col-2</div>
-    <div class="col-6 box">.col-6</div>
+    <div class="col-2 box demo-border">.col-2</div>
+    <div class="col-6 box demo-border">.col-6</div>
 </div>
 <div class="row">
-    <div class="col-2 box">.col-2</div>
-    <div class="col-3 box">.col-3</div>
-    <div class="col-5 box">.col-5</div>
-    <div class="col-2 box">.col-2</div>
+    <div class="col-2 box demo-border">.col-2</div>
+    <div class="col-3 box demo-border">.col-3</div>
+    <div class="col-5 box demo-border">.col-5</div>
+    <div class="col-2 box demo-border">.col-2</div>
 </div>
   `;
 }

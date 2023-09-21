@@ -3,7 +3,7 @@
     <div *ngFor="let item of list"
          class="bq bq-secondary"
          (click)="show(item)"
-         [class.bq-danger]="item.link === data?.link"
+         [class.bq-danger]="item.link === dataLink"
          aria-hidden="true"
          role="button"
     >
@@ -12,28 +12,32 @@
   </div>
   <div class="col-9">
 
-    <ng-container *ngIf="data">
+    <ng-container *ngIf="ref !== undefined">
 
-      <h1 class="bq bq-info">{{data.link}}</h1>
+      <h1 class="bq bq-info">{{dataLink}}</h1>
 
-      <div class="m-1">
-        <i>Attributes</i>:
-        <table class="mt-1">
-          <tr *ngFor="let item of data.attributes|map2Slice">
-            <td><b>{{item.key}}</b></td>
-            <td>{{item.value}}</td>
-          </tr>
-        </table>
-      </div>
+      <h5 class="mt-1">Attributes:</h5>
+      <table>
+        <tr *ngFor="let item of dataAttributes">
+          <td class="wrap-line"><b>{{item.key}}</b></td>
+          <td class="wrap-line">{{item.value}}</td>
+        </tr>
+      </table>
 
-      <div class="m-1">
-        <i>Example</i>:
-        <div class="mt-1 code wrap">{{data.example}}</div>
-      </div>
+      <h5 class="mt-1">Example:</h5>
+      <ong-tabs [tabColor]="'info'" [tabStyle]="'line'" [tabDefault]="'TS'">
+        <ng-template ong-tab-name="TS" *ngIf="dataExampleTS">
+          <div class="code wrap">{{dataExampleTS}}</div>
+        </ng-template>
+        <ng-template ong-tab-name="HTML" *ngIf="dataExampleHTML">
+          <div class="code wrap">{{dataExampleHTML}}</div>
+        </ng-template>
+      </ong-tabs>
 
       <h5 class="mt-1">Preview</h5>
 
     </ng-container>
+
     <div class="m-1">
       <ng-template #demo></ng-template>
     </div>

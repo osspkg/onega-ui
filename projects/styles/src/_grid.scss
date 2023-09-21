@@ -18,7 +18,7 @@ $grid-count: 12;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: var(--ong-margin-y-size) var(--ong-margin-x-size);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
   @include width($grid-size);
 
   .col, .c {

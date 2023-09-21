@@ -19,14 +19,14 @@ export class FlexGridBook implements Api {
 
   demo = `
 <div class="row">
-    <div class="col box">.col</div>
-    <div class="col box">.col</div>
+    <div class="col box demo-border">.col</div>
+    <div class="col box demo-border">.col</div>
 </div>
 <div class="row">
-    <div class="col box">.col</div>
-    <div class="col box">.col</div>
-    <div class="col box">.col</div>
-    <div class="col box">.col</div>
+    <div class="col box demo-border">.col</div>
+    <div class="col box demo-border">.col</div>
+    <div class="col box demo-border">.col</div>
+    <div class="col box demo-border">.col</div>
 </div>
   `;
 }

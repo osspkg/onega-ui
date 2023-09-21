@@ -135,7 +135,9 @@ dialog {
   z-index: 999999;
 
   margin: 10vh auto 0 auto;
-  width: 80%;
+  min-width: 50%;
+  max-width: 80%;
+  max-height: 80vh;
 
   &::backdrop {
     background: rgba(0, 0, 0, 0.5);

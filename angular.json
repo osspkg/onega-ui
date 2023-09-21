@@ -211,15 +211,6 @@
               "zone.js/testing"
             ]
           }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/icons/**/*.ts",
-              "projects/icons/**/*.html"
-            ]
-          }
         }
       }
     },
@@ -251,15 +242,6 @@
             "polyfills": [
               "zone.js",
               "zone.js/testing"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/styles/**/*.ts",
-              "projects/styles/**/*.html"
             ]
           }
         }

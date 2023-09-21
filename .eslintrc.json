@@ -1,8 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": [],
   "overrides": [
     {
       "files": [
@@ -24,7 +22,6 @@
         "airbnb-typescript/base"
       ],
       "rules": {
-
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -56,9 +53,19 @@
               "caseInsensitive": true,
               "order": "asc"
             },
-            "groups": ["external", "builtin", "parent", ["sibling", "index"]],
+            "groups": [
+              "external",
+              "builtin",
+              "parent",
+              [
+                "sibling",
+                "index"
+              ]
+            ],
             "newlines-between": "never",
-            "pathGroupsExcludedImportTypes": ["builtin"]
+            "pathGroupsExcludedImportTypes": [
+              "builtin"
+            ]
           }
         ],
         "no-multi-spaces": "error",

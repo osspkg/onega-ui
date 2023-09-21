@@ -14,6 +14,38 @@
   box-shadow: none;
 }
 
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--ong-color-secondary-bg) var(--ong-color-secondary-bg);
+}
+
+::-webkit-scrollbar {
+  width: calc(var(--ong-base-size) * .3);
+
+  &-track {
+    background: var(--ong-color-light-bg);
+    border-radius: var(--ong-radius-size);
+  }
+
+  &-thumb {
+    background-color: var(--ong-color-secondary-bg);
+    border-radius: var(--ong-radius-size);
+    border: var(--ong-base-size) solid var(--ong-color-secondary-bg);
+  }
+}
+
+.pos-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+}
+
+.pos-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 999999;
+}
+
 .click {
   cursor: pointer;
 }
@@ -54,11 +86,37 @@
   word-break: keep-all;
   white-space: pre-wrap;
   overflow-x: auto;
+
+  &-line {
+    word-wrap: break-word;
+    word-break: keep-all;
+    white-space: pre-line;
+    overflow-x: auto;
+  }
 }
 
 @each $prefix, $value in env.$ong-size {
   .fs-#{$prefix}, .fs-#{$prefix} * {
     font-size: calc(var(--ong-font-size) * $value) !important;
+  }
+}
+
+.area {
+  @media (min-width: 768px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+    margin: 0;
+  }
+
+  border-radius: 0 !important;
+
+  &-fluid {
+    margin: 0;
+    width: 100%;
+    border-radius: 0 !important;
   }
 }
 
@@ -224,3 +282,29 @@ $ong-ratio: (
   }
 }
 
+.ong-dialog {
+  &-close {
+    &::before {
+      content: "\ea0a";
+      font-family: 'onega-ui', serif;
+      font-size: calc(var(--ong-font-size) * 2);
+      filter: drop-shadow(0 0 3px rgba(255, 255, 255, 1));
+      border-radius: 50%;
+      padding: 1px;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 1);
+    }
+
+    content: '';
+    display: inline-block;
+    position: fixed;
+    top: 5vh;
+    right: 10%;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+  }
+}

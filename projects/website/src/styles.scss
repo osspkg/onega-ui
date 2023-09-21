@@ -1,6 +1,9 @@
 @import "../../../dist/icons/icons.css";
-@import "../../../projects/styles/src/themes/rainbow";
 @import "../../../projects/styles/src/index";
+@import "../../../projects/styles/src/themes/rainbow-soft";
 
-
-
+.demo-border {
+  border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
+  border-radius: 0;
+  gap: 0;
+}

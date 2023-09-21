@@ -2,9 +2,14 @@
   display: block;
 }
 
-.fix-menu-up {
-  position: fixed;
-  top: -13px;
-  left: 0;
-  z-index: 1;
+.active-route {
+  font-weight: bold;
+  text-decoration-line: underline overline;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 5px;
+}
+
+aside a {
+  text-transform: uppercase;
 }

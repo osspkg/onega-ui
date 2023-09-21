@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
+import { DialogService } from './dialog.service';
 import { EventsService } from './events.service';
 import { LocalStorageService } from './local-storage.service';
 import { API_PREFIX, RequestService } from './request.service';
@@ -24,6 +25,7 @@ export class CoreModule {
       { provide: EventsService },
       { provide: LocalStorageService },
       { provide: SessionStorageService },
+      { provide: DialogService },
     ];
 
     if (config) {
