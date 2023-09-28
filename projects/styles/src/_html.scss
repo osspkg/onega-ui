@@ -1,7 +1,7 @@
 @use "env";
 
 html {
-  font-size: var(--ong-font-size-normal);
+  font-size: var(--ong-font-size);
   font-family: var(--ong-font-family-sans-serif);
   line-height: var(--ong-line-height);
   text-rendering: optimizeLegibility;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DialogService } from '../../../../../core/src/lib/dialog.service';
+import { DialogService } from '../../../../../core/src/lib/services/dialog.service';
 import { LicenseComponent } from '../../license/license.component';
 import { Api, KeyValue } from './_api';
 

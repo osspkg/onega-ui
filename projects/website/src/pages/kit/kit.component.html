@@ -1,14 +1,14 @@
 <div class="row mt-2">
   <div class="col">
-    <div *ngFor="let item of list"
-         class="bq bq-secondary"
-         (click)="show(item)"
+    <a *ngFor="let item of list"
+         class="bq bq-secondary no-link box"
+         [ong-href]="'/kit/'+item.link.toLowerCase()"
          [class.bq-danger]="item.link === dataLink"
          aria-hidden="true"
          role="button"
     >
       {{item.link}}
-    </div>
+    </a>
   </div>
   <div class="col-9">
 

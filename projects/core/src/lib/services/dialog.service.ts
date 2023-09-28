@@ -8,7 +8,7 @@ import {
   Renderer2,
   RendererFactory2,
 } from '@angular/core';
-import { ComponentType } from './types';
+import { ComponentType } from '../types/component';
 
 export class DialogInstance<T> {
   private readonly render: Renderer2;
@@ -54,6 +54,7 @@ export class DialogService {
     this.render = rendererFactory2.createRenderer(appRef, null);
   }
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   open<T>(component: ComponentType<T>, context?:{ [key: string]: any }): DialogInstance<T> {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const componentRef = componentFactory.create(this.injector);
@@ -61,9 +62,11 @@ export class DialogService {
     if (context) {
       Object.entries(context).forEach(([key, value]) => {
         if (typeof value === 'function') {
+          // eslint-disable-next-line  @typescript-eslint/no-explicit-any
           (<any>componentRef.instance)[key].subscribe(value);
           return;
         }
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
         (<any>componentRef.instance)[key] = value;
       });
     }

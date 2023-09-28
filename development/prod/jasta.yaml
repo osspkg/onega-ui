@@ -2,7 +2,6 @@ domains:
   - onega-ui.osspkg.com
   - onega-ui.osspkg.ru
 root: /home/onegaui/www
-index_file: index.html
 page404: 404.html
-route404: /404.html
 assets_folder: /assets/
+single: false

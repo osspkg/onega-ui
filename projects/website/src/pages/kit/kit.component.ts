@@ -8,9 +8,11 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, take } from 'rxjs';
-import { ComponentType } from '../../../../core/src/lib/types';
+import { ComponentType } from '../../../../core/src/lib/types/component';
+import { compareString } from '../../../../core/src/lib/utils/compare';
 import { Api, KeyValue } from './models/_api';
 import { ModalDialogBook } from './models/modal-dialog';
 import { TabBook } from './models/tab';
@@ -43,18 +45,23 @@ export class KitComponent implements AfterViewInit, AfterViewChecked, OnDestroy 
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private changeDetectorRef: ChangeDetectorRef,
+    private title: Title,
   ) {
   }
 
   ngAfterViewInit() {
-    this.show(this.list[0]);
-    this.route.queryParams
-      .pipe(filter(params => params['api'] !== undefined), take(1))
+    this.route.params
+      .pipe(take(1))
       .subscribe(params => {
-        const item = this.list.filter(value => value.link === params['api']).pop();
-        this.show(item);
+        let api = params['id'];
+        if (api !== undefined) {
+          api = (api as string).replace(/--/gi, ' ');
+        } else {
+          api = this.list[0].link;
+        }
+        const item = this.list.filter(value => compareString(value.link, api)).pop();
+        this.show(item || this.list[0]);
       });
   }
 
@@ -62,14 +69,11 @@ export class KitComponent implements AfterViewInit, AfterViewChecked, OnDestroy 
     this.changeDetectorRef.detectChanges();
   }
 
-  show(item: ApiLink | undefined): void {
-    if (item === undefined) {
-      return;
-    }
+  show(item: ApiLink): void {
     this.ref?.destroy();
     this.ref = undefined;
 
-    this.router.navigate(['/kit'], { queryParams: { api: item.link }, replaceUrl: true });
+    this.title.setTitle(this.title.getTitle() + ' | ' + item.link);
 
     this.ref = this.demo.createComponent(item.component);
     this.ref.hostView.detectChanges();

@@ -1,5 +1,6 @@
 SHELL=/bin/bash
 DATE=$(shell date '+%Y-%m-%d')
+TEMPDIR=$(shell mktemp -d)
 
 setup_node:
 	@. ${NVM_DIR}/nvm.sh && nvm install && nvm use
@@ -7,19 +8,24 @@ setup_node:
 install:
 	yarn install --force --ignore-scripts
 
-start:
+start_dev:
 	yarn run start
+
+start_prod:
+	jasta --config=development/dev/config.yaml
 
 lint:
 	yarn run lint
 
 build:
 	yarn run build
-	@sed -i 's/\[CURR_UPDATE\]/$(DATE)/' dist/website/sitemap.xml
 
-deploy: build
+prerender:
+	jasta prerender
+
+deploy: build prerender
 	scp -r dist/website/* root@$(value ONEGA_UI_HOST):/home/onegaui/www/
-	scp development/jasta.yaml root@$(value ONEGA_UI_HOST):/etc/jasta/websites/onega-ui.yaml
+	scp development/prod/jasta.yaml root@$(value ONEGA_UI_HOST):/etc/jasta/websites/onega-ui.yaml
 	ssh root@$(value ONEGA_UI_HOST) 'systemctl restart jasta'
 
 new_project:
@@ -38,9 +44,9 @@ build_icons:
 	cp projects/icons/package.json dist/icons/package.json
 	cp dist/icons/icons.css dist/icons/icons.scss
 
-icons_release_fix: icons.patch build_icons icons.publish
+release_icons_fix: icons.patch build_icons icons.publish
 
-icons_release_new: icons.minor build_icons icons.publish
+release_icons_new: icons.minor build_icons icons.publish
 
 build_styles:
 	rm -rf dist/styles
@@ -50,9 +56,9 @@ build_styles:
 	cp projects/styles/README.md dist/styles/README.md
 	cp projects/styles/package.json dist/styles/package.json
 
-styles_release_fix: styles.patch build_styles styles.publish
+release_styles_fix: styles.patch build_styles styles.publish
 
-styles_release_new: styles.minor build_styles styles.publish
+release_styles_new: styles.minor build_styles styles.publish
 
 build_core: core.lint core.build
 
@@ -62,9 +68,9 @@ watch_core: core.watch
 
 watch_kit: kit.watch
 
-kit_release_fix: kit.lint kit.patch kit.build kit.publish
+release_kit_fix: kit.lint kit.patch kit.build kit.publish
 
-core_release_fix: core.fix
+release_core_fix: core.fix
 
 ######################################################################
 

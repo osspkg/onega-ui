@@ -1,0 +1,7 @@
+domains:
+  - localhost
+  - 127.0.0.1
+root: ./dist/website
+page404: 404.html
+assets_folder: /assets/
+single: true

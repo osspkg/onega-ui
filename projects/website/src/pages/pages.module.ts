@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from '../../../core/src/lib/core.module';
 import { KitModule } from '../../../kit/src/lib/kit.module';
 import { HomeComponent } from './home/home.component';
 import { HtmlTemplatePipe } from './icons/html-template.pipe';
@@ -30,6 +31,7 @@ import { StylesComponent } from './styles/styles.component';
   imports: [
     CommonModule,
     FormsModule,
+    CoreModule,
     KitModule,
     ApiKitModule,
   ],

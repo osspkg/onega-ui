@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent, title: '@Onega-UI | Home' },
   { path: 'icons', component: IconsComponent, title: '@Onega-UI | Icons' },
   { path: 'styles', component: StylesComponent, title: '@Onega-UI | Styles' },
+  { path: 'styles/:id', component: StylesComponent, title: '@Onega-UI | Styles' },
   { path: 'kit', component: KitComponent, title: '@Onega-UI | UI Kit' },
+  { path: 'kit/:id', component: KitComponent, title: '@Onega-UI | UI Kit' },
   { path: 'license', component: LicenseComponent, title: '@Onega-UI | License' },
   { path: '**', component: Page404Component, pathMatch: 'full' },
 ];

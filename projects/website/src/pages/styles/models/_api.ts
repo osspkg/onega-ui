@@ -1,6 +1,9 @@
+export interface KeyValue {
+  key: string;
+  value: string;
+}
 export interface Api {
-  link: string;
-  attributes: { [title: string]: string }
-  example: string;
-  demo: string;
+  attributes: KeyValue[];
+  exampleTS?: string;
+  exampleHTML?: string;
 }

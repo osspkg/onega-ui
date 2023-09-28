@@ -1,11 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
-import { DialogService } from './dialog.service';
-import { EventsService } from './events.service';
-import { LocalStorageService } from './local-storage.service';
-import { API_PREFIX, RequestService } from './request.service';
-import { SessionStorageService } from './session-storage.service';
-import { WebSocketService, WS_URI } from './web-socket.service';
+import { ActiveRouteDirective } from './directives/active-route.directive';
+import { HrefDirective } from './directives/href.directive';
+import { DialogService } from './services/dialog.service';
+import { EventsService } from './services/events.service';
+import { LocalStorageService } from './services/local-storage.service';
+import { API_PREFIX, RequestService } from './services/request.service';
+import { SessionStorageService } from './services/session-storage.service';
+import { WebSocketService, WS_URI } from './services/web-socket.service';
 
 export class Config {
   apiUri?:string;
@@ -15,6 +17,14 @@ export class Config {
 @NgModule({
   imports: [
     HttpClientModule,
+  ],
+  declarations: [
+    ActiveRouteDirective,
+    HrefDirective,
+  ],
+  exports:[
+    ActiveRouteDirective,
+    HrefDirective,
   ],
 })
 export class CoreModule {

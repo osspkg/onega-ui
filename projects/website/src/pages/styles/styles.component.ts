@@ -1,6 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { filter, take } from 'rxjs';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ComponentRef, OnDestroy,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
+import { ComponentType } from '../../../../core/src/lib/types/component';
+import { compareString } from '../../../../core/src/lib/utils/compare';
+import { KeyValue } from '../kit/models/_api';
 import { Api } from './models/_api';
 import { ArticleBook } from './models/article';
 import { BlockquotesBook } from './models/blockquotes';
@@ -15,47 +27,89 @@ import { TableBook } from './models/table';
 import { TextAlignBook } from './models/text-align';
 import { TextColorBook } from './models/text-color';
 
+export interface ApiLink {
+  link: string,
+  component: ComponentType<unknown>
+}
+
 @Component({
   selector: 'app-styles',
   templateUrl: './styles.component.html',
   styleUrls: ['./styles.component.scss'],
 })
-export class StylesComponent implements OnInit {
+export class StylesComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
-  list: Api[] = [
-    new BoxBook(),
-    new FlexGridBook(),
-    new FixGridBook(),
-    new ArticleBook(),
-    new TextAlignBook(),
-    new TextColorBook(),
-    new HeadingBook(),
-    new BlockquotesBook(),
-    new TableBook(),
-    new ContentInputBook(),
-    new DialogBook(),
-    new ButtonBook(),
+  list: ApiLink[] = [
+    { link: 'Box', component: BoxBook },
+    { link: 'Flex Grid', component: FlexGridBook },
+    { link: 'Fix Grid', component: FixGridBook },
+    { link: 'Article', component: ArticleBook },
+    { link: 'Text Align', component: TextAlignBook },
+    { link: 'Text Color', component: TextColorBook },
+    { link: 'Heading', component: HeadingBook },
+    { link: 'Blockquotes', component: BlockquotesBook },
+    { link: 'Table', component: TableBook },
+    { link: 'Content Input', component: ContentInputBook },
+    { link: 'Dialog', component: DialogBook },
+    { link: 'Button', component: ButtonBook },
   ];
 
-  data?: Api = this.list[0];
+  ref?: ComponentRef<unknown>;
+
+  dataLink = '';
+  dataAttributes: KeyValue[] = [];
+  dataExampleTS?: string = '';
+  dataExampleHTML?: string = '';
+
+  @ViewChild('demo', { read: ViewContainerRef }) demo!: ViewContainerRef;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    private changeDetectorRef: ChangeDetectorRef,
+    private title: Title,
   ) {
   }
 
-  ngOnInit() {
-    this.route.queryParams
-      .pipe(filter(params => params['api'] !== undefined), take(1))
+  ngAfterViewInit() {
+    this.route.params
+      .pipe(take(1))
       .subscribe(params => {
-        this.data = this.list.filter(value => value.link === params['api']).pop();
+        let api = params['id'];
+        if (api !== undefined) {
+          api = (api as string).replace(/--/gi, ' ');
+        } else {
+          api = this.list[0].link;
+        }
+        const item = this.list.filter(value => compareString(value.link, api)).pop();
+        this.show(item);
       });
   }
 
-  show(item: Api): void {
-    this.data = item;
-    this.router.navigate(['/styles'], { queryParams:{ api: item.link } });
+  ngAfterViewChecked() {
+    this.changeDetectorRef.detectChanges();
   }
 
+  show(item?: ApiLink): void {
+    if (item === undefined) {
+      return;
+    }
+
+    this.ref?.destroy();
+    this.ref = undefined;
+
+    this.title.setTitle(this.title.getTitle() + ' | ' + item.link);
+
+    this.ref = this.demo.createComponent(item.component);
+    this.ref.hostView.detectChanges();
+
+    this.dataLink = item.link;
+    this.dataAttributes = (this.ref.instance as Api).attributes;
+    this.dataExampleTS = (this.ref.instance as Api).exampleTS;
+    this.dataExampleHTML = (this.ref.instance as Api).exampleHTML;
+  }
+
+  ngOnDestroy() {
+    this.ref?.destroy();
+    this.ref = undefined;
+  }
 }

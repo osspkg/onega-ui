@@ -1,7 +1,8 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable, of, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { delay, distinct, filter, finalize, map, take, takeUntil, takeWhile } from 'rxjs/operators';
-import { initialize, uniqueString } from './utils';
+import { initialize } from '../utils/initialize';
+import { randomString } from '../utils/random';
 
 export const WS_URI = new InjectionToken<string>('WS_URI');
 
@@ -56,7 +57,7 @@ export class WebSocketService {
   }
 
   sendMessage(e: number, d?: unknown): Observable<WebSocketMessage> {
-    const u = uniqueString(8);
+    const u = randomString(8);
     this.request$.next(<WebSocketMessage>{ e, d: d ? d : null, u });
     const sub$ = of(0).pipe(delay(5000), take(1));
     sub$.subscribe();

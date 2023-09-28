@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CoreModule } from '../../../../../core/src/lib/core.module';
 import { KitModule } from '../../../../../kit/src/lib/kit.module';
 import { ModalDialogBook } from './modal-dialog';
 import { TabBook } from './tab';
@@ -11,7 +10,6 @@ import { TabBook } from './tab';
   ],
   imports: [
     KitModule,
-    CoreModule,
   ],
 })
 export class ApiKitModule { }

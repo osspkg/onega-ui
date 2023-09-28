@@ -1,0 +1,9 @@
+env: dev
+level: 4
+log: /dev/stdout
+
+http:
+    main:
+        addr: 127.0.0.1:4300
+
+websites: development/dev/websites
