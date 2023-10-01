@@ -6,14 +6,14 @@ import { Api, KeyValue } from './_api';
   selector: 'app-FlexGridBook-book',
   template: `
     <div class="row">
-      <div class="col box demo-border">.col</div>
-      <div class="col box demo-border">.col</div>
+      <div class="col box x">.col</div>
+      <div class="col box x">.col</div>
     </div>
     <div class="row">
-      <div class="col box demo-border">.col</div>
-      <div class="col box demo-border">.col</div>
-      <div class="col box demo-border">.col</div>
-      <div class="col box demo-border">.col</div>
+      <div class="col box x">.col</div>
+      <div class="col box x">.col</div>
+      <div class="col box x">.col</div>
+      <div class="col box x">.col</div>
     </div>
   `,
 })

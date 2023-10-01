@@ -1,0 +1,15 @@
+:host{
+  display: block;
+  border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
+  border-radius: var(--ong-radius-size);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+}
+
+li {
+  display:inline;
+  cursor: auto;
+}
+
+li > input {
+  border: 1px solid transparent;
+}

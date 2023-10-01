@@ -48,6 +48,7 @@ import { CoreModule } from '@onega-ui/core';
   --ong-base-size: 1rem;
   --ong-radius-size: .75rem;
   --ong-line-size: 1px;
+  --ong-opacity: .55;
 
   --ong-margin-x-size: calc(var(--ong-base-size) * .75);
   --ong-margin-y-size: calc(var(--ong-base-size) * .5);
@@ -58,6 +59,7 @@ import { CoreModule } from '@onega-ui/core';
   --ong-font-family-monospace: "Ubuntu Mono", Consolas, "Courier New", monospace;
   --ong-font-weight: bolder;
   --ong-line-height: 1.2;
+  --ong-font-size: var(--ong-base-size);
 }
   `;
 

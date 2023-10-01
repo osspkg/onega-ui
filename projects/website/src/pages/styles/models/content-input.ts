@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Api, KeyValue } from './_api';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'app-ContentInputBook-book',
   template: `
     <div class="box">
@@ -24,20 +25,25 @@ import { Api, KeyValue } from './_api';
     </div>
     <div class="box">
       Check:
-      <div>
-        <input type="checkbox" checked="checked" id="demo-check-1">
-        <label for="demo-check-1">checked</label>
-
-        <input type="checkbox" id="demo-check-2">
-        <label for="demo-check-2">not checked</label>
-
-        <input type="checkbox" id="demo-check-2" checked="checked" disabled>
-        <label for="demo-check-2">disabled</label>
+      <div class="r">
+        <div class="c4">
+          <input type="checkbox" checked="checked" id="demo-check-1">
+          <label for="demo-check-1">checked</label>
+        </div>
+        <div class="c4">
+          <input type="checkbox" id="demo-check-2">
+          <label for="demo-check-2">not checked</label>
+        </div>
+        <div class="c4">
+          <input type="checkbox" id="demo-check-2" checked="checked" disabled>
+          <label for="demo-check-2">disabled</label>
+        </div>
       </div>
 
     </div>
   `,
 })
+// eslint-disable-next-line @angular-eslint/component-class-suffix
 export class ContentInputBook implements Api {
 
   attributes : KeyValue[] = [
