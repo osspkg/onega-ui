@@ -5,9 +5,9 @@ import { Api, KeyValue } from './_api';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'app-TextAlignBook-book',
   template: `
-    <div class="ta-l box demo-border">.ta-l</div>
-    <div class="ta-c box demo-border">.ta-c</div>
-    <div class="ta-r box demo-border">.ta-r</div>
+    <div class="ta-l box x">.ta-l</div>
+    <div class="ta-c box x">.ta-c</div>
+    <div class="ta-r box x">.ta-r</div>
   `,
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
@@ -18,9 +18,9 @@ export class TextAlignBook implements Api {
   ];
 
   exampleHTML = `
-<div class="ta-l box demo-border">.ta-l</div>
-<div class="ta-c box demo-border">.ta-c</div>
-<div class="ta-r box demo-border">.ta-r</div>
+<div class="ta-l box x">.ta-l</div>
+<div class="ta-c box x">.ta-c</div>
+<div class="ta-r box x">.ta-r</div>
   `;
 
 }

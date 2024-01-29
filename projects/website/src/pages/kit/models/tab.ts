@@ -4,7 +4,7 @@ import { Api, KeyValue } from './_api';
 @Component({
   selector: 'app-tab-book',
   template: `
-    <ong-tabs [tabColor]="'danger'" [tabStyle]="'btn'" [tabDefault]="'Example Tab 2'" (tabSwitch)="console.log($event)">
+    <ong-tabs [color]="'danger'" [style]="'btn'" [byDefault]="'Example Tab 2'" (change)="console.log($event)">
       <ng-template ong-tab-name="Example Tab 1">
         <div>Tab1</div>
       </ng-template>
@@ -22,7 +22,7 @@ import { Api, KeyValue } from './_api';
       </ng-template>
     </ong-tabs>
 
-    <ong-tabs [tabColor]="'danger'" [tabStyle]="'line'">
+    <ong-tabs [color]="'danger'" [style]="'line'">
       <ng-template ong-tab-name="Example Tab 1">
         <div>Tab1</div>
       </ng-template>
@@ -46,14 +46,14 @@ export class TabBook implements Api {
   attributes: KeyValue[] = [
     { key: 'ong-tabs', value: 'base tag' },
     { key: 'ong-tab-name="..."', value: 'attribute with tab name' },
-    { key: '[tabColor]', value: 'setup tab color: [light, secondary, warning, danger, success, info, primary, dark]' },
-    { key: '[tabStyle]', value: 'setup tab style: [btn, line]' },
-    { key: '[tabDefault]', value: 'setup default tab' },
-    { key: '(tabSwitch)', value: 'event tab change' },
+    { key: '[color]', value: 'setup tab color: [light, secondary, warning, danger, success, info, primary, dark]' },
+    { key: '[style]', value: 'setup tab style: [btn, line]' },
+    { key: '[byDefault]', value: 'setup default tab' },
+    { key: '(change)', value: 'event tab change' },
   ];
 
   exampleHTML = `
-<ong-tabs [tabColor]="'danger'" [tabStyle]="'btn'" [tabDefault]="'Example Tab 2'" (tabSwitch)="callback($event)">
+<ong-tabs [color]="'danger'" [style]="'btn'" [byDefault]="'Example Tab 2'" (change)="callback($event)">
   <ng-template ong-tab-name="Example Tab 1">
     <div>Tab1</div>
   </ng-template>

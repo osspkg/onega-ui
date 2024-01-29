@@ -21,12 +21,12 @@ build:
 	yarn run build
 
 prerender:
-	jasta prerender
+	jasta prerender --config=development/dev/config.yaml
 
 deploy: build prerender
-	scp -r dist/website/* root@$(value ONEGA_UI_HOST):/home/onegaui/www/
-	scp development/prod/jasta.yaml root@$(value ONEGA_UI_HOST):/etc/jasta/websites/onega-ui.yaml
-	ssh root@$(value ONEGA_UI_HOST) 'systemctl restart jasta'
+	scp -r dist/website/* root@$(value STATIC_HOST):/home/onegaui/www/
+	scp development/prod/jasta.yaml root@$(value STATIC_HOST):/etc/jasta/websites/onega-ui.yaml
+	ssh root@$(value STATIC_HOST) 'systemctl restart jasta'
 
 new_project:
 	@read -p "Enter Project Name: " LIB && \

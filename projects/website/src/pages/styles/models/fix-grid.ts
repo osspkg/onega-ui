@@ -6,14 +6,14 @@ import { Api, KeyValue } from './_api';
   selector: 'app-FixGridBook-book',
   template: `
     <div class="row">
-      <div class="col-2 box demo-border">.col-2</div>
-      <div class="col-6 box demo-border">.col-6</div>
+      <div class="col-2 box x">.col-2</div>
+      <div class="col-6 box x">.col-6</div>
     </div>
     <div class="row">
-      <div class="col-2 box demo-border">.col-2</div>
-      <div class="col-3 box demo-border">.col-3</div>
-      <div class="col-5 box demo-border">.col-5</div>
-      <div class="col-2 box demo-border">.col-2</div>
+      <div class="col-2 box x">.col-2</div>
+      <div class="col-3 box x">.col-3</div>
+      <div class="col-5 box x">.col-5</div>
+      <div class="col-2 box x">.col-2</div>
     </div>
   `,
 })

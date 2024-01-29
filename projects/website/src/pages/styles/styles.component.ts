@@ -14,6 +14,7 @@ import { ComponentType } from '../../../../core/src/lib/types/component';
 import { compareString } from '../../../../core/src/lib/utils/compare';
 import { KeyValue } from '../kit/models/_api';
 import { Api } from './models/_api';
+import { AreaBook } from './models/area';
 import { ArticleBook } from './models/article';
 import { BlockquotesBook } from './models/blockquotes';
 import { BoxBook } from './models/box';
@@ -23,6 +24,7 @@ import { DialogBook } from './models/dialog';
 import { FixGridBook } from './models/fix-grid';
 import { FlexGridBook } from './models/flex-grid';
 import { HeadingBook } from './models/heading';
+import { IndentationBook } from './models/indentation';
 import { TableBook } from './models/table';
 import { TextAlignBook } from './models/text-align';
 import { TextColorBook } from './models/text-color';
@@ -40,7 +42,9 @@ export interface ApiLink {
 export class StylesComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   list: ApiLink[] = [
+    { link: 'Area', component: AreaBook },
     { link: 'Box', component: BoxBook },
+    { link: 'Indentation', component: IndentationBook },
     { link: 'Flex Grid', component: FlexGridBook },
     { link: 'Fix Grid', component: FixGridBook },
     { link: 'Article', component: ArticleBook },

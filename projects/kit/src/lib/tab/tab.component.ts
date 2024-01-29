@@ -36,10 +36,10 @@ export class TabComponent implements AfterContentInit, AfterViewChecked, AfterVi
 
   tabs: TabItem[] = [];
 
-  @Input() tabDefault = '';
-  @Input() tabColor: Color = 'secondary';
-  @Input() tabStyle: TabStyle = 'btn';
-  @Output() tabSwitch: EventEmitter<string> = new EventEmitter<string>();
+  @Input() byDefault = '';
+  @Input() color: Color = 'secondary';
+  @Input() style: TabStyle = 'btn';
+  @Output() switch: EventEmitter<string> = new EventEmitter<string>();
   @ViewChild('content', { static: false }) out!: ElementRef;
   @ContentChildren(TabDirective) contents!: QueryList<TabDirective>;
 
@@ -59,26 +59,26 @@ export class TabComponent implements AfterContentInit, AfterViewChecked, AfterVi
       this.tabs.push({ active: false, name: item.tab });
     });
 
-    const hasTab = this.tabs.filter(value => value.name === this.tabDefault).length > 0;
+    const hasTab = this.tabs.filter(value => value.name === this.byDefault).length > 0;
     if (!hasTab) {
-      this.tabDefault = (this.tabs.flatMap((v) => v).shift() || { name: '' }).name;
+      this.byDefault = (this.tabs.flatMap((v) => v).shift() || { name: '' }).name;
     }
 
     this.changes$ = this.contents.changes.subscribe((list: QueryList<TabDirective>) => {
       this.tabs = [];
       list.forEach(item => {
-        this.tabs.push({ name: item.tab, active: item.tab === this.tabDefault });
+        this.tabs.push({ name: item.tab, active: item.tab === this.byDefault });
       });
       const hasActive = this.tabs.filter(value => value.active).length > 0;
       if (!hasActive) {
-        this.tabDefault = (this.tabs.flatMap((v) => v).shift() || { name: '' }).name;
-        this.setTab({ name: this.tabDefault, active: false });
+        this.byDefault = (this.tabs.flatMap((v) => v).shift() || { name: '' }).name;
+        this.setTab({ name: this.byDefault, active: false });
       }
     });
   }
 
   ngAfterViewInit() {
-    this.setTab({ name: this.tabDefault, active: false });
+    this.setTab({ name: this.byDefault, active: false });
   }
 
   ngAfterViewChecked() {
@@ -107,8 +107,8 @@ export class TabComponent implements AfterContentInit, AfterViewChecked, AfterVi
       this.embeddedViewRef.rootNodes.forEach(value => {
         this.renderer2.appendChild(this.out.nativeElement, value);
       });
-      this.tabDefault = item.tab;
-      this.tabSwitch.emit(item.tab);
+      this.byDefault = item.tab;
+      this.switch.emit(item.tab);
     });
   }
 }

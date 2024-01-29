@@ -25,7 +25,7 @@
       </table>
 
       <h5 class="mt-1">Example:</h5>
-      <ong-tabs [tabColor]="'info'" [tabStyle]="'line'" [tabDefault]="'TS'">
+      <ong-tabs [color]="'info'" [style]="'line'" [byDefault]="'TS'">
         <ng-template ong-tab-name="TS" *ngIf="dataExampleTS">
           <div class="code wrap">{{dataExampleTS}}</div>
         </ng-template>
@@ -38,7 +38,7 @@
 
     </ng-container>
 
-    <div class="m-1">
+    <div class="mt-1">
       <ng-template #demo></ng-template>
     </div>
 

@@ -8,14 +8,17 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import { filter, take } from 'rxjs';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 import { ComponentType } from '../../../../core/src/lib/types/component';
 import { compareString } from '../../../../core/src/lib/utils/compare';
 import { Api, KeyValue } from './models/_api';
+import { MenuvBook } from './models/menuv';
 import { ModalDialogBook } from './models/modal-dialog';
+import { RoutesBook } from './models/routes';
 import { TabBook } from './models/tab';
+import { TagBook } from './models/tag';
 
 export interface ApiLink {
   link: string,
@@ -30,8 +33,11 @@ export interface ApiLink {
 export class KitComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   list: ApiLink[] = [
-    { link: 'Tabs', component: TabBook },
+    { link: 'Routes', component: RoutesBook },
     { link: 'Dialog', component: ModalDialogBook },
+    { link: 'Menu Vertical', component: MenuvBook },
+    { link: 'Tabs', component: TabBook },
+    { link: 'Tags', component: TagBook },
   ];
 
   ref?: ComponentRef<unknown>;

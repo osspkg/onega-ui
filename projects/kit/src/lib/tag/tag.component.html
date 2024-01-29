@@ -1,0 +1,13 @@
+<ul tabindex="-1" (focus)="onFocus()">
+  <li *ngFor="let item of values; let i = index">
+    <span class="btn btn-xs mr-1" (dblclick)="removeElement(i)">{{ item }}</span>
+  </li>
+  <li *ngIf="!disable">
+    <input #element
+           type="text"
+           tabindex="0"
+           [(ngModel)]="data"
+           (keydown)="onKeyDown($event)"
+    >
+  </li>
+</ul>

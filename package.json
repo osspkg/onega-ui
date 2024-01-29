@@ -49,9 +49,9 @@
     "eslint": "^8.47.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-import": "^2.0.0",
+    "fs.notify": "^0.0.4",
     "ng-packagr": "^16.2.2",
     "typescript": "~5.1.0",
-    "fs.notify": "^0.0.4",
     "webfont": "^11.2.26"
   }
 }
