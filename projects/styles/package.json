@@ -1,6 +1,6 @@
 {
   "name": "@onega-ui/styles",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Onega UI Styles",
   "author": "OSSPkg Team <github@osspkg.com> (https://github.com/osspkg)",
   "maintainers": [
@@ -31,6 +31,10 @@
       "sass": "./themes/rainbow.scss",
       "style": "./themes/rainbow.css"
     },
+    "./themes/rainbow-soft": {
+      "sass": "./themes/rainbow-soft.scss",
+      "style": "./themes/rainbow-soft.css"
+    },
     "./themes/summer": {
       "sass": "./themes/summer.scss",
       "style": "./themes/summer.css"
@@ -42,6 +46,18 @@
     "./themes/twilight": {
       "sass": "./themes/twilight.scss",
       "style": "./themes/twilight.css"
+    },
+    "./themes/colorful": {
+      "sass": "./themes/colorful.scss",
+      "style": "./themes/colorful.css"
+    },
+    "./themes/forest": {
+      "sass": "./themes/forest.scss",
+      "style": "./themes/forest.css"
+    },
+    "./themes/raspberry": {
+      "sass": "./themes/raspberry.scss",
+      "style": "./themes/raspberry.css"
     },
     "./package.json": {
       "default": "./package.json"
