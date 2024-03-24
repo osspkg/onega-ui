@@ -2,7 +2,48 @@
 @import "../../../projects/styles/src/index";
 @import "../../../projects/styles/src/themes/colorful";
 
-
 .x {
-  border: 1px lightgray dotted;
+  border: 1px dotted lightgray;
+  &x {
+    border: 1px dotted lightgray;
+    padding: 1rem;
+    width: max-content;
+    height: max-content;
+    text-align: center;
+  }
 }
+
+.demo {
+  &-name {
+    margin-bottom: 1rem;
+  }
+
+  &-desc {
+    margin: 1rem;
+  }
+
+  &-end {
+    margin-bottom: 2rem;
+  }
+
+  &-view {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #fafafc;
+    background-color: #fafafc;
+  }
+
+  &-html, &-code {
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+  }
+
+  &-attr {
+    margin-bottom: 1rem;
+    border-radius: 0.9rem;
+  }
+}
+

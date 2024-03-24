@@ -8,11 +8,12 @@ import { HtmlTemplatePipe } from './icons/html-template.pipe';
 import { IconsComponent } from './icons/icons.component';
 import { TextFilterPipe } from './icons/text-filter.pipe';
 import { KitComponent } from './kit/kit.component';
-import { ApiKitModule } from './kit/models/api-kit.module';
+import { CompModule } from './kit/models/module';
 import { LicenseComponent } from './license/license.component';
 import { Page404Component } from './page404/page404.component';
 import { Map2SlicePipe } from './root/pipes/map-2-slice.pipe';
 import { SafeHtmlPipe } from './root/pipes/safe-html.pipe';
+import { StyleModule } from './styles/models/module';
 import { StylesComponent } from './styles/styles.component';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { StylesComponent } from './styles/styles.component';
     FormsModule,
     CoreModule,
     KitModule,
-    ApiKitModule,
+    CompModule,
+    StyleModule,
   ],
   exports: [
     HomeComponent,

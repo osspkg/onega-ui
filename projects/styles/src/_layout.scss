@@ -1,0 +1,490 @@
+@use "sass:math";
+@use "env";
+
+/*
+@name Display
+@desc Defines how an element is displayed on a page.
+@group Layout
+@prop d-hidden := A hidden element is not visible and does not allocate space.
+@prop d-block := A block element starts on a new line.
+@prop d-block-inline := Inline block is similar to an inline element but properties like width, height and top bottom paddings/margins are respected.
+@prop d-inline := An inline element does not start on a new line and allocates width as necessary.
+@prop d-flex := Displays the element as a block level flex container.
+@prop d-flex-inline := Displays the element as an inline level flex container.
+*/
+@include env.media("d-") {
+  &hidden {
+    display: none;
+  }
+
+  &block {
+    display: block;
+
+    &-inline {
+      display: inline-block;
+    }
+  }
+
+  &inline {
+    display: inline;
+  }
+
+  &flex {
+    display: flex;
+
+    &-inline {
+      display: inline-flex;
+    }
+  }
+}
+
+/*
+@name Position
+@desc Specifies how an element is positioned on the screen.
+@group Position
+@prop p-static := The element is positioned according to the Normal Flow of the document. The top, right, bottom, left, and z-index properties have no effect. This is the default value.
+@prop p-fixed := The element is removed from the normal document flow, and no space is created for the element in the page layout. The element is positioned relative to its initial containing block, which is the viewport in the case of visual media. Its final position is determined by the values of top, right, bottom, and left.
+@prop p-relative := The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were static.
+@prop p-absolute := The element is removed from the normal document flow, and no space is created for the element in the page layout. The element is positioned relative to its closest positioned ancestor (if any) or to the initial containing block. Its final position is determined by the values of top, right, bottom, and left.
+@prop p-sticky := The element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block (nearest block-level ancestor), including table-related elements, based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements.
+@html
+  <div class="p-relative x">
+    <div class="p-relative x">p-relative</div>
+    <div class="p-static x" style="top: 0;">p-static</div>
+    <div class="p-absolute x" style="bottom: 10px; right:0; width: 100px;">p-absolute</div>
+  </div>
+*/
+@include env.media("p-") {
+  &static {
+    position: static;
+  }
+
+  &fixed {
+    position: fixed;
+  }
+
+  &relative {
+    position: relative;
+  }
+
+  &absolute {
+    position: absolute;
+  }
+
+  &sticky {
+    position: sticky;
+  }
+}
+
+/*
+@name Flex Position
+@desc Specifies how an element is positioned on the screen.
+@group Layout
+@prop d-flex-row := The main axis is the same as the text orientation, defaulting to left to right. If dir is set to rtl, then the axis direction is from right to left.
+@prop d-flex-col := The main axis is located vertically and directed from top to bottom.
+@prop d-flex-wrap := Flexes are arranged in several lines, their direction is specified by the flex-direction property.
+@prop d-flex-nowrap := Flexes line up in one line.
+@prop d-flex-x-start := Flexes are pressed to the beginning of the line.
+@prop d-flex-x-end := Flexes are pressed to the end of the line.
+@prop d-flex-x-center := Flex lines are aligned to the center of the line.
+@prop d-flex-x-space-between := Flexes are evenly distributed throughout the line. The first and last element are pressed against the corresponding edges of the container.
+@prop d-flex-x-space-around := Flexes are evenly distributed throughout the line. The empty space before the first and after the last element is equal to half the space between two adjacent elements.
+@prop d-flex-x-space-evenly := Flexes are distributed so that the distance between any two adjacent elements, as well as before the first and after the last, is the same.
+@prop d-flex-y-start := Flexes are aligned at the beginning of the transverse axis of the container.
+@prop d-flex-y-end := The flexes are aligned at the end of the transverse axis of the container.
+@prop d-flex-y-center := Flexes are aligned along the transverse axis.
+@prop d-flex-y-baseline := Flexes are aligned to their baseline.
+@prop d-flex-y-stretch := Flexes are stretched in such a way as to occupy all the available space of the container.
+@prop d-flex-self-start := The element is aligned at the origin of the container's transverse axis.
+@prop d-flex-self-end := The element is aligned at the end of the container's transverse axis.
+@prop d-flex-self-center := The element is aligned to the centerline on the cross axis.
+@prop d-flex-self-baseline := The element is aligned to the text baseline.
+@prop d-flex-self-stretch := The element is stretched in such a way as to occupy all the free space of the container along the transverse axis.
+@prop d-flex-content-start := The lines are located at the beginning of the transverse axis. Each next line is flush with the previous one.
+@prop d-flex-content-end := The lines are located starting from the end of the transverse axis. Each previous line is flush with the next.
+@prop d-flex-content-center := The lines are located in the center of the container.
+@prop d-flex-content-stretch := The lines stretch evenly to fill the available space.
+@prop d-flex-content-space-between := The lines are evenly distributed in the container and the distance between them is the same.
+@prop d-flex-content-space-around := The lines are evenly spaced so that the space between two adjacent lines is the same. The empty space before the first line and after the last line is equal to half the space between two adjacent lines.
+@prop d-flex-content-space-evenly := The lines are distributed evenly. The white space before the first line and after the last line is the same width as the other lines.
+@html
+  d-flex-row
+  <div class="d-flex d-flex-row">
+    <div class="xx">1</div>
+    <div class="xx">2</div>
+    <div class="xx">3</div>
+  </div>
+
+  d-flex-col
+  <div class="d-flex d-flex-col">
+    <div class="xx">1</div>
+    <div class="xx">2</div>
+    <div class="xx">3</div>
+  </div>
+
+  d-flex-x-end
+  <div class="d-flex d-flex-x-end">
+    <div class="xx">1</div>
+    <div class="xx">2</div>
+    <div class="xx">3</div>
+  </div>
+
+  d-flex-x-space-between
+  <div class="d-flex d-flex-x-space-between">
+    <div class="xx">1</div>
+    <div class="xx">2</div>
+    <div class="xx">3</div>
+  </div>
+
+  d-flex-x-space-around
+  <div class="d-flex d-flex-x-space-around">
+    <div class="xx">1</div>
+    <div class="xx">2</div>
+    <div class="xx">3</div>
+  </div>
+
+  d-flex-x-space-evenly
+  <div class="d-flex d-flex-x-space-evenly">
+    <div class="xx">1</div>
+    <div class="xx">2</div>
+    <div class="xx">3</div>
+  </div>
+*/
+.d-flex {
+  &-row {
+    flex-direction: row;
+  }
+
+  &-col {
+    flex-direction: column;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &-x-start {
+    justify-content: flex-start;
+  }
+
+  &-x-end {
+    justify-content: flex-end;
+  }
+
+  &-x-center {
+    justify-content: center;
+  }
+
+  &-x-space-between {
+    justify-content: space-between;
+  }
+
+  &-x-space-around {
+    justify-content: space-around;
+  }
+
+  &-x-space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &-y-start {
+    align-items: flex-start;
+  }
+
+  &-y-end {
+    align-items: flex-end;
+  }
+
+  &-y-center {
+    align-items: center;
+  }
+
+  &-y-baseline {
+    align-items: baseline;
+  }
+
+  &-y-stretch {
+    align-items: stretch;
+  }
+
+  &-self-start {
+    align-self: flex-start;
+  }
+
+  &-self-end {
+    align-self: flex-end;
+  }
+
+  &-self-center {
+    align-self: center;
+  }
+
+  &-self-baseline {
+    align-self: baseline;
+  }
+
+  &-self-stretch {
+    align-self: stretch;
+  }
+
+  &-content-start {
+    align-content: flex-start;
+  }
+
+  &-content-end {
+    align-content: flex-end;
+  }
+
+  &-content-center {
+    align-content: center;
+  }
+
+  &-content-stretch {
+    align-content: stretch;
+  }
+
+  &-content-space-between {
+    align-content: space-between;
+  }
+
+  &-content-space-around {
+    align-content: space-around;
+  }
+
+  &-content-space-evenly {
+    align-content: space-evenly;
+  }
+}
+
+/*
+@name Top / Right / Bottom / Left
+@desc Controls the vertical and horizontal position of a positioned element.
+@group Position
+@prop p-top := Top position - auto.
+@prop p-top-0 := Top position - 0%.
+@prop p-top-50 := Top position - 50%.
+@prop p-top-100 := Top position - 100%.
+@prop p-bottom := Bottom position - auto.
+@prop p-bottom-0 := Bottom position - 0%.
+@prop p-bottom-50 := Bottom position - 50%.
+@prop p-bottom-100 := Bottom position - 100%.
+@prop p-right := Right position - auto.
+@prop p-right-0 := Right position - 0%.
+@prop p-right-50 := Right position - 50%.
+@prop p-right-100 := Right position - 100%.
+@prop p-left := Left position - auto.
+@prop p-left-0 := Left position - 0%.
+@prop p-left-50 := Left position - 50%.
+@prop p-left-100 := Left position - 100%.
+*/
+@include env.media("p-") {
+  &top {
+    top: auto;
+
+    &-0 {
+      top: 0;
+    }
+
+    &-50 {
+      top: 50%;
+    }
+
+    &-100 {
+      top: 100%;
+    }
+  }
+
+  &bottom {
+    bottom: auto;
+
+    &-0 {
+      bottom: 0;
+    }
+
+    &-50 {
+      bottom: 50%;
+    }
+
+    &-100 {
+      bottom: 100%;
+    }
+  }
+
+  &right {
+    right: auto;
+
+    &-0 {
+      right: 0;
+    }
+
+    &-50 {
+      right: 50%;
+    }
+
+    &-100 {
+      right: 100%;
+    }
+  }
+
+  &left {
+    left: auto;
+
+    &-0 {
+      left: 0;
+    }
+
+    &-50 {
+      left: 50%;
+    }
+
+    &-100 {
+      left: 100%;
+    }
+  }
+}
+
+/*
+@name Z-Index
+@desc Defines the stack order of an element.
+@group Z Index
+@prop zi-auto := z-index: auto
+@prop zi-max := z-index: 999999
+@prop zi-0...10 := z-index: 0...10
+*/
+@include env.media("zi-") {
+  @for $i from 0 through 10 {
+    &#{$i} {
+      z-index: #{$i};
+    }
+  }
+  &auto {
+    z-index: auto;
+  }
+  &max {
+    z-index: 999999;
+  }
+}
+
+/*
+@name Overflow
+@desc Controls the behavior when content exceeds the area of its container.
+@group Overflow
+@prop overflow-auto := A vertical scrollbar is only displayed when the content does not fit the area.
+@prop overflow-hidden := Overflown content is clipped and rest of the content will not be visible.
+@prop overflow-scroll := A vertical scrollbar is always displayed whether the content overflows or not.
+*/
+@include env.media("overflow-") {
+  &hidden {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  &auto {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  &scroll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+/*
+@name Margin / Padding
+@desc Specifies the space between the content and its border and controls the space around an element.
+@group Spacing
+@prop m-0...8 := Margin 0...8.
+@prop mt-0...8 := Margin top 0...8.
+@prop mb-0...8 := Margin bottom 0...8.
+@prop ml-0...8 := Margin left 0...8.
+@prop mr-0...8 := Margin right 0...8.
+@prop p-0...8 := Padding 0...8.
+@prop pt-0...8 := Padding top 0...8.
+@prop pb-0...8 := Padding bottom 0...8.
+@prop pl-0...8 := Padding left 0...8.
+@prop pr-0...8 := Padding right 0...8.
+@html
+  <div class="d-flex">
+    <div class="xx mt-1">mt-1</div>
+    <div class="xx ml-3">ml-3</div>
+    <div class="xx pt-5">pt-5</div>
+  </div>
+*/
+@for $i from 0 through 8 {
+  .m-#{$i} {
+    margin: calc(var(--ong-base-size) * $i) !important;
+  }
+  .p-#{$i} {
+    padding: calc(var(--ong-base-size) * $i) !important;
+  }
+  @each $prefix, $value in env.$ong-position-prefix {
+    .m#{$prefix}-#{$i} {
+      margin-#{$value}: calc(var(--ong-base-size) * $i) !important;
+    }
+    .p#{$prefix}-#{$i} {
+      padding-#{$value}: calc(var(--ong-base-size) * $i) !important;
+    }
+  }
+}
+
+
+/*
+@name Block sizes
+@group Sizing
+@prop w-content := Adjust the block size to match the width of the content.
+@prop w-screen := Adjust the block size to match the width of the screen.
+@prop w-full := Set block size to 100% width.
+@prop w-half := Set block size to 100% width.
+@prop w-5...95 := Set the block size to 5%...95% of the width in 5% increments.
+@prop w-1rem...30rem := Set the block size to 1rem...30rem of the width in 1rem increments.
+@prop h-content := Adjust the block size to match the height of the content.
+@prop h-screen := Adjust the block size to match the height of the screen.
+@prop h-full := Set block size to 100% height.
+@prop h-half := Set block size to 100% height.
+@prop h-5...95 := Set the block size to 5%...95% of the height in 5% increments.
+@prop h-1rem...30rem := Set the block size to 1rem...30rem of the height in 1rem increments.
+@html
+  <div class="d-block">
+    <div class="box box-info w-content">w-content</div>
+    <div class="box box-info w-content">text text text text text text</div>
+    <div class="box box-info">text text text<br>text text text</div>
+  </div>
+
+  <div class="d-flex mt-1">
+    <div class="box box-info w-half">w-half</div>
+    <div class="box box-info w-full">w-full</div>
+    <div class="box box-info w-10">w-10</div>
+  </div>
+
+  <div class="d-flex mt-1">
+    <div class="box box-info w-10">w-10</div>
+    <div class="box box-info w-55">w-55</div>
+  </div>
+*/
+@include env.media("w-") {
+  &content{width: fit-content !important;}
+  &full{width: 100% !important;}
+  &screen{width: 100vw !important;}
+  &half{width: 50% !important;}
+  @for $i from 1 through 19 {
+    &#{math.ceil(5*$i)}{width: #{math.ceil(5%*$i)} !important;}
+  }
+  @for $i from 1 through 30 {
+    &#{$i}rem{width: #{math.ceil(1rem*$i)} !important;}
+  }
+}
+@include env.media("h-") {
+  &content{height: fit-content !important;}
+  &full{height: 100% !important;}
+  &screen{height: 100vh !important;}
+  &half{height: 50% !important;}
+  @for $i from 1 through 19 {
+    &#{math.ceil(5*$i)}{height: #{math.ceil(5%*$i)} !important;}
+  }
+  @for $i from 1 through 30 {
+    &#{$i}rem{height: #{math.ceil(1rem*$i)} !important;}
+  }
+}

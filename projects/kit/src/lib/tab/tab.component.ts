@@ -15,7 +15,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Color } from '../envs';
+import { TColor } from '../envs';
 import { TabDirective } from './tab.directive';
 
 export type TabStyle = 'btn' | 'line';
@@ -37,9 +37,9 @@ export class TabComponent implements AfterContentInit, AfterViewChecked, AfterVi
   tabs: TabItem[] = [];
 
   @Input() byDefault = '';
-  @Input() color: Color = 'secondary';
+  @Input() color: TColor = 'secondary';
   @Input() style: TabStyle = 'btn';
-  @Output() switch: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onSwitch: EventEmitter<string> = new EventEmitter<string>();
   @ViewChild('content', { static: false }) out!: ElementRef;
   @ContentChildren(TabDirective) contents!: QueryList<TabDirective>;
 
@@ -108,7 +108,7 @@ export class TabComponent implements AfterContentInit, AfterViewChecked, AfterVi
         this.renderer2.appendChild(this.out.nativeElement, value);
       });
       this.byDefault = item.tab;
-      this.switch.emit(item.tab);
+      this.onSwitch.emit(item.tab);
     });
   }
 }

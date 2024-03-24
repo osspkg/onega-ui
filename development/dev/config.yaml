@@ -1,6 +1,8 @@
 env: dev
-level: 4
-log: /dev/stdout
+log:
+  level: 4
+  file_path: /dev/stdout
+  format: string
 
 http:
     main:

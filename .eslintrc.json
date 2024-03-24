@@ -98,7 +98,8 @@
           {
             "exceptAfterSingleLine": true
           }
-        ]
+        ],
+        "@angular-eslint/no-output-on-prefix": 0
       }
     },
     {

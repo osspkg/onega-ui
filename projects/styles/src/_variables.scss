@@ -2,33 +2,33 @@
   --ong-body-bg: rgba(0, 0, 0, 0);
 
   --ong-color-light-bg: #f6f6f6;
-  --ong-color-light-text: #000000;
+  --ong-color-light-text: #000;
 
   --ong-color-secondary-bg: #e2e2e2;
-  --ong-color-secondary-text: #000000;
+  --ong-color-secondary-text: #000;
 
-  --ong-color-warning-bg: #F2C46D;
-  --ong-color-warning-text: #000000;
+  --ong-color-warning-bg: #f2c46d;
+  --ong-color-warning-text: #000;
 
-  --ong-color-danger-bg: #BF8275;
-  --ong-color-danger-text: #FFFFFF;
+  --ong-color-danger-bg: #bf8275;
+  --ong-color-danger-text: #fff;
 
-  --ong-color-success-bg: #46592A;
-  --ong-color-success-text: #FFFFFF;
+  --ong-color-success-bg: #46592a;
+  --ong-color-success-text: #fff;
 
-  --ong-color-info-bg: #6997BF;
-  --ong-color-info-text: #FFFFFF;
+  --ong-color-info-bg: #6997bf;
+  --ong-color-info-text: #fff;
 
-  --ong-color-primary-bg: #0367A6;
-  --ong-color-primary-text: #FFFFFF;
+  --ong-color-primary-bg: #0367a6;
+  --ong-color-primary-text: #fff;
 
-  --ong-color-dark-bg: #000000;
-  --ong-color-dark-text: #FFFFFF;
+  --ong-color-dark-bg: #000;
+  --ong-color-dark-text: #fff;
 }
 
 :root {
-  --ong-base-size: 1em;
-  --ong-radius-size: 0; //calc(var(--ong-base-size) * .75);
+  --ong-base-size: 1rem;
+  --ong-radius-size: 0;
   --ong-line-size: 1px;
   --ong-opacity: .55;
 
@@ -37,8 +37,8 @@
   --ong-padding-x-size: calc(var(--ong-base-size) * .75);
   --ong-padding-y-size: calc(var(--ong-base-size) * .5);
 
-  --ong-font-family-sans-serif: -apple-system, Ubuntu, Roboto, Arial, sans-serif;
-  --ong-font-family-monospace: "Ubuntu Mono", Consolas, "Courier New", monospace;
+  --ong-font-family-sans-serif: Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+  --ong-font-family-monospace: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   --ong-font-weight: bolder;
   --ong-line-height: 1.2;
   --ong-font-size: var(--ong-base-size);

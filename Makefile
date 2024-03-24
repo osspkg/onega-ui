@@ -8,16 +8,17 @@ setup_node:
 install:
 	yarn install --force --ignore-scripts
 
-start_dev:
+start_dev: build_icons
 	yarn run start
 
 start_prod:
 	jasta --config=development/dev/config.yaml
 
 lint:
+	yarn run apigen
 	yarn run lint
 
-build:
+build: lint
 	yarn run build
 
 prerender:
@@ -70,7 +71,11 @@ watch_kit: kit.watch
 
 release_kit_fix: kit.lint kit.patch kit.build kit.publish
 
-release_core_fix: core.fix
+release_kit_new: kit.lint kit.minor kit.build kit.publish
+
+release_core_fix: core.lint core.patch core.build core.publish
+
+release_core_new: core.lint core.minor core.build core.publish
 
 ######################################################################
 

@@ -1,6 +1,6 @@
 {
   "name": "@onega-ui/kit",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "UI Kit library for Angular",
   "author": "OSSPkg Team <github@osspkg.com> (https://github.com/osspkg)",
   "maintainers": [

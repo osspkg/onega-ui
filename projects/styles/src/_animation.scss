@@ -1,0 +1,181 @@
+@use "env";
+
+/*
+@name Animation
+@group Animation
+@prop fade-in := a-fade-in-bottom, a-fade-in-top, a-fade-in-left, a-fade-in-right, a-fade-in-center
+@prop fade-out := a-fade-out-bottom,a-fade-out-top, a-fade-out-left,a-fade-out-right, a-fade-out-center
+@prop scale := a-scale-in, a-scale-out
+@prop shake := a-shake
+@html
+  <div class="d-flex d-flex-wrap gap-3">
+    <div class="box box-info a-fade-in-bottom">a-fade-in-bottom</div>
+    <div class="box box-info a-fade-in-top">a-fade-in-top</div>
+    <div class="box box-info a-fade-in-left">a-fade-in-left</div>
+    <div class="box box-info a-fade-in-right">a-fade-in-right</div>
+    <div class="box box-info a-fade-in-center">a-fade-in-center</div>
+  </div>
+  <div class="d-flex d-flex-wrap gap-3 mt-1">
+    <div class="box box-info a-fade-out-bottom">a-fade-out-bottom</div>
+    <div class="box box-info a-fade-out-top">a-fade-out-top</div>
+    <div class="box box-info a-fade-out-left">a-fade-out-left</div>
+    <div class="box box-info a-fade-out-right">a-fade-out-right</div>
+    <div class="box box-info a-fade-out-center">a-fade-out-center</div>
+  </div>
+  <div class="d-flex d-flex-wrap gap-3 mt-1">
+    <div class="box box-info a-scale-in">a-scale-in</div>
+    <div class="box box-info a-scale-out">a-scale-out</div>
+    <div class="box box-info a-shake">a-shake</div>
+  </div>
+*/
+@keyframes animFadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animFadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animFadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes animFadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes animFadeInCenter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animScaleIn {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes animShake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+
+  10% {
+    transform: rotate(3deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-5deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-3deg);
+  }
+
+  90% {
+    transform: rotate(3deg);
+  }
+}
+
+.a-fade-in-center {
+  animation: animFadeInCenter 2s ease 0s 1 normal forwards;
+}
+
+.a-fade-in-bottom {
+  animation: animFadeInBottom 2s ease 0s 1 normal forwards;
+}
+
+.a-fade-in-top {
+  animation: animFadeInTop 2s ease 0s 1 normal forwards;
+}
+
+.a-fade-in-left {
+  animation: animFadeInLeft 2s ease 0s 1 normal forwards;
+}
+
+.a-fade-in-right {
+  animation: animFadeInRight 2s ease 0s 1 normal forwards;
+}
+
+.a-fade-out-center {
+  animation: animFadeInCenter 2s ease 0s 1 reverse forwards;
+}
+
+.a-fade-out-bottom {
+  animation: animFadeInBottom 2s ease 0s 1 reverse forwards;
+}
+
+.a-fade-out-top {
+  animation: animFadeInTop 2s ease 0s 1 reverse forwards;
+}
+
+.a-fade-out-left {
+  animation: animFadeInLeft 2s ease 0s 1 reverse forwards;
+}
+
+.a-fade-out-right {
+  animation: animFadeInRight 2s ease 0s 1 reverse forwards;
+}
+
+.a-scale-in {
+  animation: animScaleIn 2s ease 0s 1 normal forwards;
+}
+
+.a-scale-out {
+  animation: animScaleIn 2s ease 0s 1 reverse forwards;
+}
+
+.a-shake {
+  animation: animShake 3s ease 0s 1 reverse forwards;
+}

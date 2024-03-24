@@ -1,22 +1,330 @@
+@use "sass:math";
 @use "env";
 
-html {
-  font-size: var(--ong-font-size);
-  font-family: var(--ong-font-family-sans-serif);
-  line-height: var(--ong-line-height);
-  text-rendering: optimizeLegibility;
-  unicode-bidi: plaintext;
-  background-color: var(--ong-body-bg);
+/*
+@name Cursor
+@group HTML Elements
+@prop Cursors := c-default, c-click, c-help, c-wait, c-crosshair, c-not-allowed, c-zoom-in, c-zoom-out, c-grab, c-grabbing, c-no-drop, c-text, c-copy, c-move
+@html
+  <div class="d-flex d-flex-wrap gap-2">
+    <button class="c-default">c-default</button>
+    <button class="c-click">c-click</button>
+    <button class="c-help">c-help</button>
+    <button class="c-wait">c-wait</button>
+    <button class="c-crosshair">c-crosshair</button>
+    <button class="c-not-allowed">c-not-allowed</button>
+    <button class="c-zoom-in">c-zoom-in</button>
+    <button class="c-zoom-out">c-zoom-out</button>
+    <button class="c-grab">c-grab</button>
+    <button class="c-grabbing">c-grabbing</button>
+    <button class="c-no-drop">c-no-drop</button>
+    <button class="c-text">c-text</button>
+    <button class="c-copy">c-copy</button>
+    <button class="c-move">c-move</button>
+  </div>
+*/
+.c- {
+  &default {
+    cursor: default;
+  }
+
+  &click {
+    cursor: pointer;
+  }
+
+  &help {
+    cursor: help;
+  }
+
+  &wait {
+    cursor: wait;
+  }
+
+  &crosshair {
+    cursor: crosshair;
+  }
+
+  &not-allowed {
+    cursor: not-allowed;
+  }
+
+  &zoom-in {
+    cursor: zoom-in;
+  }
+
+  &zoom-out {
+    cursor: zoom-out;
+  }
+
+  &grab {
+    cursor: grab;
+  }
+
+  &grabbing {
+    cursor: grabbing;
+  }
+
+  &no-drop {
+    cursor: no-drop;
+  }
+
+  &progress {
+    cursor: progress;
+  }
+
+  &text {
+    cursor: text;
+  }
+
+  &copy {
+    cursor: copy;
+  }
+
+  &move {
+    cursor: move;
+  }
 }
 
-body {
-  overflow-y: scroll;
-  background-color: var(--ong-body-bg);
+/*
+@name No Link
+@group HTML Elements
+@prop no-link := Disable linking for tag A
+@html
+  <div class="d-flex d-flex-wrap gap-2">
+    <a href="javascript:alert('defautl tag A')">default</a>
+    <a class="no-link" href="javascript:alert('class no-link')">no-link</a>
+  </div>
+*/
+.no-link {
+  &:link, &:any-link, &:active, &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  text-decoration: none !important;
+  cursor: pointer;
+  color: inherit;
+
+  border-style: dashed;
+  border-width: 0;
+  border-bottom-width: var(--ong-line-size);
 }
+
+/*
+@name Article
+@group HTML Elements
+@prop article := Base class
+@prop article-x2...6 := Count column
+@prop letter-x2...6 := Cap size
+@html
+  <div class="article article-x3">
+    <h3>header3 header3 header3 header3</h3>
+    <p class="letter-x2">Text text text text text text text text text text text text text text text text text text
+      text text text </p>
+    <p class="letter-x3">text text text text text text text text text text text text text text text text text text
+      text text text </p>
+    <p class="letter-x4">text text text text text text text text text text text text text text text text text text
+      text text text </p>
+    <p class="letter-x5">text text text text text text text text text text text text text text text text text text
+      text text text </p>
+    <h4>header4 header4 header4 header4</h4>
+    <p class="letter-x2">text text text text text text text text text text text text text text text text text text text text text </p>
+    <p class="letter-x2">text text text text text text text text text text text text text text text text text text text text text </p>
+    <p class="letter-x2">text text text text text text text text text text text text text text text text text text text text text </p>
+    <p class="letter-x2">text text text text text text text text text text text text text text text text text text text text text </p>
+    <p class="letter-x2">text text text text text text text text text text text text text text text text text text text text text </p>
+    <p class="letter-x2">text text text text text text text text text text text text text text text text text text text text text </p>
+  </div>
+*/
+.article {
+  @for $i from 2 through 6 {
+    .letter-x#{$i}::first-letter {
+      initial-letter: $i;
+      text-transform: capitalize;
+    }
+  }
+  @for $i from 2 through 6 {
+    &-x#{$i} {
+      columns: $i;
+      orphans: $i;
+      column-width: calc(100% / $i);
+    }
+  }
+  @for $i from 1 through 6 {
+    h#{$i} {
+      column-span: all;
+    }
+  }
+}
+
+/*
+@name Image Ratio
+@group HTML Elements
+@prop ratio := Enables a 1:1 aspect ratio with the image positioned in the center along the minimum side of the container.
+@html
+  <img alt="" src="/assets/icons/apple-icon-114x114.png" class="w-10rem h-5rem" />
+  <img alt="" src="/assets/icons/apple-icon-114x114.png" class="ratio w-10rem h-5rem" />
+  <img alt="" src="/assets/icons/apple-icon-114x114.png" class="w-5rem h-10rem" />
+  <img alt="" src="/assets/icons/apple-icon-114x114.png" class="ratio w-5rem h-10rem" />
+*/
+.ratio {
+  aspect-ratio: 1/1;
+  object-position: 50% 50%;
+  object-fit: contain;
+}
+
+/*
+@name Button
+@group HTML Elements
+@prop btn := Base button
+@prop btn-circle := Circle button
+@prop btn-light, btn-secondary, btn-warning, btn-danger, btn-success, btn-info, btn-primary, btn-dark := Color of button
+@prop btn-xs, btn-sm, btn-md, btn-lg, btn-xl, btn-2xl, btn-3xl, btn-4xl, btn-5xl, btn-6xl, btn-7xl, btn-8xl, btn-9xl := Size of button
+@html
+  <div class="d-flex d-flex-wrap gap-2">
+    <a class="btn" href="/" target="_blank">btn</a>
+    <button class="btn">btn</button>
+    <button class="btn" disabled>btn with disabled</button>
+  </div>
+  <div class="d-flex d-flex-wrap gap-2 mt-2">
+    <a class="btn btn-light">btn btn-light</a>
+    <a class="btn btn-secondary">btn btn-secondary</a>
+    <a class="btn btn-warning">btn btn-warning</a>
+    <a class="btn btn-danger">btn btn-danger</a>
+    <a class="btn btn-success">btn btn-success</a>
+    <a class="btn btn-info">btn btn-info</a>
+    <a class="btn btn-primary">btn btn-primary</a>
+    <a class="btn btn-dark">btn btn-dark</a>
+  </div>
+  <div class="d-flex d-flex-wrap gap-2 mt-2 d-flex-y-baseline">
+    <a class="btn btn-info btn-circle btn-xs"><i class="ong ong-home"></i></a>
+    <a class="btn btn-info btn-circle btn-xs">5%</a>
+    <a class="btn btn-info btn-circle btn-sm"><i class="ong ong-home"></i></a>
+    <a class="btn btn-info btn-circle btn-sm">5%</a>
+    <a class="btn btn-info btn-circle btn-md"><i class="ong ong-home"></i></a>
+    <a class="btn btn-info btn-circle btn-md">5%</a>
+    <a class="btn btn-info btn-circle btn-lg"><i class="ong ong-home"></i></a>
+    <a class="btn btn-info btn-circle btn-lg">5%</a>
+    <a class="btn btn-info btn-circle btn-xl"><i class="ong ong-home"></i></a>
+    <a class="btn btn-info btn-circle btn-xl">5%</a>
+    <a class="btn btn-info btn-circle btn-2xl"><i class="ong ong-home"></i></a>
+    <a class="btn btn-info btn-circle btn-2xl">5%</a>
+  </div>
+*/
+.btn {
+  display: inline-block;
+  border: var(--ong-line-size) solid var(--ong-color-light-bg);
+  background-color: var(--ong-color-light-bg);
+  color: var(--ong-color-light-text);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+  border-radius: var(--ong-radius-size);
+  font-size: var(--ong-font-size);
+  user-select: none;
+  line-height: 1;
+  white-space: nowrap;
+  position: relative;
+
+  &:is([disabled]) {
+    opacity: var(--ong-opacity);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:link, &:any-link, &:active, &:visited {
+    text-decoration: none;
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  & * {
+    line-height: 1 !important;
+  }
+
+  &-circle {
+    border-radius: 100%;
+    display: inline-flex !important;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: bottom;
+    padding: var(--ong-padding-y-size);
+    align-items: center;
+    justify-content: center;
+  }
+
+  @each $name in env.$ong-color-names {
+    &-#{$name} {
+      background-color: var(--ong-color-#{$name}-bg);
+      border-color: var(--ong-color-#{$name}-bg);
+      color: var(--ong-color-#{$name}-text);
+    }
+  }
+
+  @each $prefix, $value in env.$ong-size {
+    &-#{$prefix}, &-#{$prefix} * {
+      font-size: calc(var(--ong-font-size) * $value * 0.9);
+    }
+    &-#{$prefix}.btn-circle {
+      height: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * $value) !important;
+      width: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * $value) !important;
+    }
+  }
+}
+
+.ong-dialog {
+  &-close {
+    &::before {
+      content: "\ea0a";
+      font-family: 'onega-ui', serif;
+      font-size: calc(var(--ong-font-size) * 2);
+      filter: drop-shadow(0 0 3px rgba(255, 255, 255, 1));
+      border-radius: 50%;
+      padding: 1px;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 1);
+    }
+
+    content: '';
+    display: inline-block;
+    position: fixed;
+    top: 5vh;
+    right: 10%;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+  }
+}
+
+/*
+@name Heading
+@group HTML Elements
+@prop h1...6 := Elements represent six levels of section headings. h1 is the highest section level and h6 is the lowest.
+@html
+  <h1>The HTML Section Heading elements</h1>
+  <h2>The HTML Section Heading elements</h2>
+  <h3>The HTML Section Heading elements</h3>
+  <h4>The HTML Section Heading elements</h4>
+  <h5>The HTML Section Heading elements</h5>
+  <h6>The HTML Section Heading elements</h6>
+*/
+@for $i from 1 through 6 {
+  h#{7-$i} {
+    $log: $i*0.5;
+    font-size: calc(var(--ong-base-size) * $log);
+    padding: var(--ong-padding-y-size) 0;
+  }
+}
+
 
 pre, code, .code {
+  display: block;
   font-family: var(--ong-font-family-monospace) !important;
   font-weight: 100;
+  overflow-x: auto;
 }
 
 hr {
@@ -24,20 +332,30 @@ hr {
   opacity: 0.25;
 }
 
-p {
-  padding: var(--ong-padding-y-size) 0;
-  hyphens: auto;
-  hyphenate-character: auto;
-  white-space: pre-wrap;
-}
+/*
+@name Table
+@group HTML Elements
+@html
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>City</th>
+    </tr>
 
-@for $i from 1 through 6 {
-  h#{7-$i} {
-    font-size: calc(var(--ong-base-size) + var(--ong-base-size) * $i * .25);
-    padding: var(--ong-padding-y-size) 0;
-  }
-}
+    <tr>
+      <td>1</td>
+      <td>Harly</td>
+      <td>SPb</td>
+    </tr>
 
+    <tr>
+      <td>2</td>
+      <td>Joy</td>
+      <td>SPb</td>
+    </tr>
+  </table>
+*/
 table {
   table-layout: fixed;
   width: 100%;
@@ -58,6 +376,46 @@ table {
   }
 }
 
+/*
+@name Input
+@group HTML Elements
+@html
+<div class="box">
+    Input:
+    <input type="text" class="full-width">
+  </div>
+  <div class="box">
+    File:
+    <input type="file" class="full-width">
+  </div>
+  <div class="box">
+    Textarea:
+    <textarea class="full-width"></textarea>
+  </div>
+  <div class="box">
+    Select:
+    <select class="full-width">
+      <option>demo</option>
+    </select>
+  </div>
+  <div class="box">
+    Check:
+    <div class="r">
+      <div class="c4">
+        <input type="checkbox" checked="checked" id="demo-check-1">
+        <label for="demo-check-1">checked</label>
+      </div>
+      <div class="c4">
+        <input type="checkbox" id="demo-check-2">
+        <label for="demo-check-2">not checked</label>
+      </div>
+      <div class="c4">
+        <input type="checkbox" id="demo-check-2" checked="checked" disabled>
+        <label for="demo-check-2">disabled</label>
+      </div>
+    </div>
+  </div>
+ */
 input, textarea, select {
   display: inline-block;
   background: none;
@@ -129,6 +487,23 @@ textarea {
   resize: vertical;
 }
 
+/*
+@name Dialog
+@group HTML Elements
+@html
+Dialog:
+    <button onClick="document.querySelector('#di').showModal()" class="btn">show</button>
+
+    <dialog id="di">
+      <form>
+        <h1>demo dialog</h1>
+        <div>
+          The HTML element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
+        </div>
+        <p class="mt-2">press [Esc] for exit or <button value="cancel" formmethod="dialog" class="btn">Close</button></p>
+      </form>
+    </dialog>
+ */
 dialog {
   border: var(--ong-line-size) solid var(--ong-color-secondary-bg);
   padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
@@ -146,7 +521,53 @@ dialog {
   }
 }
 
-
-
-
-
+/*
+@name List
+@group List
+@prop Classes:= l-none, l-disc, l-circle, l-square, l-decimal, l-roman, l-disclosure, l-line, l-quotation, l-latin
+@html
+  <div class="d-flex d-flex-wrap gap-3">
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-none"><li>l-none</li><li>l-none</li><li>l-none</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-disc"><li>l-disc</li><li>l-disc</li><li>l-disc</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-circle"><li>l-circle</li><li>l-circle</li><li>l-circle</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-square"><li>l-square</li><li>l-square</li><li>l-square</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-decimal"><li>l-decimal</li><li>l-decimal</li><li>l-decimal</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-roman"><li>l-roman</li><li>l-roman</li><li>l-roman</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-disclosure"><li>l-disclosure</li><li>l-disclosure</li><li>l-disclosure</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-line"><li>l-line</li><li>l-line</li><li>l-line</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-quotation"><li>l-quotation</li><li>l-quotation</li><li>l-quotation</li></ul>
+    </div>
+    <div class="box box-info w-30 pl-3">
+      <ul class="l-latin"><li>l-latin</li><li>l-latin</li><li>l-latin</li></ul>
+    </div>
+  </div>
+ */
+.l-{
+  &none {list-style-type: none; list-style-position: outside;}
+  &disc {list-style-type: disc;list-style-position: outside;}
+  &circle {list-style-type: circle;list-style-position: outside;}
+  &square {list-style-type: square;list-style-position: outside;}
+  &decimal {list-style-type: decimal;list-style-position: outside;}
+  &roman {list-style-type: upper-roman;list-style-position: outside;}
+  &disclosure {list-style-type: disclosure-closed;list-style-position: outside;}
+  &line {list-style-type: "-  ";list-style-position: outside;}
+  &quotation {list-style-type: ">  ";list-style-position: outside;}
+  &latin {list-style-type: lower-latin;list-style-position: outside;}
+}

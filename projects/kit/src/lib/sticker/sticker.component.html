@@ -1,0 +1,6 @@
+<div class="sticker-{{type}}"
+     style="--sticker-bg:var(--ong-color-{{color}}-bg); --sticker-tc:var(--ong-color-{{color}}-text); --sticker-width: {{content.offsetWidth}}px">
+  <div class="data bg-{{color}} t-overflow-ellipsis c-click" (click)="emitClick()" role="presentation" #content>
+    {{ data }}
+  </div>
+</div>

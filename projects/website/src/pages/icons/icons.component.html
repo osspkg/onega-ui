@@ -1,7 +1,7 @@
 <div class="row mt-2">
   <div class="col">
     <label for="search" class="mr-1">Search:</label>
-    <input [(ngModel)]="search" id="search" class="full-width">
+    <input [(ngModel)]="search" id="search" class="w-full">
   </div>
   <div class="col">
     <div class="bq bq-danger mt-1">
@@ -28,21 +28,21 @@
     </div>
 
     <div class="row">
-      <div class="col ta-c">
+      <div class="col t-align-center">
         <h3 class="modal-window__title">{{currentIcon.icon}}</h3>
       </div>
     </div>
 
     <div class="row">
-      <div class="col ta-c">
+      <div class="col t-align-center">
         <i class="{{currentIcon.css}} x10"></i>
       </div>
-      <div class="col ta-c">
+      <div class="col t-align-center">
         <div class="bq bq-info" [innerText]="currentIcon.css|htmlTemplate"></div>
       </div>
     </div>
 
-    <div class="row ta-c">
+    <div class="row t-align-center">
       <div class="col-1">
         <i class="{{currentIcon.css}} x1"></i>
       </div>

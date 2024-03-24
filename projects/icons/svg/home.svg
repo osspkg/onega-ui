@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 600 600"
+   viewBox="0 0 700 700"
    version="1.1"
    id="svg9724"
    sodipodi:docname="home.svg"
-   inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)"
-   width="600"
-   height="600"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   width="700"
+   height="700"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@
      inkscape:cx="153.83758"
      inkscape:cy="310.64499"
      inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-height="1008"
      inkscape:window-x="0"
      inkscape:window-y="1080"
      inkscape:window-maximized="1"
@@ -37,7 +37,11 @@
        type="xygrid"
        id="grid9972"
        originx="0"
-       originy="0" />
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="px"
+       visible="true" />
     <sodipodi:guide
        position="300,720"
        orientation="1,0"
@@ -54,9 +58,8 @@
        id="guide401"
        inkscape:locked="false" />
   </sodipodi:namedview>
-
   <path
      style="color:#000000;fill:#000000;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none"
-     d="M 300,0 A 40.004,40.004 0 0 0 271.71484,11.714844 L 11.714844,271.71484 A 40.004,40.004 0 0 0 0,300 v 260 a 40.004,40.004 0 0 0 40,40 h 164.66602 a 40.004,40.004 0 0 0 40,-40 V 426.66602 H 355.33398 V 560 a 40.004,40.004 0 0 0 40,40 H 560 a 40.004,40.004 0 0 0 40,-40 V 300 a 40.004,40.004 0 0 0 -11.71484,-28.28516 l -260,-259.999996 A 40.004,40.004 0 0 0 300,0 Z m 0,96.568359 220,220.000001 V 520 H 435.33398 V 386.66602 a 40.004,40.004 0 0 0 -40,-40 H 204.66602 a 40.004,40.004 0 0 0 -40,40 V 520 H 80 V 316.56836 Z"
+     d="M 350,50 A 40.004,40.004 0 0 0 321.71484,61.714844 L 61.714844,321.71484 A 40.004,40.004 0 0 0 50,350 v 260 a 40.004,40.004 0 0 0 40,40 h 164.66602 a 40.004,40.004 0 0 0 40,-40 V 476.66602 H 405.33398 V 610 a 40.004,40.004 0 0 0 40,40 H 610 a 40.004,40.004 0 0 0 40,-40 V 350 a 40.004,40.004 0 0 0 -11.71484,-28.28516 l -260,-259.999996 A 40.004,40.004 0 0 0 350,50 Z m 0,96.56836 220,220 V 570 H 485.33398 V 436.66602 a 40.004,40.004 0 0 0 -40,-40 H 254.66602 a 40.004,40.004 0 0 0 -40,40 V 570 H 130 V 366.56836 Z"
      id="path1011" />
 </svg>
