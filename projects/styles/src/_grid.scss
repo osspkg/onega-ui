@@ -12,7 +12,62 @@
 $grid-size: 100%;
 $grid-count: 12;
 
-.row, .r {
+/*
+@name Area
+@desc This is the parent container for arranging child elements on the page.
+@group Area
+@prop area := Container with automatic indentation on the right and left.
+@prop area-fluid := A container that occupies the entire width of the screen.
+@html
+  <div class="area x">Area</div>
+  <div class="area-fluid x">Area Fluid</div>
+ */
+.area {
+  @media (min-width: 768px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+    margin: 0;
+  }
+
+  border-radius: 0 !important;
+
+  &-fluid {
+    margin: 0;
+    width: 100%;
+    border-radius: 0 !important;
+  }
+}
+
+/*
+@name Flex Grid
+@desc Flexible grid allows you to customize flexible layout to fit the screen size.
+@group Grids
+@prop row := Row container
+@prop col := Column container filled with maximum available width.
+@prop gap-0...8 := Defines the size of the gap between the columns.
+@html
+  <div class="row">
+    <div class="col x">Column 1</div>
+    <div class="col x">Column 2</div>
+  </div>
+ */
+
+/*
+@name Fixed Grid
+@desc Grid with fixed column size. It is based on a 12-column layout.
+@group Grids
+@prop row := Row container
+@prop col-1..12 := Fixed size column container from 1 to 12 columns.
+@html
+  <div class="row">
+    <div class="col-2 x">Size 2</div>
+    <div class="col-5 x">Size 5</div>
+  </div>
+ */
+.row {
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
@@ -21,24 +76,32 @@ $grid-count: 12;
   padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
   @include width($grid-size);
 
-  .col, .c {
+  @each $prefix, $size in env.$ong-scale {
+    .gap-#{$prefix} {
+      gap: calc(var(--ong-base-size) * $size)
+    }
+  }
+
+  .col {
     box-sizing: border-box;
     flex: 1 0 fit-content;
     padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-  }
+    max-width: 100%;
 
-  @for $i from 1 through $grid-count {
-    .col-#{$i}, .c#{$i} {
-      @media (min-width: 768px){
-        box-sizing: border-box;
-        flex: 0 0 auto;
-        padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-        @include calc-width($grid-size, $i, $grid-count);
-      }
-      @media (max-width: 767px){
-        box-sizing: border-box;
-        flex: 1 0 fit-content;
-        padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+    @for $i from 1 through $grid-count {
+      &-#{$i} {
+        @media (min-width: 768px) {
+          box-sizing: border-box;
+          flex: 0 0 auto;
+          padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+          @include calc-width($grid-size, $i, $grid-count);
+        }
+        @media (max-width: 767px) {
+          box-sizing: border-box;
+          flex: 1 0 fit-content;
+          padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+          max-width: 100%;
+        }
       }
     }
   }

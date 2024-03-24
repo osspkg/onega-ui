@@ -1,48 +1,19 @@
-<div class="row mt-2">
-  <div class="col">
-    <a *ngFor="let item of list"
-       class="bq bq-secondary no-link box"
-       [ong-href]="'/styles/'+item.link.toLowerCase()"
-       [class.bq-danger]="item.link === dataLink"
-       aria-hidden="true"
-       role="button"
-    >
-      {{item.link}}
-    </a>
+<div class="row mt-1">
+  <div class="col-3">
+    <div class="area-fluid p-sticky" style="top: 4rem">
+      <a *ngFor="let item of list"
+         class="bq bq-secondary no-link box"
+         [ong-href]="'/styles/'+item.link.toLowerCase()"
+         [class.bq-danger]="item.link === dataLink"
+         aria-hidden="true"
+         role="button"
+      >
+        {{ item.link }}
+      </a>
+    </div>
   </div>
   <div class="col-9">
-
-    <ng-container *ngIf="ref !== undefined">
-
-      <h1 class="bq bq-info">{{dataLink}}</h1>
-
-      <h5 class="mt-1">Attributes:</h5>
-      <table>
-        <tr *ngFor="let item of dataAttributes">
-          <td class="wrap-line"><b>{{item.key}}</b></td>
-          <td class="wrap-line">{{item.value}}</td>
-        </tr>
-      </table>
-
-      <h5 class="mt-1">Example:</h5>
-      <ong-tabs [color]="'info'" [style]="'line'" [byDefault]="'TS'">
-        <ng-template ong-tab-name="TS" *ngIf="dataExampleTS">
-          <div class="code wrap">{{dataExampleTS}}</div>
-        </ng-template>
-        <ng-template ong-tab-name="HTML" *ngIf="dataExampleHTML">
-          <div class="code wrap">{{dataExampleHTML}}</div>
-        </ng-template>
-      </ong-tabs>
-
-      <h5 class="mt-1">Preview</h5>
-
-    </ng-container>
-
-    <div class="mt-1">
-      <ng-template #demo></ng-template>
-    </div>
-
+    <ng-template #demo></ng-template>
   </div>
 </div>
-
 

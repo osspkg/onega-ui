@@ -1,6 +1,12 @@
 @forward "env";
 
 @use "variables";
+@use "reset";
+@use "animation";
+
+@use "layout";
 @use "grid";
 @use "base";
+@use "decorations";
+@use "typography";
 @use "html";

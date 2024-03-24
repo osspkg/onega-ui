@@ -1,6 +1,9 @@
 <ul tabindex="-1" (focus)="onFocus()">
-  <li *ngFor="let item of values; let i = index">
-    <span class="btn btn-xs mr-1" (dblclick)="removeElement(i)">{{ item }}</span>
+  <li *ngFor="let item of values; let i = index" >
+    <button
+      class="btn btn-secondary btn-xs mr-1 border-5"
+      (dblclick)="removeElement(i)" [disabled]="disable" [class.c-default]="disable"
+    >{{ item }}</button>
   </li>
   <li *ngIf="!disable">
     <input #element

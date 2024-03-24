@@ -1,0 +1,268 @@
+@use "env";
+
+/*
+@name Font Size
+@desc Defines the font size of an element.
+@group Typography
+@prop f-size-xs, f-size-sm, f-size-md, f-size-lg, f-size-xl, f-size-2xl, f-size-3xl, f-size-4xl, f-size-5xl, f-size-6xl, f-size-7xl, f-size-8xl, f-size-9xl := Front size.
+@html
+  <div class="d-block">
+    <div class="f-size-xs">f-size-xs</div>
+    <div class="f-size-sm">f-size-sm</div>
+    <div class="f-size-md">f-size-md</div>
+    <div class="f-size-lg">f-size-lg</div>
+    <div class="f-size-xl">f-size-xl</div>
+    <div class="f-size-2xl">f-size-2xl</div>
+    <div class="f-size-3xl">f-size-3xl</div>
+    <div class="f-size-4xl">f-size-4xl</div>
+    <div class="f-size-5xl">f-size-5xl</div>
+    <div class="f-size-6xl">f-size-6xl</div>
+    <div class="f-size-7xl">f-size-7xl</div>
+    <div class="f-size-8xl">f-size-8xl</div>
+    <div class="f-size-9xl">f-size-9xl</div>
+  </div>
+*/
+@each $prefix, $value in env.$ong-size {
+  .f-size-#{$prefix}, .f-size-#{$prefix} * {
+    font-size: calc(var(--ong-font-size) * $value) !important;
+  }
+}
+
+/*
+@name Font Weight
+@desc Specifies the font weight of an element.
+@group Typography
+@prop f-weight-light, f-weight-normal, f-weight-medium, f-weight-semibold, f-weight-bold := Font Weight.
+@html
+  <div class="f-weight-light">f-weight-light</div>
+  <div class="f-weight-normal">f-weight-normal</div>
+  <div class="f-weight-medium">f-weight-medium</div>
+  <div class="f-weight-semibold">f-weight-semibold</div>
+  <div class="f-weight-bold">f-weight-bold</div>
+*/
+.f-weight- {
+  &light {
+    font-weight: lighter;
+  }
+
+  &normal {
+    font-weight: normal;
+  }
+
+  &medium {
+    font-weight: 500;
+  }
+
+  &semibold {
+    font-weight: bolder;
+  }
+
+  &bold {
+    font-weight: 900;
+  }
+}
+
+
+/*
+@name Font Style
+@desc Specifies the font style of an element.
+@group Typography
+@prop f-style-italic := Selects a font that is classified as italic. If no italic version of the face is available, one classified as oblique is used instead. If neither is available, the style is artificially simulated.
+@prop f-style-small-caps := Enables display of small capitals (OpenType feature: smcp). Small-caps glyphs typically use the form of uppercase letters but are displayed using the same size as lowercase letters.
+@prop f-style-caps := Enables display of small capitals for both upper and lowercase letters (OpenType features: c2sc, smcp).
+@prop f-style-unicase := Enables display of mixture of small capitals for uppercase letters with normal lowercase letters (OpenType feature: unic).
+@prop f-style-sub := Activates subscript alternate glyphs. If, in a given run, one such glyph is not available for a character, all the characters in the run are rendered using synthesized glyphs.
+@prop f-style-super := Activates superscript alternate glyphs. If, in a given run, one such glyph is not available for a character, all the characters in the run are rendered using synthesized glyphs.
+@prop f-style-strike := Strikethrough text.
+@prop f-style-line := Underline text from the bottom.
+@prop f-style-2line := Underlining text at the bottom and top.
+@prop f-style-wavy := Underline text at the bottom in a wave.
+@prop f-style-vertical := Attempts to typeset all consecutive characters within the box horizontally, such that they take up the space of a single character within the vertical line of the box.
+@html
+  <div class="gap-4 d-flex d-flex-wrap d-flex-col">
+    <div class="f-style-italic">Difficult waffles 0O 3.14</div>
+    <div class="f-style-small-caps">Difficult waffles 0O 3.14</div>
+    <div class="f-style-caps">Difficult waffles 0O 3.14</div>
+    <div class="f-style-unicase">Difficult waffles 0O 3.14</div>
+    <div class="f-style-sub">Difficult waffles 0O 3.14</div>
+    <div class="f-style-super">Difficult waffles 0O 3.14</div>
+    <div class="f-style-line">Difficult waffles 0O 3.14</div>
+    <div class="f-style-2line">Difficult waffles 0O 3.14</div>
+    <div class="f-style-wavy">Difficult waffles 0O 3.14</div>
+    <div class="f-style-strike">Difficult waffles 0O 3.14</div>
+    <div class="f-style-vertical h-5rem">Difficult waffles 0O 3.14</div>
+  </div>
+*/
+.f-style- {
+  &italic {
+    font-style: italic;
+  }
+
+  &small-caps {
+    font-variant-caps: small-caps;
+  }
+
+  &caps {
+    font-variant-caps: all-small-caps;
+  }
+
+  &unicase {
+    font-variant-caps: unicase;
+  }
+
+  &sub {
+    font-variant-position: sub;
+  }
+
+  &super {
+    font-variant-position: super;
+  }
+
+  &line {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  &strike {
+    text-decoration: line-through;
+    text-decoration-skip-ink: auto;
+  }
+
+  &line {
+    text-decoration: underline overline;
+    text-decoration-skip-ink: auto;
+  }
+
+  &wavy {
+    text-decoration: wavy underline;
+    text-decoration-skip-ink: auto;
+  }
+
+  &vertical {
+    writing-mode: vertical-rl;
+  }
+}
+
+/*
+@name Text Color
+@desc A wide range of color palettes for the text of an element.
+@group Typography
+@prop t-color-light, t-color-secondary, t-color-warning, t-color-danger, t-color-success, t-color-info, t-color-primary, t-color-dark := Text Color.
+@html
+  <div class="t-color-light">t-color-light</div>
+  <div class="t-color-secondary">t-color-secondary</div>
+  <div class="t-color-warning">t-color-warning</div>
+  <div class="t-color-danger">t-color-danger</div>
+  <div class="t-color-success">t-color-success</div>
+  <div class="t-color-info">t-color-info</div>
+  <div class="t-color-primary">t-color-primary</div>
+  <div class="t-color-dark">t-color-dark</div>
+*/
+@each $name in env.$ong-color-names {
+  .t-color-#{$name} {
+    color: var(--ong-color-#{$name}-bg);
+  }
+}
+
+/*
+@name Text Align
+@desc Specifies the alignment of the text inside an element.
+@group Typography
+@prop t-align-center := The inline contents are centered within the line box.
+@prop t-align-justify := The inline contents are justified. Text should be spaced to line up its left and right edges to the left and right edges of the line box, except for the last line.
+@prop t-align-end := The same as right if direction is left-to-right and left if direction is right-to-left.
+@prop t-align-start := The same as left if direction is left-to-right and right if direction is right-to-left.
+@html
+  <div class="d-flex d-flex-wrap">
+    <div class="t-align-center w-50 x p-2">t-align-center: text text text text text text text text text</div>
+    <div class="t-align-justify w-50 x p-2">t-align-justify: text text text text text text text text text</div>
+    <div class="t-align-end w-50 x p-2">t-align-end: text text text text text text text text text</div>
+    <div class="t-align-start w-50 x p-2">t-align-start: text text text text text text text text text</div>
+  </div>
+*/
+.t-align- {
+  &center {
+    text-align: center;
+  }
+
+  &justify {
+    text-align: justify;
+  }
+
+  &end {
+    text-align: end;
+  }
+
+  &start {
+    text-align: start;
+  }
+}
+
+/*
+@name Text Overflow
+@desc Defines how the overflowed content gets displayed.
+@group Typography
+@prop t-overflow-ellipsis := Will display an ellipsis ('…') to indicate trimmed text. An ellipsis appears inside the content area to reduce the amount of text displayed. If there is not enough space to display the ellipsis, it is cut off.
+@prop t-overflow-clip := Trim text at the edge of the content area, so truncation may occur in the middle of a character.
+@html
+  <div class="t-overflow-ellipsis w-50">t-overflow-ellipsis: text text text text text text text text text</div>
+  <div class="t-overflow-clip w-50">t-overflow-clip: text text text text text text text text text</div>
+*/
+.t-overflow- {
+  &ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &clip {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+}
+
+/*
+@name Text Wrap
+@desc Defines whether the word should wrap based on white space or not.
+@group Typography
+@prop t-wrap := Sequences of white space are preserved. Lines are broken at newline characters, at <br>, and as necessary to fill line boxes.
+@prop t-wrap-no := Collapses white space as for normal, but suppresses line breaks (text wrapping) within the source.
+@prop t-wrap-line := Sequences of white space are collapsed. Lines are broken at newline characters, at <br>, and as necessary to fill line boxes.
+@html
+  <div class="d-flex d-flex-wrap">
+    <div class="t-wrap box w-45">
+    t-wrap: texttext texttext texttext texttext texttext texttext texttext texttext
+    t-wrap: texttext texttext texttext texttext texttext texttext texttext texttext
+    </div>
+    <div class="t-wrap-line box w-45">
+    t-wrap: texttext texttext texttext texttext texttext texttext texttext texttext
+    t-wrap: texttext texttext texttext texttext texttext texttext texttext texttext
+    </div>
+    <div class="t-wrap-no box w-45">
+    t-wrap: texttext texttext texttext texttext texttext texttext texttext texttext
+    t-wrap: texttext texttext texttext texttext texttext texttext texttext texttext
+    </div>
+  </div>
+*/
+.t-wrap {
+  word-wrap: break-word;
+  word-break: keep-all;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  hyphens: auto;
+  hyphenate-character: auto;
+
+  &-no {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  &-line {
+    // word-wrap: break-word;
+    // word-break: keep-all;
+    white-space: pre-line;
+    overflow-x: auto;
+    hyphens: auto;
+    hyphenate-character: auto;
+  }
+}

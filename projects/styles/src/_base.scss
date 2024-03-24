@@ -1,6 +1,17 @@
 @use "sass:map";
 @use "env";
 
+/*
+@name Responsive
+@desc Some merges support different screen sizes. To apply merges to a specific screen, add a size prefix before the css class, example: <b>md:css-class</b>
+@group Responsive
+@prop xs: := extra small screens e.g. old phones
+@prop sm: := small screens e.g. phones
+@prop md: := medium screens e.g. tablets
+@prop lg: := large screens e.g. notebooks
+@prop xl: := larger screens e.g monitors
+*/
+
 *, ::after, ::before {
   margin: 0;
   padding: 0;
@@ -15,7 +26,7 @@
 }
 
 * {
-  scrollbar-width: auto;
+  scrollbar-width: thin;
   scrollbar-color: var(--ong-color-secondary-bg) var(--ong-color-secondary-bg);
 }
 
@@ -34,291 +45,16 @@
   }
 }
 
-.pos-fixed {
-  position: fixed;
-  top: 0;
-  z-index: 999999;
-}
-
-.pos-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 999999;
-}
-
-.click {
-  cursor: pointer;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.no-link {
-  &:link, &:any-link, &:active, &:visited {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  text-decoration: none !important;
-  cursor: pointer;
-  color: inherit;
-
-  border-style: dashed;
-  border-width: 0;
-  border-bottom-width: var(--ong-line-size);
-}
-
-.ta-c {
-  text-align: center;
-}
-
-.ta-l {
-  text-align: left;
-}
-
-.ta-r {
-  text-align: right;
-}
-
-.wrap {
-  word-wrap: break-word;
-  word-break: keep-all;
-  white-space: pre-wrap;
-  overflow-x: auto;
-
-  &-line {
-    word-wrap: break-word;
-    word-break: keep-all;
-    white-space: pre-line;
-    overflow-x: auto;
-  }
-}
-
-@each $prefix, $value in env.$ong-size {
-  .fs-#{$prefix}, .fs-#{$prefix} * {
-    font-size: calc(var(--ong-font-size) * $value) !important;
-  }
-}
-
-.area {
-  @media (min-width: 768px) {
-    width: 80%;
-    margin: 0 auto;
-  }
-  @media (max-width: 767px) {
-    width: 100%;
-    margin: 0;
-  }
-
-  border-radius: 0 !important;
-
-  &-fluid {
-    margin: 0;
-    width: 100%;
-    border-radius: 0 !important;
-  }
-}
-
-.box {
-  display: block;
-  border-radius: var(--ong-radius-size);
-  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-}
-
-@each $name in env.$ong-color-names {
-  .box-#{$name} {
-    border: var(--ong-line-size) solid var(--ong-color-#{$name}-bg);
-    background-color: var(--ong-color-#{$name}-bg);
-    color: var(--ong-color-#{$name}-text);
-  }
-}
-
-@each $name in env.$ong-color-names {
-  .bg-#{$name} {
-    background-color: var(--ong-color-#{$name}-bg);
-    color: var(--ong-color-#{$name}-text);
-  }
-}
-
-
-blockquote, .bq {
-  border-radius: var(--ong-radius-size);
-  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-}
-
-@each $name in env.$ong-color-names {
-  .bq-#{$name} {
-    border: var(--ong-line-size) solid var(--ong-color-#{$name}-bg);
-    border-color: var(--ong-color-#{$name}-bg);
-    border-left: calc(var(--ong-line-size) * 10) solid var(--ong-color-#{$name}-bg);
-  }
-}
-
-@each $name in env.$ong-color-names {
-  .tc-#{$name} {
-    color: var(--ong-color-#{$name}-bg);
-  }
-}
-
-@for $i from 1 through 6 {
-  .m-#{$i} {
-    margin: calc(var(--ong-base-size) * $i);
-  }
-  .p-#{$i} {
-    padding: calc(var(--ong-base-size) * $i);
-  }
-  @each $prefix, $value in env.$ong-position-prefix {
-    .m#{$prefix}-#{$i} {
-      margin-#{$value}: calc(var(--ong-base-size) * $i);
-    }
-    .p#{$prefix}-#{$i} {
-      padding-#{$value}: calc(var(--ong-base-size) * $i);
-    }
-  }
-}
-
-.article {
-  @for $i from 2 through 5 {
-    .letter-x#{$i}::first-letter {
-      initial-letter: $i;
-      text-transform: capitalize;
-    }
-  }
-  @for $i from 2 through 6 {
-    &-x#{$i} {
-      columns: $i;
-      orphans: $i;
-      column-width: calc(100% / $i);
-    }
-  }
-  @for $i from 1 through 6 {
-    h#{$i} {
-      column-span: all;
-    }
-  }
-}
-
-//$ong-ratio: (
-//  "1x1": "1/1",
-//  "4x3": "4/3",
-//  "16x9": "16/9",
-//);
-//
-//@each $prefix, $value in $ong-ratio {
-//  .ratio-#{$prefix} {
-//    aspect-ratio: #{$value} !important;
-//    object-position: 50% 50%;
-//    object-fit: contain;
-//  }
-//}
-
-.btn {
-  display: inline-block;
-  border: var(--ong-line-size) solid var(--ong-color-light-bg);
-  background-color: var(--ong-color-light-bg);
-  color: var(--ong-color-light-text);
-  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
-  border-radius: var(--ong-radius-size);
+html {
   font-size: var(--ong-font-size);
-  user-select: none;
-  line-height: 1;
-  white-space: nowrap;
-  position: relative;
-
-  &:is([disabled]) {
-    opacity: var(--ong-opacity);
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  &:link, &:any-link, &:active, &:visited {
-    text-decoration: none;
-  }
-
-  &:not([disabled]) {
-    cursor: pointer;
-  }
-
-  &-circle {
-    border-radius: 50%;
-    display: inline-flex !important;
-    overflow: hidden;
-    text-align: center;
-    vertical-align: bottom;
-    padding:  var(--ong-padding-y-size);
-    align-items: center;
-    justify-content: center;
-
-    line-height: 1 !important;
-    font-stretch: normal;
-    font-size-adjust: none;
-    font-synthesis: none;
-    font-variant: no-common-ligatures proportional-nums;
-    font-variant-caps: all-small-caps;
-
-    * {
-      line-height: 1 !important;
-      font-stretch: normal;
-      font-size-adjust: none;
-      font-synthesis: none;
-      font-variant: no-common-ligatures proportional-nums;
-      font-variant-caps: all-small-caps;
-    }
-  }
-
-  @each $name in env.$ong-color-names {
-    &-#{$name} {
-      background-color: var(--ong-color-#{$name}-bg);
-      border-color: var(--ong-color-#{$name}-bg);
-      color: var(--ong-color-#{$name}-text);
-    }
-  }
-
-  @each $prefix, $value in env.$ong-size {
-    &-#{$prefix} {
-      font-size: calc(var(--ong-font-size) * $value) !important;
-
-      .ong {
-        font-size: calc(var(--ong-font-size) * $value * 0.9) !important;
-      }
-    }
-    &-#{$prefix} + &-circle {
-      height: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
-      width: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
-
-      min-height: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
-      min-width: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
-
-      max-height: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
-      max-width: calc(var(--ong-font-size) * $value + var(--ong-padding-x-size) * 2);
-    }
-  }
+  font-family: var(--ong-font-family-sans-serif);
+  line-height: var(--ong-line-height);
+  text-rendering: optimizeLegibility;
+  unicode-bidi: plaintext;
+  background-color: var(--ong-body-bg);
 }
 
-.ong-dialog {
-  &-close {
-    &::before {
-      content: "\ea0a";
-      font-family: 'onega-ui', serif;
-      font-size: calc(var(--ong-font-size) * 2);
-      filter: drop-shadow(0 0 3px rgba(255, 255, 255, 1));
-      border-radius: 50%;
-      padding: 1px;
-      cursor: pointer;
-      color: rgba(0, 0, 0, 1);
-    }
-
-    content: '';
-    display: inline-block;
-    position: fixed;
-    top: 5vh;
-    right: 10%;
-    border: 0;
-    background-color: rgba(0, 0, 0, 0);
-    color: rgba(0, 0, 0, 0);
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-  }
+body {
+  overflow-y: scroll;
+  background-color: var(--ong-body-bg);
 }

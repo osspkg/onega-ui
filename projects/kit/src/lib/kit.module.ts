@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MenuvModule } from './menuv';
+import { StickerModule } from './sticker';
 import { TabModule } from './tab';
 import { TagModule } from './tag';
 
@@ -8,8 +9,7 @@ import { TagModule } from './tag';
     TabModule,
     TagModule,
     MenuvModule,
-  ],
-  declarations: [
+    StickerModule,
   ],
 })
 export class KitModule { }

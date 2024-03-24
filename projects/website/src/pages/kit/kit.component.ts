@@ -13,12 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { ComponentType } from '../../../../core/src/lib/types/component';
 import { compareString } from '../../../../core/src/lib/utils/compare';
-import { Api, KeyValue } from './models/_api';
-import { MenuvBook } from './models/menuv';
-import { ModalDialogBook } from './models/modal-dialog';
-import { RoutesBook } from './models/routes';
-import { TabBook } from './models/tab';
-import { TagBook } from './models/tag';
+import { links } from './models/module';
 
 export interface ApiLink {
   link: string,
@@ -32,20 +27,9 @@ export interface ApiLink {
 })
 export class KitComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
-  list: ApiLink[] = [
-    { link: 'Routes', component: RoutesBook },
-    { link: 'Dialog', component: ModalDialogBook },
-    { link: 'Menu Vertical', component: MenuvBook },
-    { link: 'Tabs', component: TabBook },
-    { link: 'Tags', component: TagBook },
-  ];
-
+  list: ApiLink[] = links();
   ref?: ComponentRef<unknown>;
-
   dataLink = '';
-  dataAttributes: KeyValue[] = [];
-  dataExampleTS?: string = '';
-  dataExampleHTML?:string = '';
 
   @ViewChild('demo', { read: ViewContainerRef }) demo!: ViewContainerRef;
 
@@ -78,16 +62,10 @@ export class KitComponent implements AfterViewInit, AfterViewChecked, OnDestroy 
   show(item: ApiLink): void {
     this.ref?.destroy();
     this.ref = undefined;
-
     this.title.setTitle(this.title.getTitle() + ' | ' + item.link);
-
     this.ref = this.demo.createComponent(item.component);
     this.ref.hostView.detectChanges();
-
     this.dataLink = item.link;
-    this.dataAttributes = (this.ref.instance as Api).attributes;
-    this.dataExampleTS = (this.ref.instance as Api).exampleTS;
-    this.dataExampleHTML = (this.ref.instance as Api).exampleHTML;
   }
 
   ngOnDestroy() {

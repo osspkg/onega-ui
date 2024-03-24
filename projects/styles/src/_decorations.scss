@@ -1,0 +1,187 @@
+@use "sass:math";
+@use "env";
+
+/*
+@name Box
+@desc Color container.
+@group Box
+@prop box := Base color container
+@prop box-light, box-secondary, box-warning, box-danger, box-success, box-info, box-primary, box-dark := Color of the color container.
+@html
+  <div class="box box-light">box-light</div>
+  <div class="box box-secondary">box-secondary</div>
+  <div class="box box-warning">box-warning</div>
+  <div class="box box-danger">box-danger</div>
+  <div class="box box-success">box-success</div>
+  <div class="box box-info">box-info</div>
+  <div class="box box-primary">box-primary</div>
+  <div class="box box-dark">box-dark</div>
+ */
+@include env.media("box") {
+  display: block;
+  border-radius: var(--ong-radius-size);
+  padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+  @each $name in env.$ong-color-names {
+    &-#{$name} {
+      border: var(--ong-line-size) solid var(--ong-color-#{$name}-bg);
+      background-color: var(--ong-color-#{$name}-bg);
+      color: var(--ong-color-#{$name}-text);
+    }
+  }
+}
+
+/*
+@name Background Color
+@desc Filling the background.
+@group Background Color
+@prop box := Base color container
+@prop bg-light, bg-secondary, bg-warning, bg-danger, bg-success, bg-info, bg-primary, bg-dark := Fill color.
+@html
+  <div class="bg-light">bg-light</div>
+  <div class="bg-secondary">bg-secondary</div>
+  <div class="bg-warning">bg-warning</div>
+  <div class="bg-danger">bg-danger</div>
+  <div class="bg-success">bg-success</div>
+  <div class="bg-info">bg-info</div>
+  <div class="bg-primary">bg-primary</div>
+  <div class="bg-dark">bg-dark</div>
+ */
+@each $name in env.$ong-color-names {
+  .bg-#{$name} {
+    background-color: var(--ong-color-#{$name}-bg);
+    color: var(--ong-color-#{$name}-text);
+  }
+  .before\:bg-#{$name}:before, .after\:bg-#{$name}:after {
+    background-color: var(--ong-color-#{$name}-bg);
+    color: var(--ong-color-#{$name}-text);
+  }
+}
+
+/*
+@name Border Radius
+@desc Defines the radius of an element's corners.
+@group Border Radius
+@prop border-circle := Rounding the edges by 50% of the container size
+@prop border-0...8 := Rounding edges in relative units from 0 to 8.
+@html
+  <div class="box box-info border-circle" style="width: 100px; height: 100px;">border-circle</div>
+  <div class="box box-info border-1" style="width: 100px; height: 100px;">border-1</div>
+  <div class="box box-info border-5" style="width: 100px; height: 100px;">border-5</div>
+ */
+@include env.media("border") {
+  &-circle {
+    border-radius: 50% !important;
+  }
+  @each $prefix, $size in env.$ong-scale {
+    &-#{$prefix} {
+      border-radius: calc(var(--ong-base-size) * $size) !important;
+    }
+  }
+}
+
+/*
+@name Blockquote
+@group Blockquote
+@prop bq-light, bq-secondary, bq-warning, bq-danger, bq-success, bq-info, bq-primary, bq-dark := Color of blockquote.
+@html
+  <div class="bq-light">bq-light</div>
+  <div class="bq-secondary">bq-secondary</div>
+  <div class="bq-warning">bq-warning</div>
+  <div class="bq-danger">bq-danger</div>
+  <div class="bq-success">bq-success</div>
+  <div class="bq-info">bq-info</div>
+  <div class="bq-primary">bq-primary</div>
+  <div class="bq-dark">bq-dark</div>
+ */
+@each $name in env.$ong-color-names {
+  .bq-#{$name} {
+    padding: var(--ong-padding-y-size) var(--ong-padding-x-size);
+    border: var(--ong-line-size) solid var(--ong-color-#{$name}-bg);
+    border-color: var(--ong-color-#{$name}-bg);
+    border-left: calc(var(--ong-line-size) * 10) solid var(--ong-color-#{$name}-bg);
+  }
+}
+
+/*
+@name Box Shadow
+@group Shadow
+@prop bs-none := No shadow.
+@prop bs-1...8 := Shadow size.
+@html
+  <div class="d-flex d-flex-wrap gap-4">
+    <div class="box bs-none">bs-none</div>
+    <div class="box bs-1">bs-1</div>
+    <div class="box bs-2">bs-2</div>
+    <div class="box bs-3">bs-3</div>
+    <div class="box bs-4">bs-4</div>
+    <div class="box bs-5">bs-5</div>
+    <div class="box bs-6">bs-6</div>
+    <div class="box bs-7">bs-7</div>
+    <div class="box bs-8">bs-8</div>
+  </div>
+ */
+.bs- {
+  &none {
+    box-shadow: none;
+  }
+
+  &1 {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.02), 0 0 2px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  &2 {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 2px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+
+  &3 {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08), 0 3px 4px rgba(0, 0, 0, 0.1), 0 1px 4px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  &4 {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.12), 0 4px 5px rgba(0, 0, 0, 0.14), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  &5 {
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.1), 0 4px 5px -2px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.2);
+  }
+
+  &6 {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.06), 0 7px 9px rgba(0, 0, 0, 0.12), 0 20px 25px -8px rgba(0, 0, 0, 0.18);
+  }
+
+  &7 {
+    box-shadow: 0 7px 30px rgba(0, 0, 0, 0.08), 0 22px 30px 2px rgba(0, 0, 0, 0.15), 0 8px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  &8 {
+    box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 11px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/*
+@name Opacity
+@group Opacity
+@prop o-0...100 := Opacity from 0% to 100% with step 10%.
+@prop hover:o-0...100 := Opacity on hover.
+@html
+  <div class="d-flex d-flex-wrap gap-4">
+    <div class="box box-info o-0">o-0</div>
+    <div class="box box-info o-10">o-10</div>
+    <div class="box box-info o-20">o-20</div>
+    <div class="box box-info o-30">o-30</div>
+    <div class="box box-info o-40">o-40</div>
+    <div class="box box-info o-50">o-50</div>
+    <div class="box box-info o-60">o-60</div>
+    <div class="box box-info o-70">o-70</div>
+    <div class="box box-info o-80">o-80</div>
+    <div class="box box-info o-90">o-90</div>
+    <div class="box box-info o-100">o-100</div>
+  </div>
+  <div class="box box-info hover:o-50 mt-2">hover me</div>
+ */
+
+@for $i from 0 through 10 {
+  @include env.hover(o-#{$i*10}) {
+    opacity: math.div($i, 10);
+  }
+}
