@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 700 700"
+   version="1.1"
+   id="svg9724"
+   sodipodi:docname="issue.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   width="700"
+   height="700"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <path
+     id="path1210"
+     style="color:#000000;fill:#000000;stroke-linecap:round;-inkscape-stroke:none"
+     d="M 350 50 C 184.77378 50 50 184.80359 50 350 C 50 515.19641 184.77378 650 350 650 C 515.22622 650 650 515.19641 650 350 C 650 184.80359 515.22622 50 350 50 z M 350 129.97656 C 471.94795 129.97656 569.97461 227.99555 569.97461 350 C 569.97461 472.00445 471.94795 570.02344 350 570.02344 C 228.05205 570.02344 130.02344 472.00445 130.02344 350 C 130.02344 227.99555 228.05205 129.97656 350 129.97656 z M 350 160 C 327.90863 160 310 177.90863 310 200 L 310 370 C 310 392.09137 327.90863 410 350 410 C 372.09137 410 390 392.09137 390 370 L 390 200 C 390 177.90863 372.09137 160 350 160 z M 350 434 C 322.85961 434 300 456.85961 300 484 C 300 511.14039 322.85961 534 350 534 C 377.14039 534 400 511.14039 400 484 C 400 456.85961 377.14039 434 350 434 z " />
+  <defs
+     id="defs9728" />
+  <sodipodi:namedview
+     id="namedview9726"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="0.84118632"
+     inkscape:cx="282.33935"
+     inkscape:cy="352.47839"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="1080"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9724"
+     showguides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9972"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="px"
+       visible="true" />
+    <sodipodi:guide
+       position="300,360"
+       orientation="1,0"
+       id="guide1208"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+</svg>

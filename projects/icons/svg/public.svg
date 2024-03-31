@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 700 700"
+   version="1.1"
+   id="svg9724"
+   sodipodi:docname="public.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   width="700"
+   height="700"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9728" />
+  <sodipodi:namedview
+     id="namedview9726"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="0.59480855"
+     inkscape:cx="427.86877"
+     inkscape:cy="622.8895"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="1080"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9724"
+     showguides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9972"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="px"
+       visible="true" />
+    <sodipodi:guide
+       position="300,360"
+       orientation="1,0"
+       id="guide1208"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <path
+     id="path390"
+     style="color:#000000;fill:#000000;stroke-width:0.999997;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;paint-order:stroke fill markers"
+     d="M 350 50 C 184.77378 50 50 184.80359 50 350 C 50 515.19642 184.77378 650 350 650 C 515.22622 650 650 515.19641 650 350 C 650 184.80359 515.22622 50 350 50 z M 349.99805 130.31055 C 401.93428 195.58314 429.34164 258.42205 435.81641 320 L 264.18359 320 C 270.65763 258.42211 298.06225 195.58284 349.99805 130.31055 z M 264.96875 146.88867 C 229.59391 203.92351 209.05106 261.80508 203.95312 320 L 132.08984 320 C 142.69602 241.40953 194.35075 176.31666 264.96875 146.88867 z M 435.03125 146.88867 C 505.64878 176.31666 557.30222 241.40953 567.9082 320 L 496.04688 320 C 490.94893 261.80508 470.40609 203.92351 435.03125 146.88867 z M 132.08984 380 L 204.19531 380 C 209.74483 438.88015 230.90616 496.80996 265.85352 553.45898 C 194.78698 524.20578 142.73986 458.91533 132.08984 380 z M 264.41602 380 L 435.58398 380 C 428.50227 442.04768 400.31301 504.93554 350 569.39844 C 299.68667 504.93532 271.49767 442.04774 264.41602 380 z M 495.80469 380 L 567.9082 380 C 557.25837 458.91533 505.21256 524.20578 434.14648 553.45898 C 469.09384 496.80996 490.25517 438.88015 495.80469 380 z " />
+</svg>

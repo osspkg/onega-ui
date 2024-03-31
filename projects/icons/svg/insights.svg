@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 700 700"
+   version="1.1"
+   id="svg9724"
+   sodipodi:docname="insights.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   width="700"
+   height="700"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9728" />
+  <sodipodi:namedview
+     id="namedview9726"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="0.84118632"
+     inkscape:cx="184.85798"
+     inkscape:cy="354.85598"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="1080"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9724"
+     showguides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9972"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="px"
+       visible="true" />
+    <sodipodi:guide
+       position="300,360"
+       orientation="1,0"
+       id="guide1208"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <path
+     style="color:#000000;fill:#000000;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;paint-order:stroke fill markers"
+     d="M 90,50 A 40,40 0 0 0 50,90 v 520 a 40.004,40.004 0 0 0 40,40 h 520 a 40,40 0 0 0 40,-40 40,40 0 0 0 -40,-40 H 130 V 90 A 40,40 0 0 0 90,50 Z"
+     id="path1" />
+  <path
+     style="color:#000000;fill:#000000;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;paint-order:stroke fill markers"
+     d="m 604.84961,60.445312 a 30,30 0 0 0 -24.125,23.003907 L 518.93555,359.58984 464.88281,142.49609 a 30.003,30.003 0 0 0 -58.16797,-0.21484 l -54.49218,212.17969 -51.42579,-67.56055 a 30.003,30.003 0 0 0 -51.1914,5.77539 l -83.83203,184.7832 a 30,30 0 0 0 14.92383,39.71485 30,30 0 0 0 39.71484,-14.92578 l 63.07422,-139.02735 58.51172,76.8711 a 30.003,30.003 0 0 0 52.92773,-10.70899 l 40.39453,-157.28125 56.06055,225.16016 a 30.003,30.003 0 0 0 58.38672,-0.69727 L 639.27539,96.550781 A 30,30 0 0 0 616.55078,60.724609 30,30 0 0 0 604.84961,60.445312 Z"
+     id="path2" />
+</svg>
