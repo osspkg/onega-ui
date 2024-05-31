@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CoreModule } from '../../../../../core/src/lib/core.module';
 import { KitModule } from '../../../../../kit/src/lib/kit.module';
 import { ApiLink } from '../../root/api.models';
 import { StyleAnimation } from './style-animation';
@@ -69,6 +70,7 @@ export function links(): ApiLink[] {
   ],
   imports: [
     KitModule,
+    CoreModule,
   ],
 })
 export class StyleModule { }

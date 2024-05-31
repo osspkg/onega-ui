@@ -1,15 +1,12 @@
 {
-  "extends": "ts-node/node16/tsconfig.json",
   "compilerOptions": {
-
-  },
-  "ts-node": {
-    "esm": true,
-    "compilerOptions": {
-      "types": ["node"],
-      "target": "ES2022",
-      "module": "ES2022",
-      "moduleResolution": "Node"
-    }
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "allowSyntheticDefaultImports": true
   }
 }

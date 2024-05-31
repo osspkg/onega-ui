@@ -18,13 +18,13 @@ lint:
 	yarn run apigen
 	yarn run lint
 
-build: lint
+build: build_icons build_styles build_core build_kit
 	yarn run build
 
 prerender:
-	jasta prerender --config=development/dev/config.yaml
+	/home/user/.gvm/.cache/modules/bin/jasta prerender --config=development/dev/config.yaml
 
-deploy: build prerender
+deploy: lint build prerender
 	scp -r dist/website/* root@$(value STATIC_HOST):/home/onegaui/www/
 	scp development/prod/jasta.yaml root@$(value STATIC_HOST):/etc/jasta/websites/onega-ui.yaml
 	ssh root@$(value STATIC_HOST) 'systemctl restart jasta'
