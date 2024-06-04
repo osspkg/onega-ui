@@ -5,6 +5,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 })
 export class HrefDirective implements OnInit {
   @Input({ alias: 'ong-href' }) href!: string;
+
   constructor(
     private ref: ElementRef<HTMLAnchorElement>,
   ) {
@@ -12,6 +13,14 @@ export class HrefDirective implements OnInit {
   }
 
   ngOnInit() {
-    this.ref.nativeElement.href = this.href.replace(/ /ig, '--');
+    this.ref.nativeElement.setAttribute('href', this.href.replace(/ /ig, '--'));
   }
 }
+
+/*
+@name Href Build
+@group Links
+@prop [ong-href] := Replacing spaces with double dashes
+@html
+  <a [ong-href]="'/aaa aaa'">HREF BUILD as href="/aaa--aaa"</a>
+*/

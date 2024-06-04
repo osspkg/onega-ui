@@ -8,12 +8,14 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   moduleText = `
 import { CoreModule } from '@onega-ui/core';
+import { KitModule } from '@onega-ui/kit';
 
 @NgModule({
   ...
   imports: [
     ...
     CoreModule,
+    KitModule,
   ],
 ...
 })
