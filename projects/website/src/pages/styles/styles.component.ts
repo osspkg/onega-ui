@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -10,14 +11,18 @@ import {
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
+import { CoreModule } from '../../../../core/src/lib/core.module';
 import { compareString } from '../../../../core/src/lib/utils/compare';
+import { KitModule } from '../../../../kit/src/lib/kit.module';
 import { ApiLink } from '../root/api.models';
-import { links } from './models/module';
+import { links, StyleModule } from './models/module';
 
 @Component({
   selector: 'app-styles',
   templateUrl: './styles.component.html',
   styleUrls: ['./styles.component.scss'],
+  standalone: true,
+  imports: [CommonModule, CoreModule, KitModule, StyleModule],
 })
 export class StylesComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

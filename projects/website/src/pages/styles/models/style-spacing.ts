@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'style-spacing',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   template: `
 <h4 class="bq bq-warning demo-name">Margin / Padding</h4>
 <p class="demo-desc">Specifies the space between the content and its border and controls the space around an element.</p>

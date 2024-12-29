@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'style-position',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   template: `
 <h4 class="bq bq-warning demo-name">Position</h4>
 <p class="demo-desc">Specifies how an element is positioned on the screen.</p>

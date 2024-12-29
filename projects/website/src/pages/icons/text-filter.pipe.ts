@@ -3,6 +3,7 @@ import { Icon } from './model';
 
 @Pipe({
   name: 'textFilter',
+  standalone: true,
 })
 export class TextFilterPipe implements PipeTransform {
 

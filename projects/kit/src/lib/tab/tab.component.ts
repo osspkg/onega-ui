@@ -29,6 +29,7 @@ interface TabItem {
   selector: 'ong-tabs',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss'],
+  standalone: false,
 })
 export class TabComponent implements AfterContentInit, AfterViewChecked, AfterViewInit, OnDestroy {
   private embeddedViewRef?: EmbeddedViewRef<unknown>;

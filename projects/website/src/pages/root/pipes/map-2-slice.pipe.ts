@@ -12,6 +12,7 @@ export class Slice {
 
 @Pipe({
   name: 'map2Slice',
+  standalone: true,
 })
 export class Map2SlicePipe implements PipeTransform {
 

@@ -1,23 +1,20 @@
-import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { ActiveRouteDirective } from './directives/active-route.directive';
 import { HrefDirective } from './directives/href.directive';
 import { DialogService } from './services/dialog.service';
 import { EventsService } from './services/events.service';
 import { LocalStorageService } from './services/local-storage.service';
-import { API_PREFIX, RequestService } from './services/request.service';
+import { API_HEADERS, API_HOST, Headers, RequestService } from './services/request.service';
 import { SessionStorageService } from './services/session-storage.service';
 import { WebSocketService, WS_URI } from './services/web-socket.service';
 
 export class Config {
-  apiUri?:string;
+  apiHost?:string;
+  apiHeaders?: Headers;
   wsUri?:string;
 }
 
 @NgModule({
-  imports: [
-    HttpClientModule,
-  ],
   declarations: [
     ActiveRouteDirective,
     HrefDirective,
@@ -39,10 +36,11 @@ export class CoreModule {
     ];
 
     if (config) {
-      const { apiUri, wsUri } = config;
-      if (apiUri && apiUri.length > 0) {
+      const { apiHost, apiHeaders, wsUri } = config;
+      if (apiHost && apiHost.length > 0) {
         providers.push(
-          { provide: API_PREFIX, useValue: apiUri },
+          { provide: API_HOST, useValue: apiHost },
+          { provide: API_HEADERS, useValue: apiHeaders },
           { provide: RequestService },
         );
       }

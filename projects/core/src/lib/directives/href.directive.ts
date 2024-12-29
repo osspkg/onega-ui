@@ -2,6 +2,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: 'a[ong-href]',
+  standalone: false,
 })
 export class HrefDirective implements OnInit {
   @Input({ alias: 'ong-href' }) href!: string;

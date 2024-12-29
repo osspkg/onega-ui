@@ -9,6 +9,7 @@ install:
 	yarn install --force --ignore-scripts
 
 start_dev: build_icons
+	yarn run apigen
 	yarn run start
 
 start_prod:
@@ -22,8 +23,9 @@ build: build_icons build_styles build_core build_kit
 	yarn run build
 
 prerender:
-	/home/user/.gvm/.cache/modules/bin/jasta prerender --config=development/dev/config.yaml
+	jasta prerender --config=development/dev/config.yaml
 
+# !!! Run `make start_prod` before
 deploy: lint build prerender
 	scp -r dist/website/* root@$(value STATIC_HOST):/home/onegaui/www/
 	scp development/prod/jasta.yaml root@$(value STATIC_HOST):/etc/jasta/websites/onega-ui.yaml

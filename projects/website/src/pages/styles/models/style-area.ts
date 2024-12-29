@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'style-area',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   template: `
 <h4 class="bq bq-warning demo-name">Area</h4>
 <p class="demo-desc">This is the parent container for arranging child elements on the page.</p>

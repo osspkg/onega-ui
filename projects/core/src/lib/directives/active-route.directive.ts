@@ -2,6 +2,7 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: 'a[ong-active-route]',
+  standalone: false,
 })
 export class ActiveRouteDirective implements AfterViewInit {
   @Input({ alias: 'ong-active-route' }) classes!: string | string[];

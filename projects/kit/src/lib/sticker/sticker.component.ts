@@ -6,6 +6,7 @@ import { TSticker } from './types';
   selector: 'ong-sticker',
   templateUrl: './sticker.component.html',
   styleUrls: ['./sticker.component.scss'],
+  standalone: false,
 })
 export class StickerComponent {
 

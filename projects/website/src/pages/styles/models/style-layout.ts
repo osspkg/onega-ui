@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'style-layout',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   template: `
 <h4 class="bq bq-warning demo-name">Display</h4>
 <p class="demo-desc">Defines how an element is displayed on a page.</p>

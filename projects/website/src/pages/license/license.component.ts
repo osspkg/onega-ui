@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-license',
   templateUrl: './license.component.html',
   styleUrls: ['./license.component.scss'],
+  standalone: true,
 })
 export class LicenseComponent {
   currYear = new Date().getFullYear();
