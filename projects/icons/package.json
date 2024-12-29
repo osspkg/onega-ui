@@ -1,10 +1,10 @@
 {
   "name": "@onega-ui/icons",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Onega UI Icons",
   "author": "OSSPkg Team <github@osspkg.com> (https://github.com/osspkg)",
   "maintainers": [
-    "Mikhail Knyazhev <markus621@gmail.com>"
+    "Mikhail Knyazhev <markus621@yandex.com>"
   ],
   "license": "BSD-3-Clause",
   "homepage": "https://onega-ui.osspkg.com",

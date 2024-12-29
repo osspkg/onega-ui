@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'style-opacity',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   template: `
 <h4 class="bq bq-warning demo-name">Opacity</h4>
 <p class="demo-desc"></p>

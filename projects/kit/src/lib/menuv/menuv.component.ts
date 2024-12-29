@@ -10,6 +10,7 @@ import { MenuvBodyDirective, MenuvFooterDirective, MenuvHeaderDirective } from '
   selector: 'ong-menuv',
   templateUrl: './menuv.component.html',
   styleUrls: ['./menuv.component.scss'],
+  standalone: false,
 })
 export class MenuvComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   private headerView: EmbeddedViewRef<unknown>[] = [];

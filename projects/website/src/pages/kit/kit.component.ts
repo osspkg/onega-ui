@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -11,9 +12,11 @@ import {
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
+import { CoreModule } from '../../../../core/src/lib/core.module';
 import { ComponentType } from '../../../../core/src/lib/types/component';
 import { compareString } from '../../../../core/src/lib/utils/compare';
-import { links } from './models/module';
+import { KitModule } from '../../../../kit/src/lib/kit.module';
+import { CompModule, links } from './models/module';
 
 export interface ApiLink {
   link: string,
@@ -24,6 +27,8 @@ export interface ApiLink {
   selector: 'app-kit',
   templateUrl: './kit.component.html',
   styleUrls: ['./kit.component.scss'],
+  standalone: true,
+  imports:[CommonModule, CoreModule, KitModule, CompModule],
 })
 export class KitComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

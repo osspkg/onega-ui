@@ -129,6 +129,8 @@ function docTemplate(name: string, mod: string, data: Tag[]): DocTemplate {
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: '${selector}',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   template: \`${view.replaceAll('\`', '\\\`')}\`,
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix

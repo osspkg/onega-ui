@@ -4,6 +4,7 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@
   selector: 'ong-tags',
   templateUrl: './tag.component.html',
   styleUrls: ['./tag.component.scss'],
+  standalone: false,
 })
 export class TagComponent {
   data = '';
