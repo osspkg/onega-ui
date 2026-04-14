@@ -8,7 +8,7 @@ export * from './sticker.module';
 @prop ong-sticker := Base tag
 @prop [data] := Sticker text
 @prop [color] := Sticker color ['light' | 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'primary' | 'dark'].
-@prop [type] := Sticker type ['corner' | 'top'].
+@prop [type] := Sticker type ['corner' | 'top' | 'left'].
 @prop (onClick) := Click event.
 @other
   stickerClick(): void {

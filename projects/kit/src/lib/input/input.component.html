@@ -1,0 +1,19 @@
+<div class="input input--color-{{color}} input--style-{{style}}">
+  <fieldset>
+    <legend>{{ label }}</legend>
+    @switch (type) {
+      @case ('multitext') {
+
+      }
+      @case ('select') {
+
+      }
+      @case ('file') {
+
+      }
+      @default {
+        <input type="text" [defaultValue]="data" [placeholder]="placeholder">
+      }
+    }
+  </fieldset>
+</div>

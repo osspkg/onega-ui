@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { InputModule } from './input';
 import { MenuvModule } from './menuv';
 import { StickerModule } from './sticker';
 import { TabModule } from './tab';
@@ -10,6 +11,7 @@ import { TagModule } from './tag';
     TagModule,
     MenuvModule,
     StickerModule,
+    InputModule,
   ],
 })
 export class KitModule { }

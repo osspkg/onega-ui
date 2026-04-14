@@ -5,10 +5,10 @@ TEMPDIR=$(shell mktemp -d)
 setup_node:
 	@. ${NVM_DIR}/nvm.sh && nvm install && nvm use
 
-install:
+install: setup_node
 	yarn install --force --ignore-scripts
 
-start_dev: build_icons
+start_dev: setup_node build_icons
 	yarn run apigen
 	yarn run start
 

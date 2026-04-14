@@ -67,7 +67,7 @@ import { Component } from '@angular/core';
 <td class="t-wrap-line">Base tag</td></tr><tr><td class="t-wrap-line" style="width: 30%;"><b>[data]</b></td>
 <td class="t-wrap-line">Sticker text</td></tr><tr><td class="t-wrap-line" style="width: 30%;"><b>[color]</b></td>
 <td class="t-wrap-line">Sticker color ['light' | 'secondary' | 'warning' | 'danger' | 'success' | 'info' | 'primary' | 'dark'].</td></tr><tr><td class="t-wrap-line" style="width: 30%;"><b>[type]</b></td>
-<td class="t-wrap-line">Sticker type ['corner' | 'top'].</td></tr><tr><td class="t-wrap-line" style="width: 30%;"><b>(onClick)</b></td>
+<td class="t-wrap-line">Sticker type ['corner' | 'top' | 'left'].</td></tr><tr><td class="t-wrap-line" style="width: 30%;"><b>(onClick)</b></td>
 <td class="t-wrap-line">Click event.</td></tr></table>
 <div class="demo-end">&nbsp;</div>
 `,

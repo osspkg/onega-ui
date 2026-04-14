@@ -94,6 +94,6 @@ import { Component } from '@angular/core';
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class CompTab {
   tabSwitch(value: unknown): void {
-    console.table({ value });
+    console.table({value});
   }
 }

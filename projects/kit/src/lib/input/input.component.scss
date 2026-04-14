@@ -1,0 +1,57 @@
+@use "../env";
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+
+  &--style {
+    &-standard {
+      fieldset {
+        border-width: 0;
+        border-bottom-width: var(--ong-line-size);
+      }
+    }
+
+    &-filled {
+
+    }
+  }
+
+  @each $name in env.$ong-color-names {
+    &--color-#{$name} {
+      fieldset {
+        border-color: var(--ong-color-#{$name}-bg);
+
+        legend{
+          color: var(--ong-color-#{$name}-bg);
+        }
+      }
+
+    }
+    //&--color-#{$name} {
+    //  background-color: var(--ong-color-#{$name}-bg);
+    //  border-color: var(--ong-color-#{$name}-bg);
+    //  color: var(--ong-color-#{$name}-text);
+    //}
+  }
+
+  legend {
+    font-size: calc(var(--ong-base-size) * .7);
+    padding: 0 var(--ong-padding-y-size);
+  }
+
+  fieldset{
+    border-style: solid;
+  }
+
+  input {
+    width: 100%;
+    padding: 0;
+    border: 0;
+  }
+}
